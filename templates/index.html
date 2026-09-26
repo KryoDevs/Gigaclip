@@ -3,960 +3,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gigaclip - Clips Virales con IA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Gigaclip 🎬 - Generador de Clips Virales con IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
-            --bg-base: #0f0f14;
-            --bg-surface: #1a1a24;
-            --bg-card: #232332;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --accent-primary: #8b5cf6;
-            --accent-hover: #7c3aed;
-            --accent-glow: rgba(139, 92, 246, 0.4);
-            --success: #10b981;
-            --error: #ef4444;
-            --border: #2e2e3d;
+            --bg: #0b0c10;
+            --surface: #14161f;
+            --surface-hover: #1c1f2e;
+            --border: #232738;
+            --primary: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.35);
+            --accent: #06d6a0;
+            --accent-glow: rgba(6, 214, 160, 0.25);
+            --gold: #fbbf24;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --danger: #f87171;
+            --radius: 14px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 24px;
             width: 100%;
         }
 
-        header {
-            padding: 24px 0;
+        /* Navbar */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border);
         }
-
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fff, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
+        }
+        .badge-status {
+            font-size: 12px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-weight: 600;
         }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 80px 0 60px;
+            padding: 60px 0 35px;
             position: relative;
         }
-        
-        .hero-bg-glow {
+        .hero-glow {
             position: absolute;
-            top: 50%;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            width: 650px;
+            height: 450px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, rgba(6,214,160,0.1) 45%, transparent 70%);
+            filter: blur(80px);
             z-index: -1;
-            filter: blur(60px);
-            opacity: 0.5;
+            pointer-events: none;
         }
-
         h1 {
-            font-size: 48px;
+            font-size: 46px;
             font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.1;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            letter-spacing: -1px;
         }
-        
         h1 span {
-            color: var(--accent-primary);
+            background: linear-gradient(135deg, #a78bfa, #06d6a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
         .tagline {
-            font-size: 20px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 35px;
         }
 
-        /* Form */
-        .main-form {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--bg-surface);
-            padding: 8px;
-            border-radius: 999px;
-            display: flex;
+        /* Main Form Card */
+        .form-card {
+            background: var(--surface);
             border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: border-color 0.3s ease;
-            position: relative;
-            z-index: 10;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+            max-width: 820px;
+            margin: 0 auto 30px;
         }
-        
-        .main-form:focus-within {
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 20px var(--accent-glow);
+        .input-bar {
+            display: flex;
+            gap: 12px;
+            background: #0d0e14;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 6px;
+            transition: all 0.2s;
         }
-
+        .input-bar:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
         .url-input {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 0 24px;
-            color: white;
-            font-size: 18px;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 16px;
             outline: none;
             font-family: inherit;
         }
-
-        .url-input::placeholder {
-            color: #636372;
-        }
-
-        .btn-primary {
-            background: var(--accent-primary);
-            color: white;
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: #fff;
             border: none;
-            padding: 16px 32px;
-            border-radius: 999px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px var(--accent-glow);
-        }
-        
-        .btn-primary:hover::after {
-            opacity: 1;
-            animation: shimmer-btn 1.5s infinite;
-        }
-
-        /* Advanced Options */
-        .advanced-options-toggle {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 24px;
-            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 25px var(--primary-glow);
+        }
+        .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Options Grid */
+        .options-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .opt-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .opt-select {
+            width: 100%;
+            background: #0d0e14;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 9px 12px;
+            border-radius: 8px;
+            outline: none;
             font-size: 14px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            background: none;
-            border: none;
             font-family: inherit;
         }
-        
-        .advanced-options-toggle:hover {
-            color: var(--text-primary);
+
+        /* Progress Panel */
+        .progress-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            max-width: 820px;
+            margin: 0 auto 40px;
+            display: none;
+        }
+        .progress-bar-bg {
+            height: 10px;
+            background: #0d0e14;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .log-box {
+            background: #08090d;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            max-height: 180px;
+            overflow-y: auto;
+            margin-top: 16px;
+            line-height: 1.6;
+            color: #94a3b8;
         }
 
-        .advanced-options {
-            max-width: 700px;
-            margin: 20px auto 0;
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
+        /* Clips Gallery */
+        .results-section {
+            margin: 40px 0;
             display: none;
-            text-align: left;
-            animation: slideDown 0.3s ease forwards;
         }
-        
-        .options-grid {
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .clips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
         }
-        
-        .form-group {
+        .clip-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .clip-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+        .player-wrap {
+            position: relative;
+            background: #000;
+            aspect-ratio: 9/16;
+            max-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .player-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .clip-details {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
+        .clip-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .score-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(6, 214, 160, 0.15);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid rgba(6, 214, 160, 0.3);
+        }
+        .hook-box {
+            font-size: 13px;
+            color: #d1d5db;
+            background: #0e1017;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            font-style: italic;
+        }
+
+        /* Social Kit Drawer */
+        .social-kit {
+            background: #0d0e14;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 12px;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
-        
-        .form-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
+        .social-row {
             display: flex;
             justify-content: space-between;
-        }
-        
-        .slider-container input[type="range"] {
-            width: 100%;
-            accent-color: var(--accent-primary);
-        }
-
-        select.form-control {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            font-family: inherit;
-            outline: none;
-        }
-        
-        select.form-control:focus {
-            border-color: var(--accent-primary);
-        }
-
-        /* Steps */
-        .steps {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        
-        .step:hover {
-            opacity: 1;
-        }
-
-        .step-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .step-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        /* Processing Panel */
-        .processing-panel {
-            display: none;
-            max-width: 800px;
-            margin: 40px auto;
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            animation: slideUpFade 0.5s ease forwards;
-        }
-
-        .processing-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-        
-        .status-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .pulse-dot {
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent-primary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-primary);
-            animation: pulse 1.5s infinite;
-        }
-
-        .status-text {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .eta {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .progress-container {
-            height: 12px;
-            background: var(--bg-card);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            position: relative;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #6d28d9, var(--accent-primary));
-            width: 0%;
-            border-radius: 6px;
-            transition: width 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        .logs-toggle {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 12px;
         }
-        
-        .logs-toggle:hover {
-            color: white;
-        }
-
-        .log-console {
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 16px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            color: #a1a1aa;
-            height: 200px;
-            overflow-y: auto;
-            display: none;
-        }
-        
-        .log-line {
-            margin-bottom: 4px;
-            border-bottom: 1px solid #111;
-            padding-bottom: 2px;
-        }
-        .log-line:last-child { border: none; }
-        .log-time { color: #555; margin-right: 8px; }
-
-        /* Results Gallery */
-        .results-section {
-            display: none;
-            padding: 60px 0;
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .results-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .results-header h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 32px;
-            justify-items: center;
-        }
-
-        .clip-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            width: 100%;
-            max-width: 320px;
+        .social-row span {
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: cardIn 0.6s ease forwards;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-muted);
+            max-width: 220px;
         }
-        
-        .clip-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-            border-color: #3f3f5a;
-        }
-
-        .phone-mockup {
-            width: 100%;
-            aspect-ratio: 9/16;
-            background: #000;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-            overflow: hidden;
-        }
-        
-        .phone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 24px;
-            background: var(--bg-surface);
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            z-index: 10;
-        }
-
-        .video-player {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .clip-info {
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .clip-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        
-        .clip-duration {
-            font-size: 12px;
-            background: rgba(255,255,255,0.1);
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: var(--text-secondary);
-        }
-
-        .viral-score {
-            font-size: 12px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #10b981, #047857);
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .viral-score.high { background: linear-gradient(135deg, #f59e0b, #d97706); }
-        .viral-score.epic { background: linear-gradient(135deg, #ef4444, #b91c1c); }
-
-        .clip-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .clip-hook {
-            font-size: 14px;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 20px;
-            flex: 1;
-            border-left: 2px solid var(--accent-primary);
-            padding-left: 10px;
-        }
-
-        .clip-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn-download {
-            flex: 1;
-            background: var(--accent-primary);
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .btn-download:hover { background: var(--accent-hover); }
-
         .btn-copy {
-            background: var(--bg-card);
+            background: rgba(255,255,255,0.06);
             border: 1px solid var(--border);
-            color: white;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-copy:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Actions */
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 10px;
+        }
+        .btn-action {
+            flex: 1;
             padding: 10px;
             border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 6px;
+            border: none;
+            transition: all 0.2s;
         }
-        .btn-copy:hover { background: #333344; }
+        .btn-download {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-download:hover { background: #7c3aed; }
+        .btn-edit {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            border: 1px solid var(--border);
+        }
+        .btn-edit:hover { background: rgba(255,255,255,0.15); }
+
+        /* Modal Editor */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            padding: 20px;
+        }
+        .modal-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            max-width: 540px;
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .modal-box h3 { font-size: 18px; font-weight: 700; }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 8px;
+        }
 
         /* Footer */
         footer {
             margin-top: auto;
-            padding: 40px 0;
-            text-align: center;
+            padding: 30px 0;
             border-top: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 14px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
         }
-        footer a { color: var(--accent-primary); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-
-        /* Animations */
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
-        }
-        
-        @keyframes shimmer {
-            100% { left: 100%; }
-        }
-        
-        @keyframes shimmer-btn {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes cardIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 36px; }
-            .main-form { flex-direction: column; border-radius: 16px; padding: 16px; gap: 12px; }
-            .url-input { padding: 12px; }
-            .btn-primary { justify-content: center; border-radius: 8px; }
-            .steps { flex-direction: column; gap: 24px; align-items: center; }
-            .hero-bg-glow { width: 300px; height: 300px; }
-        }
+        footer a { color: var(--primary); text-decoration: none; }
     </style>
-    <!-- Confetti Script -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="logo">Gigaclip 🎬</div>
-            <div style="font-size: 14px; color: var(--text-secondary)">v1.0</div>
-        </header>
+<nav>
+    <div class="container nav-inner">
+        <div class="logo">
+            <span>🎬</span> Gigaclip
+        </div>
+        <div class="badge-status">⚡ Motor IA Listo</div>
+    </div>
+</nav>
 
-        <section class="hero" id="hero-section">
-            <div class="hero-bg-glow"></div>
-            <h1>Convierte videos largos en <br><span>clips virales</span> en minutos</h1>
-            <p class="tagline">IA que detecta rostros, recorta en formato vertical y añade subtítulos dinámicos automáticamente. Ideal para Shorts, TikTok y Reels.</p>
-            
-            <form id="process-form">
-                <div class="main-form">
-                    <input type="url" id="video-url" class="url-input" placeholder="Pega el enlace de YouTube aquí..." required>
-                    <button type="submit" class="btn-primary" id="submit-btn">
-                        <span>Generar Clips</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+<div class="container">
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <h1>Convierte videos largos en <br><span>clips virales para redes</span></h1>
+        <p class="tagline">Recorte vertical inteligente con seguimiento de rostro, subtítulos animados con emojis y análisis de retención por IA.</p>
+        
+        <div class="form-card">
+            <form id="processForm" onsubmit="handleStart(event)">
+                <div class="input-bar">
+                    <input type="url" id="urlInput" class="url-input" placeholder="Pega el enlace de YouTube, Twitch o Vimeo aquí..." required>
+                    <button type="submit" id="btnSubmit" class="btn-submit">
+                        🚀 Generar Clips
                     </button>
                 </div>
-                
-                <button type="button" class="advanced-options-toggle" id="advanced-toggle">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                    Opciones Avanzadas
-                </button>
-                
-                <div class="advanced-options" id="advanced-options">
-                    <div class="options-grid">
-                        <div class="form-group slider-container">
-                            <div class="form-label">
-                                <span>Número de clips</span>
-                                <span id="num-clips-val">3</span>
-                            </div>
-                            <input type="range" id="num-clips" min="1" max="10" value="3" oninput="document.getElementById('num-clips-val').textContent = this.value">
-                        </div>
-                        <div class="form-group slider-container">
-                            <div class="form-label">
-                                <span>Duración máxima (segundos)</span>
-                                <span id="dur-max-val">60</span>
-                            </div>
-                            <input type="range" id="dur-max" min="15" max="120" value="60" oninput="document.getElementById('dur-max-val').textContent = this.value">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Estilo de Subtítulos</label>
-                            <select class="form-control" id="sub-style">
-                                <option value="hormozi">Hormozi (Dinámico)</option>
-                                <option value="classic">Clásico (Amarillo/Blanco)</option>
-                                <option value="karaoke">Karaoke (Palabra por palabra)</option>
-                                <option value="minimal">Minimalista</option>
-                            </select>
-                        </div>
+
+                <div class="options-row">
+                    <div class="opt-group">
+                        <label>🎨 Estilo de Subtítulos</label>
+                        <select id="subStyle" class="opt-select">
+                            <option value="hormozi" selected>Hormozi (Palabra en Oro + Pop)</option>
+                            <option value="mrbeast">MrBeast (Negrita + Amarillo/Cian)</option>
+                            <option value="ali_abdaal">Ali Abdaal (Sticker Fondo)</option>
+                            <option value="karaoke">Karaoke (Llenado Progresivo)</option>
+                            <option value="minimal">Minimalista (Sutil)</option>
+                            <option value="classic">Clásico (Blanco/Negro)</option>
+                        </select>
+                    </div>
+
+                    <div class="opt-group">
+                        <label>📐 Modo de Reencuadre (9:16)</label>
+                        <select id="cropMode" class="opt-select">
+                            <option value="face_track" selected>Seguimiento de Rostro (Auto)</option>
+                            <option value="podcast_split">Podcast Split-Screen (Arriba/Abajo)</option>
+                            <option value="blur_background">Fondo Borroso (Canvas Centrado)</option>
+                        </select>
+                    </div>
+
+                    <div class="opt-group">
+                        <label>🔢 Cantidad de Clips</label>
+                        <select id="numClips" class="opt-select">
+                            <option value="1">1 clip rápido</option>
+                            <option value="3" selected>3 mejores clips</option>
+                            <option value="5">5 clips completos</option>
+                        </select>
                     </div>
                 </div>
             </form>
+        </div>
+    </section>
 
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">🔗</div>
-                    <div class="step-text">1. Pega la URL</div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">🧠</div>
-                    <div class="step-text">2. La IA analiza</div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">📱</div>
-                    <div class="step-text">3. Descarga tus clips</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Processing Panel -->
-        <section class="processing-panel" id="processing-panel">
-            <div class="processing-header">
-                <div class="status-container">
-                    <div class="pulse-dot"></div>
-                    <div class="status-text" id="status-text">Analizando video...</div>
-                </div>
-                <div class="eta" id="eta-text">Tiempo estimado: calculando...</div>
-            </div>
-            
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-            
-            <button class="logs-toggle" id="logs-toggle">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                Mostrar Logs de Sistema
-            </button>
-            <div class="log-console" id="log-console">
-                <!-- Logs here -->
-            </div>
-        </section>
-
-        <!-- Results Gallery -->
-        <section class="results-section" id="results-section">
-            <div class="results-header">
-                <h2>¡Tus clips están listos! 🎉</h2>
-                <p class="tagline" style="margin-bottom:0">Descárgalos o copia el enlace para compartirlos.</p>
-            </div>
-            
-            <div class="gallery" id="clips-gallery">
-                <!-- Cards injected via JS -->
-            </div>
-        </section>
-
+    <!-- Progress Panel -->
+    <div class="progress-panel" id="progressPanel">
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-info">
+            <span id="progressText">Iniciando procesamiento...</span>
+            <span id="progressPct">0%</span>
+        </div>
+        <div class="log-box" id="logConsole"></div>
     </div>
 
-    <footer>
-        <p>Gigaclip · Powered by Whisper + Ollama + FFmpeg. <br> <a href="https://github.com/nicolasdcarrillo-create/Gigaclip" target="_blank">Ver código en GitHub</a></p>
-    </footer>
+    <!-- Results Gallery -->
+    <section class="results-section" id="resultsSection">
+        <div class="section-header">
+            <h2>🎉 Clips Virales Generados</h2>
+            <p class="tagline" style="margin-bottom:0">Listos para publicar en TikTok, Shorts y Reels</p>
+        </div>
+        <div class="clips-grid" id="clipsGrid"></div>
+    </section>
+</div>
 
-    <script>
-        // UI Elements
-        const form = document.getElementById('process-form');
-        const advToggle = document.getElementById('advanced-toggle');
-        const advOptions = document.getElementById('advanced-options');
-        const logsToggle = document.getElementById('logs-toggle');
-        const logConsole = document.getElementById('log-console');
-        const processingPanel = document.getElementById('processing-panel');
-        const resultsSection = document.getElementById('results-section');
-        const btnSubmit = document.getElementById('submit-btn');
+<!-- Modal Editor -->
+<div class="modal" id="editModal">
+    <div class="modal-box">
+        <h3>✂️ Editor Rápido de Clip</h3>
+        <p style="font-size:13px; color:var(--text-muted)">Ajusta los timestamps o cambia el estilo de subtítulos:</p>
         
-        const progressBar = document.getElementById('progress-bar');
-        const statusText = document.getElementById('status-text');
-        const etaText = document.getElementById('eta-text');
-        const gallery = document.getElementById('clips-gallery');
+        <div class="opt-group">
+            <label>Inicio (segundos):</label>
+            <input type="number" step="0.5" id="editStart" class="opt-select">
+        </div>
+        <div class="opt-group">
+            <label>Fin (segundos):</label>
+            <input type="number" step="0.5" id="editEnd" class="opt-select">
+        </div>
+        <div class="opt-group">
+            <label>Estilo de Subtítulos:</label>
+            <select id="editStyle" class="opt-select">
+                <option value="hormozi">Hormozi</option>
+                <option value="mrbeast">MrBeast</option>
+                <option value="ali_abdaal">Ali Abdaal</option>
+                <option value="karaoke">Karaoke</option>
+                <option value="minimal">Minimalista</option>
+            </select>
+        </div>
 
-        let pollingInterval = null;
+        <div class="modal-footer">
+            <button class="btn-action btn-edit" onclick="closeModal()">Cancelar</button>
+            <button class="btn-action btn-download" id="btnRerender" onclick="submitRerender()">⚡ Re-renderizar</button>
+        </div>
+    </div>
+</div>
 
-        // Toggles
-        advToggle.addEventListener('click', () => {
-            const isHidden = advOptions.style.display === 'none' || advOptions.style.display === '';
-            advOptions.style.display = isHidden ? 'block' : 'none';
+<footer>
+    <div class="container">
+        <p>Gigaclip · Motor de IA con Whisper, Ollama y FFmpeg · <a href="https://github.com/nicolasdcarrillo-create/Gigaclip" target="_blank">GitHub</a></p>
+    </div>
+</footer>
+
+<script>
+    let activeJobId = null;
+    let pollTimer = null;
+    let activeEditingClip = null;
+
+    function handleStart(e) {
+        e.preventDefault();
+        const url = document.getElementById('urlInput').value.trim();
+        const subtitle_style = document.getElementById('subStyle').value;
+        const crop_mode = document.getElementById('cropMode').value;
+        const num_clips = parseInt(document.getElementById('numClips').value);
+
+        if (!url) return;
+
+        const btn = document.getElementById('btnSubmit');
+        btn.disabled = true;
+        btn.innerHTML = '⏳ Procesando...';
+
+        document.getElementById('progressPanel').style.display = 'block';
+        document.getElementById('resultsSection').style.display = 'none';
+        document.getElementById('progressBar').style.width = '5%';
+        document.getElementById('progressPct').textContent = '5%';
+        document.getElementById('progressText').textContent = 'Iniciando pipeline...';
+        document.getElementById('logConsole').innerHTML = '';
+
+        document.getElementById('progressPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        fetch('/api/process', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url, subtitle_style, crop_mode, num_clips })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.job_id) {
+                activeJobId = data.job_id;
+                pollTimer = setInterval(() => checkJobStatus(data.job_id), 2000);
+            } else {
+                alert(data.error || 'Error al iniciar');
+                resetForm();
+            }
+        })
+        .catch(err => {
+            alert('Error de conexión: ' + err.message);
+            resetForm();
         });
+    }
 
-        logsToggle.addEventListener('click', () => {
-            const isHidden = logConsole.style.display === 'none' || logConsole.style.display === '';
-            logConsole.style.display = isHidden ? 'block' : 'none';
-            logsToggle.innerHTML = isHidden 
-                ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg> Ocultar Logs'
-                : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg> Mostrar Logs de Sistema';
-        });
+    function checkJobStatus(jobId) {
+        fetch(`/api/status/${jobId}`)
+        .then(r => r.json())
+        .then(job => {
+            const pct = job.progress || 0;
+            document.getElementById('progressBar').style.width = pct + '%';
+            document.getElementById('progressPct').textContent = pct + '%';
 
-        // Form Submit
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const url = document.getElementById('video-url').value;
-            const numClips = document.getElementById('num-clips').value;
-            
-            if(!url) return;
+            if (job.logs && job.logs.length) {
+                document.getElementById('progressText').textContent = job.logs[job.logs.length - 1];
+                document.getElementById('logConsole').innerHTML = job.logs.map(l => `<div>${l}</div>`).join('');
+                document.getElementById('logConsole').scrollTop = document.getElementById('logConsole').scrollHeight;
+            }
 
-            // UI State change
-            btnSubmit.disabled = true;
-            btnSubmit.innerHTML = 'Iniciando...';
-            advOptions.style.display = 'none';
-            resultsSection.style.display = 'none';
-            
-            processingPanel.style.display = 'block';
-            progressBar.style.width = '2%';
-            statusText.textContent = 'Iniciando proceso...';
-            logConsole.innerHTML = '';
-            
-            // Scroll to processing
-            processingPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            const subtitleStyle = document.getElementById('sub-style').value;
-
-            try {
-                const res = await fetch('/api/process', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        url,
-                        num_clips: parseInt(numClips),
-                        subtitle_style: subtitleStyle
-                    })
-                });
-                
-                const data = await res.json();
-                if(data.job_id) {
-                    startPolling(data.job_id);
-                } else {
-                    showError(data.error || 'Error al iniciar el trabajo');
-                }
-            } catch (err) {
-                showError('Error de red: ' + err.message);
+            if (job.status === 'done') {
+                clearInterval(pollTimer);
+                resetForm();
+                renderClips(job.clips);
+                if (window.confetti) confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+            } else if (job.status === 'error') {
+                clearInterval(pollTimer);
+                resetForm();
+                alert('Error: ' + (job.error || 'Fallo desconocido'));
             }
         });
+    }
 
-        function startPolling(jobId) {
-            if(pollingInterval) clearInterval(pollingInterval);
+    function renderClips(clips) {
+        document.getElementById('progressPanel').style.display = 'none';
+        const section = document.getElementById('resultsSection');
+        const grid = document.getElementById('clipsGrid');
+        section.style.display = 'block';
+        grid.innerHTML = '';
+
+        clips.forEach((c, idx) => {
+            const card = document.createElement('div');
+            card.className = 'clip-card';
             
-            pollingInterval = setInterval(async () => {
-                try {
-                    const res = await fetch(`/api/status/${jobId}`);
-                    const data = await res.json();
-                    
-                    updateProgressUI(data);
-
-                    if (data.status === 'done') {
-                        clearInterval(pollingInterval);
-                        showResults(data.clips);
-                    } else if (data.status === 'error') {
-                        clearInterval(pollingInterval);
-                        showError(data.error || 'Error desconocido durante el procesamiento');
-                    }
-                } catch (err) {
-                    console.error("Polling error", err);
-                }
-            }, 2000);
-        }
-
-        function updateProgressUI(data) {
-            // Update progress bar
-            const prog = data.progress || 0;
-            progressBar.style.width = `${prog}%`;
-            
-            // ETA fake calc
-            if(prog > 0 && prog < 100) {
-                const remain = Math.max(1, Math.round((100 - prog) * 0.4));
-                etaText.textContent = `Tiempo estimado: ~${remain}s`;
-            } else if (prog === 100) {
-                etaText.textContent = '¡Casi listo!';
-            }
-            
-            // Logs
-            if (data.logs && data.logs.length > 0) {
-                const lastLog = data.logs[data.logs.length - 1];
-                statusText.textContent = lastLog.replace(/\[.*?\]/, '').trim() || 'Procesando...';
-                
-                let logHtml = '';
-                data.logs.forEach(log => {
-                    const time = new Date().toLocaleTimeString();
-                    logHtml += `<div class="log-line"><span class="log-time">[${time}]</span> ${log}</div>`;
-                });
-                logConsole.innerHTML = logHtml;
-                logConsole.scrollTop = logConsole.scrollHeight;
-            }
-        }
-
-        function showError(msg) {
-            statusText.textContent = 'Error';
-            statusText.style.color = 'var(--error)';
-            document.querySelector('.pulse-dot').style.backgroundColor = 'var(--error)';
-            progressBar.style.background = 'var(--error)';
-            etaText.textContent = msg;
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '<span>Intentar de nuevo</span>';
-        }
-
-        function getScoreClass(score) {
-            const s = parseInt(score) || 0;
-            if(s >= 90) return 'epic';
-            if(s >= 75) return 'high';
-            return 'normal';
-        }
-
-        function showResults(clips) {
-            processingPanel.style.display = 'none';
-            resultsSection.style.display = 'block';
-            gallery.innerHTML = '';
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = '<span>Generar más clips</span>';
-            
-            if(!clips || clips.length === 0) {
-                gallery.innerHTML = '<p style="color:var(--text-secondary);grid-column:1/-1;text-align:center;">No se generaron clips.</p>';
-                return;
-            }
-
-            clips.forEach((clip, idx) => {
-                const delay = idx * 0.15;
-                const scoreClass = getScoreClass(clip.score);
-                const scoreText = clip.score ? `🔥 ${clip.score}/100` : '🔥 85/100';
-                
-                const card = document.createElement('div');
-                card.className = 'clip-card';
-                card.style.animationDelay = `${delay}s`;
-                
-                card.innerHTML = `
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <video class="video-player" src="/output/${clip.filename}" controls preload="metadata"></video>
+            const soc = c.social || {};
+            card.innerHTML = `
+                <div class="player-wrap">
+                    <video controls preload="metadata" src="/output/${encodeURIComponent(c.filename)}"></video>
+                </div>
+                <div class="clip-details">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="score-pill">🔥 Viral: ${c.score || 90}/100</span>
+                        <span style="font-size:12px; color:var(--text-muted);">⏱️ ${c.duration}s</span>
                     </div>
-                    <div class="clip-info">
-                        <div class="clip-meta">
-                            <span class="clip-duration">⏱️ ${Math.round((clip.end - clip.start))}s</span>
-                            <span class="viral-score ${scoreClass}">${scoreText}</span>
+                    <div class="clip-title">${c.title}</div>
+                    ${c.hook ? `<div class="hook-box">"${c.hook}"</div>` : ''}
+
+                    <div class="social-kit">
+                        <div class="social-row">
+                            <span>📱 TikTok: ${soc.tiktok_caption || c.title}</span>
+                            <button class="btn-copy" onclick="copyText('${escapeQuotes(soc.tiktok_caption || c.title)}', this)">Copiar</button>
                         </div>
-                        <h3 class="clip-title">${clip.title || `Clip Viral ${idx+1}`}</h3>
-                        <p class="clip-hook">"${clip.hook || 'Un momento increíble que capturará tu atención...'}"</p>
-                        
-                        <div class="clip-actions">
-                            <a href="/output/${clip.filename}" download class="btn-download">Descargar</a>
-                            <button class="btn-copy" onclick="copyLink('/output/${clip.filename}', this)" title="Copiar enlace">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            </button>
+                        <div class="social-row">
+                            <span>💬 Comentario: ${soc.pinned_comment || '¿Qué opinas?'}</span>
+                            <button class="btn-copy" onclick="copyText('${escapeQuotes(soc.pinned_comment || '')}', this)">Copiar</button>
                         </div>
                     </div>
-                `;
-                gallery.appendChild(card);
-            });
-            
-            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            triggerConfetti();
-        }
 
-        function copyLink(path, btn) {
-            const url = window.location.origin + path;
-            navigator.clipboard.writeText(url).then(() => {
-                const originalHtml = btn.innerHTML;
-                btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                setTimeout(() => btn.innerHTML = originalHtml, 2000);
-            });
-        }
+                    <div class="card-actions">
+                        <a href="/output/${encodeURIComponent(c.filename)}" download class="btn-action btn-download">⬇️ Descargar</a>
+                        <button class="btn-action btn-edit" onclick='openEditModal(${JSON.stringify(c)})'>✂️ Ajustar</button>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
 
-        function triggerConfetti() {
-            if(window.confetti) {
-                var duration = 3 * 1000;
-                var animationEnd = Date.now() + duration;
-                var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-                function randomInRange(min, max) {
-                    return Math.random() * (max - min) + min;
-                }
+    function openEditModal(clip) {
+        activeEditingClip = clip;
+        document.getElementById('editStart').value = clip.start;
+        document.getElementById('editEnd').value = clip.end;
+        document.getElementById('editStyle').value = clip.style || 'hormozi';
+        document.getElementById('editModal').style.display = 'flex';
+    }
 
-                var interval = setInterval(function() {
-                    var timeLeft = animationEnd - Date.now();
+    function closeModal() {
+        document.getElementById('editModal').style.display = 'none';
+        activeEditingClip = null;
+    }
 
-                    if (timeLeft <= 0) {
-                        return clearInterval(interval);
-                    }
+    function submitRerender() {
+        if (!activeEditingClip) return;
+        const btn = document.getElementById('btnRerender');
+        btn.disabled = true;
+        btn.textContent = '⏳ Re-renderizando...';
 
-                    var particleCount = 50 * (timeLeft / duration);
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-                    confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-                }, 250);
+        fetch('/api/clip/re-render', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                source_path: activeEditingClip.source_path,
+                start: parseFloat(document.getElementById('editStart').value),
+                end: parseFloat(document.getElementById('editEnd').value),
+                subtitle_style: document.getElementById('editStyle').value,
+                crop_mode: activeEditingClip.crop_mode || 'face_track',
+                title: activeEditingClip.title,
+                words: activeEditingClip.words || []
+            })
+        })
+        .then(r => r.json())
+        .then(res => {
+            btn.disabled = false;
+            btn.textContent = '⚡ Re-renderizar';
+            if (res.success) {
+                closeModal();
+                alert('¡Clip re-renderizado con éxito! Revisa la galería.');
+                location.reload();
+            } else {
+                alert('Error al re-renderizar: ' + (res.error || ''));
             }
-        }
-    </script>
+        })
+        .catch(err => {
+            btn.disabled = false;
+            btn.textContent = '⚡ Re-renderizar';
+            alert('Error: ' + err.message);
+        });
+    }
+
+    function copyText(text, btn) {
+        navigator.clipboard.writeText(text).then(() => {
+            const old = btn.textContent;
+            btn.textContent = '✅ Copiado';
+            setTimeout(() => btn.textContent = old, 1800);
+        });
+    }
+
+    function escapeQuotes(str) {
+        return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    function resetForm() {
+        const btn = document.getElementById('btnSubmit');
+        btn.disabled = false;
+        btn.innerHTML = '🚀 Generar Clips';
+    }
+</script>
+
 </body>
 </html>

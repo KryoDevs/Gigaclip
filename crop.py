@@ -1,26 +1,21 @@
 """
-Recorta el video a formato vertical 9:16 siguiendo el rostro (estilo Ssemble).
-
-Estrategia:
-1. Muestrea la posicion del rostro cada N frames con MediaPipe (rapido).
-2. Suaviza esa trayectoria (evita saltos bruscos de camara).
-3. Recorre el video frame a frame con OpenCV, recortando una ventana 9:16
-   centrada en la posicion interpolada del rostro para ese frame.
-4. Escribe el video recortado (sin audio). El audio se agrega despues
-   en subtitles.py, junto con los subtitulos quemados.
+Motor de reencuadre vertical 9:16 para Gigaclip.
+Soporta tres modos de recorte:
+  1. "face_track":     Seguimiento facial dinamico y suavizado.
+  2. "podcast_split":  Modo Podcast/Entrevista: divide el video en dos tomas
+                       apiladas verticalmente (arriba y abajo) en formato 9:16.
+  3. "blur_background": Canvas 9:16 con fondo desenfocado y video centrado.
 """
+import subprocess
 import numpy as np
 import cv2
+from pathlib import Path
 
-from config import FACE_SAMPLE_EVERY, BASE_DIR
+from config import FACE_SAMPLE_EVERY, BASE_DIR, FFMPEG_BIN, TEMP_DIR
 
 
 def _detect_face_centers(video_path: str, sample_every: int = FACE_SAMPLE_EVERY):
-    """
-    Devuelve una lista de (frame_index, center_x_norm, center_y_norm) muestreada.
-    Si no detecta rostro en un frame muestreado, ese punto simplemente no
-    se agrega (se interpola despues con los vecinos).
-    """
+    """Detecta la posicion central de rostros frame a frame con suavizado."""
     cap = cv2.VideoCapture(video_path)
     detections = []
     idx = 0
@@ -38,7 +33,6 @@ def _detect_face_centers(video_path: str, sample_every: int = FACE_SAMPLE_EVERY)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = face_cascade.detectMultiScale(gray, 1.3, 5)
             if len(faces) > 0:
-                # Toma el rostro mas grande (asume que es el hablante principal)
                 best_face = max(faces, key=lambda f: f[2] * f[3])
                 x, y, w, h = best_face
                 cx = (x + w / 2) / width
@@ -52,14 +46,7 @@ def _detect_face_centers(video_path: str, sample_every: int = FACE_SAMPLE_EVERY)
 
 def _interpolate_centers(detections, total_frames: int,
                           default_cx: float = 0.5, default_cy: float = 0.4) -> np.ndarray:
-    """
-    Interpola linealmente entre los puntos detectados para tener un centro
-    por cada frame. Si no hay detecciones en todo el video, usa un centro
-    por defecto (0.5, 0.4 -> ligeramente arriba del centro geometrico,
-    encuadre tipico de rostro).
-    """
     centers = np.tile([default_cx, default_cy], (total_frames, 1)).astype(float)
-
     if not detections:
         return centers
 
@@ -71,7 +58,7 @@ def _interpolate_centers(detections, total_frames: int,
     centers[:, 0] = np.interp(all_idx, idxs, cxs)
     centers[:, 1] = np.interp(all_idx, idxs, cys)
 
-    # Suavizado (media movil) para que la "camara" no tiemble entre frames
+    # Suavizado exponencial / media movil
     window = 15
     kernel = np.ones(window) / window
     for col in range(2):
@@ -81,10 +68,8 @@ def _interpolate_centers(detections, total_frames: int,
     return centers
 
 
-def crop_to_vertical(input_path: str, output_path_noaudio: str, target_ratio: float = 9 / 16) -> None:
-    """
-    Genera output_path_noaudio: el video recortado a 9:16, SIN audio.
-    """
+def _crop_face_track(input_path: str, output_path_noaudio: str, target_ratio: float = 9 / 16) -> None:
+    """Recorte vertical siguiendo al hablante con OpenCV."""
     cap = cv2.VideoCapture(input_path)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -92,11 +77,9 @@ def crop_to_vertical(input_path: str, output_path_noaudio: str, target_ratio: fl
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     cap.release()
 
-    # Ventana de recorte: alto completo, ancho = alto * 9/16 (video horizontal tipico)
     crop_h = height
     crop_w = int(height * target_ratio)
     if crop_w > width:
-        # El video ya es angosto: usa ancho completo y recorta el alto
         crop_w = width
         crop_h = int(width / target_ratio)
 
@@ -126,6 +109,73 @@ def crop_to_vertical(input_path: str, output_path_noaudio: str, target_ratio: fl
 
     cap.release()
     writer.release()
+
+
+def _crop_podcast_split(input_path: str, output_path_noaudio: str) -> None:
+    """
+    Modo Podcast: Divide un video horizontal (16:9) en dos mitades (izquierda y derecha)
+    y las apila verticalmente en una composicion 9:16 perfecta.
+    """
+    cap = cv2.VideoCapture(input_path)
+    w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    cap.release()
+
+    # Filtro complejo FFmpeg para split screen apilado vertical
+    # Mitad izquierda arriba, mitad derecha abajo
+    half_w = w // 2
+    filter_complex = (
+        f"[0:v]crop={half_w}:{h}:0:0,scale=720:640[top];"
+        f"[0:v]crop={half_w}:{h}:{half_w}:0,scale=720:640[bottom];"
+        f"[top][bottom]vstack=inputs=2[out]"
+    )
+
+    cmd = [
+        FFMPEG_BIN, "-y",
+        "-i", input_path,
+        "-filter_complex", filter_complex,
+        "-map", "[out]",
+        "-an",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+        output_path_noaudio
+    ]
+    subprocess.run(cmd, check=True)
+
+
+def _crop_blur_background(input_path: str, output_path_noaudio: str) -> None:
+    """
+    Modo Fondo Desenfocado: Canvas 9:16 vertical con fondo borroso y video centrado.
+    Ideal para clips donde el recorte facial cortaria elementos visuales clave.
+    """
+    filter_complex = (
+        "[0:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,boxblur=20:5[bg];"
+        "[0:v]scale=720:1280:force_original_aspect_ratio=decrease[fg];"
+        "[bg][fg]overlay=(W-w)/2:(H-h)/2[out]"
+    )
+
+    cmd = [
+        FFMPEG_BIN, "-y",
+        "-i", input_path,
+        "-filter_complex", filter_complex,
+        "-map", "[out]",
+        "-an",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "22",
+        output_path_noaudio
+    ]
+    subprocess.run(cmd, check=True)
+
+
+def crop_to_vertical(input_path: str, output_path_noaudio: str, mode: str = "face_track") -> None:
+    """
+    Enrutador principal de recorte a formato vertical 9:16.
+    mode: 'face_track' | 'podcast_split' | 'blur_background'
+    """
+    if mode == "podcast_split":
+        _crop_podcast_split(input_path, output_path_noaudio)
+    elif mode == "blur_background":
+        _crop_blur_background(input_path, output_path_noaudio)
+    else:
+        _crop_face_track(input_path, output_path_noaudio)
 
 
 if __name__ == "__main__":

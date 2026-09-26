@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  gigaclip:
+    build: .
+    container_name: gigaclip-app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./output:/app/output
+      - ./downloads:/app/downloads
+      - ./cache:/app/cache
+    environment:
+      - OLLAMA_URL=http://ollama:11434/api/generate
+      - OLLAMA_MODEL=llama3.2:3b
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: gigaclip-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_models:
