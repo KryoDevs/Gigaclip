@@ -13,9 +13,7 @@ from pathlib import Path
 from flask import Flask, render_template, request, jsonify, send_from_directory
 
 from config import OUTPUT_DIR, DOWNLOAD_DIR, TEMP_DIR, NUM_CLIPS, BASE_DIR, FFMPEG_BIN
-from pipeline import run as run_pipeline
-from subtitles import burn_subtitles
-from crop import crop_to_vertical
+from pipeline import run as run_pipeline, _render_clip_fast
 from social_metadata import generate_social_metadata
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -112,45 +110,23 @@ def api_rerender_clip():
         return jsonify({"error": "Archivo de video original no encontrado"}), 400
 
     try:
-        import cv2
-        import subprocess
-
-        # 1. Extraer nuevo segmento crudo
-        temp_raw = str(TEMP_DIR / f"rerender_raw_{int(time.time())}.mp4")
-        cmd = [FFMPEG_BIN, "-y", "-ss", str(start), "-to", str(end), "-i", source_path, "-c", "copy", temp_raw]
-        res = subprocess.run(cmd, capture_output=True)
-        if res.returncode != 0:
-            cmd[cmd.index("-c") + 1] = "libx264"
-            subprocess.run(cmd, check=True)
-
-        # 2. Recortar vertical
-        temp_cropped = str(TEMP_DIR / f"rerender_cropped_{int(time.time())}.mp4")
-        crop_to_vertical(temp_raw, temp_cropped, mode=crop_mode)
-
-        cap = cv2.VideoCapture(temp_cropped)
-        w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        cap.release()
-
-        # 3. Quemar subtitulos
-        safe_title = "".join(c for c in title if c.isalnum() or c in " _-")[:40].strip()
+        safe_title = "".join(c for c in title if c.isalnum() or c in " _-")[:35].strip()
         final_name = f"edit_{safe_title}_{int(time.time())}.mp4"
         final_path = str(OUTPUT_DIR / final_name)
 
         filtered_words = [w for w in words if w["start"] >= start and w["end"] <= end]
 
-        burn_subtitles(
-            video_no_audio=temp_cropped,
-            original_source=source_path,
-            clip_start=start,
-            clip_end=end,
+        _render_clip_fast(
+            source_path=source_path,
+            start=start,
+            end=end,
             words_in_clip=filtered_words,
-            video_w=w, video_h=h,
             final_output=final_path,
             style=subtitle_style,
+            crop_mode=crop_mode,
         )
 
-        snippet = " ".join(w["word"] for w in filtered_words[:40])
+        snippet = " ".join(w["word"] for w in filtered_words[:35])
         social = generate_social_metadata(title, snippet)
 
         return jsonify({
