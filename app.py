@@ -1,5 +1,5 @@
 """
-Interfaz web para el pipeline Ssemble Clone.
+Interfaz web para el pipeline Gigaclip.
 Permite procesar videos desde el navegador en vez de la terminal.
 """
 import json
@@ -199,6 +199,6 @@ def list_output_files():
 
 
 if __name__ == "__main__":
-    print("\n[*] Ssemble Clone - Interfaz Web")
+    print("\n[*] Gigaclip - Interfaz Web")
     print("   Abre tu navegador en: http://localhost:5000\n")
     app.run(host="0.0.0.0", port=5000, debug=False)
