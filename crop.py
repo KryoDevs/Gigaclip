@@ -1,22 +1,21 @@
 """
-Motor ultra-rapido de recorte vertical 9:16 con calculo ligero de centro de rostro.
-Calcula la posicion del rostro en pocos keyframes y delega todo el recorte
-a FFmpeg nativo (acelerado por C/Hardware), eliminando el cuello de botella de OpenCV frame a frame.
+Motor de reencuadre vertical 9:16 de alta fidelidad para Gigaclip.
+Soporta escalado Lanczos de alta nitidez, resoluciones 1080p Full HD / 720p HD,
+y 3 modos de composicion: Face Track, Podcast Split y Blur Canvas.
 """
 import subprocess
 import cv2
 from pathlib import Path
 
-from config import BASE_DIR, FFMPEG_BIN, FACE_SAMPLE_FPS
+from config import BASE_DIR, FFMPEG_BIN, FACE_SAMPLE_FPS, VIDEO_QUALITY_PRESETS, DEFAULT_QUALITY
 
 
 def get_crop_coordinates(video_path: str, start_time: float, end_time: float, target_ratio: float = 9 / 16) -> tuple:
     """
-    Analiza rapidamente la posicion media del rostro en el tramo del clip
-    y devuelve (crop_w, crop_h, crop_x, crop_y) para FFmpeg.
+    Analiza la posicion del rostro en el tramo temporal exacto
+    y calcula el bounding box centrado para recorte vertical.
     """
     cap = cv2.VideoCapture(video_path)
-    fps = cap.get(cv2.CAP_PROP_FPS) or 30
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
@@ -26,16 +25,12 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
         crop_w = width
         crop_h = int(width / target_ratio)
 
-    # Posicionar en el inicio del clip
-    cap.set(cv2.CAP_PROP_POS_MSEC, start_time * 1000)
-    
     cascade_path = str(BASE_DIR / 'haarcascade_frontalface_default.xml')
     face_cascade = cv2.CascadeClassifier(cascade_path)
 
     detected_centers = []
-    # Muestrear solo 5 a 8 frames distribuidos en el clip
     duration = max(1.0, end_time - start_time)
-    num_samples = min(10, max(3, int(duration * FACE_SAMPLE_FPS)))
+    num_samples = min(12, max(4, int(duration * FACE_SAMPLE_FPS)))
     interval_msec = (duration * 1000) / num_samples
 
     for i in range(num_samples):
@@ -43,14 +38,15 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
         ret, frame = cap.read()
         if not ret:
             break
-        # Reducir imagen a 360p para deteccion ultra rapida
-        small = cv2.resize(frame, (360, int(360 * height / width)))
+        # Deteccion sobre miniatura para maxima velocidad
+        small_w = 480
+        small_h = int(small_w * height / width)
+        small = cv2.resize(frame, (small_w, small_h))
         gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(gray, 1.2, 4)
+        faces = face_cascade.detectMultiScale(gray, 1.15, 4)
         if len(faces) > 0:
             best = max(faces, key=lambda f: f[2] * f[3])
-            # Escalar de vuelta a coordenadas reales
-            scale = width / 360
+            scale = width / small_w
             cx = (best[0] + best[2] / 2) * scale
             cy = (best[1] + best[3] / 2) * scale
             detected_centers.append((cx, cy))
@@ -62,7 +58,7 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
         avg_cy = sum(c[1] for c in detected_centers) / len(detected_centers)
     else:
         avg_cx = width / 2
-        avg_cy = height * 0.45  # Enfoque tipico de cabeza y hombros
+        avg_cy = height * 0.42
 
     crop_x = int(max(0, min(width - crop_w, avg_cx - crop_w / 2)))
     crop_y = int(max(0, min(height - crop_h, avg_cy - crop_h / 2)))
@@ -70,26 +66,36 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
     return crop_w, crop_h, crop_x, crop_y
 
 
-def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel: str, mode: str = "face_track") -> str:
-    """Construye un filtro combinado de FFmpeg (recorte + subtitulos) en 1 solo paso."""
+def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel: str,
+                        mode: str = "face_track", quality: str = DEFAULT_QUALITY) -> str:
+    """
+    Genera el grafo de filtros FFmpeg con escalado Lanczos,
+    filtro de nitidez unsharp y subtitulos ASS.
+    """
+    preset_data = VIDEO_QUALITY_PRESETS.get(quality, VIDEO_QUALITY_PRESETS["1080p"])
+    target_w = preset_data["width"]
+    target_h = preset_data["height"]
+    sharpen_filter = ",unsharp=5:5:0.6:5:5:0.0" if preset_data["sharpen"] else ""
+
     if mode == "podcast_split":
-        # Split vertical apilado con subtitulos
+        # Split vertical apilado con escalado Lanczos
+        half_h = target_h // 2
         filter_str = (
-            f"[0:v]crop=iw/2:ih:0:0,scale=720:640[top];"
-            f"[0:v]crop=iw/2:ih:iw/2:0,scale=720:640[bottom];"
+            f"[0:v]crop=iw/2:ih:0:0,scale={target_w}:{half_h}:flags=lanczos[top];"
+            f"[0:v]crop=iw/2:ih:iw/2:0,scale={target_w}:{half_h}:flags=lanczos[bottom];"
             f"[top][bottom]vstack=inputs=2[v_split];"
-            f"[v_split]ass={ass_path_rel}[outv]"
+            f"[v_split]ass={ass_path_rel}{sharpen_filter}[outv]"
         )
         return filter_str
     elif mode == "blur_background":
         filter_str = (
-            f"[0:v]scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280,boxblur=20:5[bg];"
-            f"[0:v]scale=720:1280:force_original_aspect_ratio=decrease[fg];"
+            f"[0:v]scale={target_w}:{target_h}:flags=lanczos:force_original_aspect_ratio=increase,crop={target_w}:{target_h},boxblur=25:6[bg];"
+            f"[0:v]scale={target_w}:{target_h}:flags=lanczos:force_original_aspect_ratio=decrease[fg];"
             f"[bg][fg]overlay=(W-w)/2:(H-h)/2[v_comp];"
-            f"[v_comp]ass={ass_path_rel}[outv]"
+            f"[v_comp]ass={ass_path_rel}{sharpen_filter}[outv]"
         )
         return filter_str
     else:
-        # Modo Face Track
+        # Modo Face Track con escalado de alta precision
         w, h, x, y = get_crop_coordinates(video_path, start, end)
-        return f"crop={w}:{h}:{x}:{y},scale=720:1280,ass={ass_path_rel}"
+        return f"crop={w}:{h}:{x}:{y},scale={target_w}:{target_h}:flags=lanczos{sharpen_filter},ass={ass_path_rel}"

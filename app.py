@@ -1,7 +1,7 @@
 """
-Servidor API y Backend Web de Gigaclip.
-Maneja la ejecucion asincrona de pipelines, re-renderizado de clips,
-edicion de subtitulos en tiempo real y generacion de metadatos para redes sociales.
+Servidor API y Backend Web Pro de Gigaclip.
+Maneja pipeline asincrono, ajuste preciso de timestamps por timeline,
+re-renderizado en 1080p y generacion de metadatos sociales.
 """
 import json
 import os
@@ -12,16 +12,27 @@ from pathlib import Path
 
 from flask import Flask, render_template, request, jsonify, send_from_directory
 
-from config import OUTPUT_DIR, DOWNLOAD_DIR, TEMP_DIR, NUM_CLIPS, BASE_DIR, FFMPEG_BIN
+from config import (
+    OUTPUT_DIR,
+    DOWNLOAD_DIR,
+    TEMP_DIR,
+    NUM_CLIPS,
+    BASE_DIR,
+    FFMPEG_BIN,
+    DEFAULT_QUALITY,
+    CLIP_MIN_SECONDS,
+    CLIP_MAX_SECONDS,
+)
 from pipeline import run as run_pipeline, _render_clip_fast
 from social_metadata import generate_social_metadata
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
-jobs = {}  # job_id -> {status, progress, logs, clips, error, ...}
+jobs = {}  # job_id -> {status, progress, logs, clips, transcript, error, ...}
 
 
-def _run_job_thread(job_id: str, url: str, num_clips: int, subtitle_style: str, crop_mode: str):
+def _run_job_thread(job_id: str, url: str, num_clips: int, subtitle_style: str,
+                    crop_mode: str, quality: str, min_seconds: int, max_seconds: int):
     job = jobs[job_id]
     
     def callback(msg, pct):
@@ -30,14 +41,19 @@ def _run_job_thread(job_id: str, url: str, num_clips: int, subtitle_style: str, 
             job["progress"] = pct
 
     try:
-        clips = run_pipeline(
+        result = run_pipeline(
             url=url,
             num_clips=num_clips,
             subtitle_style=subtitle_style,
             crop_mode=crop_mode,
+            quality=quality,
+            min_seconds=min_seconds,
+            max_seconds=max_seconds,
             progress_callback=callback
         )
-        job["clips"] = clips
+        job["clips"] = result["clips"]
+        job["transcript"] = result.get("transcript", {})
+        job["video_info"] = result.get("video_info", {})
         job["status"] = "done"
         job["progress"] = 100
     except Exception as e:
@@ -58,6 +74,9 @@ def api_process():
     num_clips = int(data.get("num_clips", NUM_CLIPS))
     subtitle_style = data.get("subtitle_style", "hormozi")
     crop_mode = data.get("crop_mode", "face_track")
+    quality = data.get("quality", DEFAULT_QUALITY)
+    min_seconds = int(data.get("min_seconds", CLIP_MIN_SECONDS))
+    max_seconds = int(data.get("max_seconds", CLIP_MAX_SECONDS))
 
     if not url:
         return jsonify({"error": "La URL del video es obligatoria"}), 400
@@ -66,19 +85,24 @@ def api_process():
     jobs[job_id] = {
         "status": "running",
         "progress": 5,
-        "logs": ["[*] Iniciando pipeline de Gigaclip..."],
+        "logs": ["[*] Iniciando motor Pro de Gigaclip..."],
         "clips": [],
+        "transcript": {},
+        "video_info": {},
         "error": None,
         "url": url,
         "num_clips": num_clips,
         "subtitle_style": subtitle_style,
         "crop_mode": crop_mode,
+        "quality": quality,
+        "min_seconds": min_seconds,
+        "max_seconds": max_seconds,
         "created_at": time.time(),
     }
 
     thread = threading.Thread(
         target=_run_job_thread,
-        args=(job_id, url, num_clips, subtitle_style, crop_mode),
+        args=(job_id, url, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds),
         daemon=True,
     )
     thread.start()
@@ -96,18 +120,22 @@ def api_status(job_id):
 
 @app.route("/api/clip/re-render", methods=["POST"])
 def api_rerender_clip():
-    """Permite ajustar los puntos de corte o estilo de subtitulos de un clip existente."""
+    """Ajuste fino de timeline, re-renderizado instantaneo en 1080p y cambio de subtitulos."""
     data = request.get_json() or {}
     source_path = data.get("source_path")
     start = float(data.get("start", 0))
     end = float(data.get("end", 10))
     subtitle_style = data.get("subtitle_style", "hormozi")
     crop_mode = data.get("crop_mode", "face_track")
+    quality = data.get("quality", "1080p")
     title = data.get("title", "clip_editado")
     words = data.get("words", [])
 
     if not source_path or not Path(source_path).exists():
         return jsonify({"error": "Archivo de video original no encontrado"}), 400
+
+    if end <= start:
+        return jsonify({"error": "El tiempo de fin debe ser mayor al de inicio"}), 400
 
     try:
         safe_title = "".join(c for c in title if c.isalnum() or c in " _-")[:35].strip()
@@ -124,6 +152,7 @@ def api_rerender_clip():
             final_output=final_path,
             style=subtitle_style,
             crop_mode=crop_mode,
+            quality=quality,
         )
 
         snippet = " ".join(w["word"] for w in filtered_words[:35])
@@ -136,6 +165,7 @@ def api_rerender_clip():
             "start": start,
             "end": end,
             "duration": round(end - start, 1),
+            "quality": quality,
             "social": social,
         })
     except Exception as e:
@@ -170,6 +200,6 @@ def list_output_files():
 
 
 if __name__ == "__main__":
-    print("\n[*] Gigaclip - Servidor Activo")
+    print("\n[*] Gigaclip Pro - Servidor Activo")
     print("   Abre en tu navegador: http://localhost:5000\n")
     app.run(host="0.0.0.0", port=5000, debug=False)

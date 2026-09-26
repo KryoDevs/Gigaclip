@@ -1,0 +1,9982 @@
+{
+  "words": [
+    {
+      "word": "Todos",
+      "start": 0.0,
+      "end": 0.32
+    },
+    {
+      "word": "que",
+      "start": 0.32,
+      "end": 0.56
+    },
+    {
+      "word": "conocemos",
+      "start": 0.56,
+      "end": 0.92
+    },
+    {
+      "word": "a",
+      "start": 0.92,
+      "end": 1.08
+    },
+    {
+      "word": "esa",
+      "start": 1.08,
+      "end": 1.24
+    },
+    {
+      "word": "persona,",
+      "start": 1.24,
+      "end": 1.7
+    },
+    {
+      "word": "la",
+      "start": 1.92,
+      "end": 1.98
+    },
+    {
+      "word": "que",
+      "start": 1.98,
+      "end": 2.14
+    },
+    {
+      "word": "se",
+      "start": 2.14,
+      "end": 2.26
+    },
+    {
+      "word": "avienta",
+      "start": 2.26,
+      "end": 2.62
+    },
+    {
+      "word": "a",
+      "start": 2.62,
+      "end": 2.66
+    },
+    {
+      "word": "la",
+      "start": 2.66,
+      "end": 2.72
+    },
+    {
+      "word": "y",
+      "start": 2.72,
+      "end": 2.78
+    },
+    {
+      "word": "cualquier",
+      "start": 2.78,
+      "end": 2.98
+    },
+    {
+      "word": "lugar,",
+      "start": 2.98,
+      "end": 3.4
+    },
+    {
+      "word": "juega",
+      "start": 3.6,
+      "end": 3.78
+    },
+    {
+      "word": "a",
+      "start": 3.78,
+      "end": 3.88
+    },
+    {
+      "word": "football,",
+      "start": 3.88,
+      "end": 4.14
+    },
+    {
+      "word": "se",
+      "start": 4.44,
+      "end": 4.44
+    },
+    {
+      "word": "cae",
+      "start": 4.44,
+      "end": 4.7
+    },
+    {
+      "word": "de",
+      "start": 4.7,
+      "end": 4.78
+    },
+    {
+      "word": "la",
+      "start": 4.78,
+      "end": 4.88
+    },
+    {
+      "word": "moto,",
+      "start": 4.88,
+      "end": 5.16
+    },
+    {
+      "word": "bajas",
+      "start": 5.46,
+      "end": 5.72
+    },
+    {
+      "word": "caleras",
+      "start": 5.72,
+      "end": 6.16
+    },
+    {
+      "word": "de",
+      "start": 6.16,
+      "end": 6.32
+    },
+    {
+      "word": "3",
+      "start": 6.32,
+      "end": 6.54
+    },
+    {
+      "word": "en",
+      "start": 6.54,
+      "end": 6.7
+    },
+    {
+      "word": "3",
+      "start": 6.7,
+      "end": 6.94
+    },
+    {
+      "word": "y",
+      "start": 6.94,
+      "end": 7.26
+    },
+    {
+      "word": "cuando",
+      "start": 7.26,
+      "end": 7.44
+    },
+    {
+      "word": "se",
+      "start": 7.44,
+      "end": 7.74
+    },
+    {
+      "word": "cae",
+      "start": 7.74,
+      "end": 7.98
+    },
+    {
+      "word": "se",
+      "start": 7.98,
+      "end": 8.2
+    },
+    {
+      "word": "levanta",
+      "start": 8.2,
+      "end": 8.62
+    },
+    {
+      "word": "como",
+      "start": 8.62,
+      "end": 8.84
+    },
+    {
+      "word": "si",
+      "start": 8.84,
+      "end": 8.98
+    },
+    {
+      "word": "nada,",
+      "start": 8.98,
+      "end": 9.24
+    },
+    {
+      "word": "nunca",
+      "start": 9.44,
+      "end": 9.62
+    },
+    {
+      "word": "tuvo",
+      "start": 9.62,
+      "end": 9.86
+    },
+    {
+      "word": "una",
+      "start": 9.86,
+      "end": 10.06
+    },
+    {
+      "word": "factura,",
+      "start": 10.06,
+      "end": 10.5
+    },
+    {
+      "word": "nunca",
+      "start": 10.68,
+      "end": 10.84
+    },
+    {
+      "word": "un",
+      "start": 10.84,
+      "end": 11.14
+    },
+    {
+      "word": "jezo,",
+      "start": 11.14,
+      "end": 11.46
+    },
+    {
+      "word": "nunca",
+      "start": 11.6,
+      "end": 11.7
+    },
+    {
+      "word": "usó",
+      "start": 11.7,
+      "end": 12.08
+    },
+    {
+      "word": "muletas",
+      "start": 12.08,
+      "end": 12.58
+    },
+    {
+      "word": "y",
+      "start": 12.58,
+      "end": 12.88
+    },
+    {
+      "word": "luego",
+      "start": 12.88,
+      "end": 13.06
+    },
+    {
+      "word": "estás",
+      "start": 13.06,
+      "end": 13.42
+    },
+    {
+      "word": "tu",
+      "start": 13.42,
+      "end": 13.72
+    },
+    {
+      "word": "o",
+      "start": 13.72,
+      "end": 14.16
+    },
+    {
+      "word": "tu",
+      "start": 14.16,
+      "end": 14.36
+    },
+    {
+      "word": "amigo,",
+      "start": 14.36,
+      "end": 14.7
+    },
+    {
+      "word": "que",
+      "start": 14.92,
+      "end": 15.0
+    },
+    {
+      "word": "consolo",
+      "start": 15.0,
+      "end": 15.42
+    },
+    {
+      "word": "pisar",
+      "start": 15.42,
+      "end": 15.82
+    },
+    {
+      "word": "a",
+      "start": 15.82,
+      "end": 15.9
+    },
+    {
+      "word": "mal",
+      "start": 15.9,
+      "end": 15.98
+    },
+    {
+      "word": "una",
+      "start": 15.98,
+      "end": 16.2
+    },
+    {
+      "word": "banqueta",
+      "start": 16.2,
+      "end": 16.68
+    },
+    {
+      "word": "y",
+      "start": 16.68,
+      "end": 16.98
+    },
+    {
+      "word": "anda",
+      "start": 16.98,
+      "end": 17.2
+    },
+    {
+      "word": "cojando",
+      "start": 17.2,
+      "end": 17.72
+    },
+    {
+      "word": "una",
+      "start": 17.72,
+      "end": 17.9
+    },
+    {
+      "word": "semana,",
+      "start": 17.9,
+      "end": 18.34
+    },
+    {
+      "word": "uno",
+      "start": 18.54,
+      "end": 18.7
+    },
+    {
+      "word": "termina",
+      "start": 18.7,
+      "end": 19.16
+    },
+    {
+      "word": "en",
+      "start": 19.16,
+      "end": 19.28
+    },
+    {
+      "word": "el",
+      "start": 19.28,
+      "end": 19.38
+    },
+    {
+      "word": "hospital,",
+      "start": 19.38,
+      "end": 19.72
+    },
+    {
+      "word": "otro",
+      "start": 19.98,
+      "end": 20.16
+    },
+    {
+      "word": "ni",
+      "start": 20.16,
+      "end": 20.36
+    },
+    {
+      "word": "se",
+      "start": 20.36,
+      "end": 20.54
+    },
+    {
+      "word": "despeina",
+      "start": 20.54,
+      "end": 21.06
+    },
+    {
+      "word": "¿Por",
+      "start": 21.06,
+      "end": 21.64
+    },
+    {
+      "word": "qué?",
+      "start": 21.64,
+      "end": 21.92
+    },
+    {
+      "word": "Hay",
+      "start": 21.92,
+      "end": 22.46
+    },
+    {
+      "word": "razones",
+      "start": 22.46,
+      "end": 22.82
+    },
+    {
+      "word": "reales,",
+      "start": 22.82,
+      "end": 23.32
+    },
+    {
+      "word": "físicas,",
+      "start": 23.44,
+      "end": 23.86
+    },
+    {
+      "word": "medibles",
+      "start": 24.04,
+      "end": 24.32
+    },
+    {
+      "word": "por",
+      "start": 24.32,
+      "end": 24.62
+    },
+    {
+      "word": "las",
+      "start": 24.62,
+      "end": 24.8
+    },
+    {
+      "word": "que",
+      "start": 24.8,
+      "end": 25.02
+    },
+    {
+      "word": "ciertos",
+      "start": 25.02,
+      "end": 25.44
+    },
+    {
+      "word": "cuerpos",
+      "start": 25.44,
+      "end": 25.8
+    },
+    {
+      "word": "aguantan",
+      "start": 25.8,
+      "end": 26.26
+    },
+    {
+      "word": "lo",
+      "start": 26.26,
+      "end": 26.42
+    },
+    {
+      "word": "que",
+      "start": 26.42,
+      "end": 26.56
+    },
+    {
+      "word": "otros",
+      "start": 26.56,
+      "end": 26.84
+    },
+    {
+      "word": "nos",
+      "start": 26.84,
+      "end": 27.02
+    },
+    {
+      "word": "quiebra,",
+      "start": 27.02,
+      "end": 27.4
+    },
+    {
+      "word": "si",
+      "start": 27.62,
+      "end": 27.74
+    },
+    {
+      "word": "eres",
+      "start": 27.74,
+      "end": 27.84
+    },
+    {
+      "word": "de",
+      "start": 27.84,
+      "end": 27.96
+    },
+    {
+      "word": "los",
+      "start": 27.96,
+      "end": 28.1
+    },
+    {
+      "word": "que",
+      "start": 28.1,
+      "end": 28.24
+    },
+    {
+      "word": "nunca",
+      "start": 28.24,
+      "end": 28.54
+    },
+    {
+      "word": "se",
+      "start": 28.54,
+      "end": 28.78
+    },
+    {
+      "word": "arrotonara,",
+      "start": 28.78,
+      "end": 29.34
+    },
+    {
+      "word": "déjame",
+      "start": 29.58,
+      "end": 29.86
+    },
+    {
+      "word": "decir",
+      "start": 29.86,
+      "end": 30.12
+    },
+    {
+      "word": "que",
+      "start": 30.12,
+      "end": 30.4
+    },
+    {
+      "word": "no",
+      "start": 30.4,
+      "end": 30.64
+    },
+    {
+      "word": "es",
+      "start": 30.64,
+      "end": 30.76
+    },
+    {
+      "word": "casualidad,",
+      "start": 30.76,
+      "end": 31.28
+    },
+    {
+      "word": "traes",
+      "start": 31.42,
+      "end": 31.62
+    },
+    {
+      "word": "contigo",
+      "start": 31.62,
+      "end": 32.02
+    },
+    {
+      "word": "una",
+      "start": 32.02,
+      "end": 32.2
+    },
+    {
+      "word": "serie",
+      "start": 32.2,
+      "end": 32.42
+    },
+    {
+      "word": "de",
+      "start": 32.42,
+      "end": 32.6
+    },
+    {
+      "word": "factores",
+      "start": 32.6,
+      "end": 33.0
+    },
+    {
+      "word": "que",
+      "start": 33.0,
+      "end": 33.24
+    },
+    {
+      "word": "la",
+      "start": 33.24,
+      "end": 33.38
+    },
+    {
+      "word": "mayoría",
+      "start": 33.38,
+      "end": 33.76
+    },
+    {
+      "word": "no",
+      "start": 33.76,
+      "end": 34.16
+    },
+    {
+      "word": "tienen",
+      "start": 34.16,
+      "end": 34.44
+    },
+    {
+      "word": "y",
+      "start": 34.44,
+      "end": 34.64
+    },
+    {
+      "word": "vamos",
+      "start": 34.64,
+      "end": 34.8
+    },
+    {
+      "word": "a",
+      "start": 34.8,
+      "end": 35.0
+    },
+    {
+      "word": "verlos",
+      "start": 35.0,
+      "end": 35.32
+    },
+    {
+      "word": "uno",
+      "start": 35.32,
+      "end": 35.54
+    },
+    {
+      "word": "por",
+      "start": 35.54,
+      "end": 35.8
+    },
+    {
+      "word": "uno",
+      "start": 35.8,
+      "end": 35.98
+    },
+    {
+      "word": "Así",
+      "start": 35.98,
+      "end": 36.26
+    },
+    {
+      "word": "que",
+      "start": 36.26,
+      "end": 36.44
+    },
+    {
+      "word": "hoy",
+      "start": 36.44,
+      "end": 36.58
+    },
+    {
+      "word": "veamos",
+      "start": 36.58,
+      "end": 36.96
+    },
+    {
+      "word": "la",
+      "start": 36.96,
+      "end": 37.22
+    },
+    {
+      "word": "ciencia",
+      "start": 37.22,
+      "end": 37.68
+    },
+    {
+      "word": "detrás",
+      "start": 37.68,
+      "end": 38.0
+    },
+    {
+      "word": "de",
+      "start": 38.0,
+      "end": 38.18
+    },
+    {
+      "word": "las",
+      "start": 38.18,
+      "end": 38.3
+    },
+    {
+      "word": "personas",
+      "start": 38.3,
+      "end": 38.66
+    },
+    {
+      "word": "que",
+      "start": 38.66,
+      "end": 38.94
+    },
+    {
+      "word": "nunca",
+      "start": 38.94,
+      "end": 39.26
+    },
+    {
+      "word": "se",
+      "start": 39.26,
+      "end": 39.46
+    },
+    {
+      "word": "rompe",
+      "start": 39.46,
+      "end": 39.82
+    },
+    {
+      "word": "nada,",
+      "start": 39.82,
+      "end": 40.18
+    },
+    {
+      "word": "antes",
+      "start": 40.36,
+      "end": 40.62
+    },
+    {
+      "word": "de",
+      "start": 40.62,
+      "end": 40.78
+    },
+    {
+      "word": "empezar",
+      "start": 40.78,
+      "end": 41.08
+    },
+    {
+      "word": "una",
+      "start": 41.08,
+      "end": 41.32
+    },
+    {
+      "word": "aclaración",
+      "start": 41.32,
+      "end": 41.78
+    },
+    {
+      "word": "Cuando",
+      "start": 41.78,
+      "end": 42.26
+    },
+    {
+      "word": "hablamos",
+      "start": 42.26,
+      "end": 42.64
+    },
+    {
+      "word": "de",
+      "start": 42.64,
+      "end": 42.74
+    },
+    {
+      "word": "esa",
+      "start": 42.74,
+      "end": 42.88
+    },
+    {
+      "word": "persona",
+      "start": 42.88,
+      "end": 43.26
+    },
+    {
+      "word": "que",
+      "start": 43.26,
+      "end": 43.56
+    },
+    {
+      "word": "nunca",
+      "start": 43.56,
+      "end": 43.96
+    },
+    {
+      "word": "se",
+      "start": 43.96,
+      "end": 44.18
+    },
+    {
+      "word": "rompe",
+      "start": 44.18,
+      "end": 44.5
+    },
+    {
+      "word": "nada,",
+      "start": 44.5,
+      "end": 44.86
+    },
+    {
+      "word": "no",
+      "start": 45.02,
+      "end": 45.1
+    },
+    {
+      "word": "estamos",
+      "start": 45.1,
+      "end": 45.36
+    },
+    {
+      "word": "hablando",
+      "start": 45.36,
+      "end": 45.68
+    },
+    {
+      "word": "de",
+      "start": 45.68,
+      "end": 45.88
+    },
+    {
+      "word": "alguien",
+      "start": 45.88,
+      "end": 46.08
+    },
+    {
+      "word": "con",
+      "start": 46.08,
+      "end": 46.36
+    },
+    {
+      "word": "huesos",
+      "start": 46.36,
+      "end": 46.66
+    },
+    {
+      "word": "de",
+      "start": 46.66,
+      "end": 46.78
+    },
+    {
+      "word": "titánio,",
+      "start": 46.78,
+      "end": 47.28
+    },
+    {
+      "word": "estamos",
+      "start": 47.36,
+      "end": 47.72
+    },
+    {
+      "word": "hablando",
+      "start": 47.72,
+      "end": 48.1
+    },
+    {
+      "word": "de",
+      "start": 48.1,
+      "end": 48.3
+    },
+    {
+      "word": "alguien",
+      "start": 48.3,
+      "end": 48.5
+    },
+    {
+      "word": "cuyo",
+      "start": 48.5,
+      "end": 48.9
+    },
+    {
+      "word": "sistema",
+      "start": 48.9,
+      "end": 49.28
+    },
+    {
+      "word": "completo,",
+      "start": 49.28,
+      "end": 49.82
+    },
+    {
+      "word": "huesos,",
+      "start": 50.24,
+      "end": 50.56
+    },
+    {
+      "word": "ligamentos",
+      "start": 50.76,
+      "end": 51.02
+    },
+    {
+      "word": "o",
+      "start": 51.02,
+      "end": 51.4
+    },
+    {
+      "word": "reflejos,",
+      "start": 51.4,
+      "end": 51.98
+    },
+    {
+      "word": "se",
+      "start": 52.16,
+      "end": 52.3
+    },
+    {
+      "word": "reparten",
+      "start": 52.3,
+      "end": 52.74
+    },
+    {
+      "word": "la",
+      "start": 52.74,
+      "end": 53.0
+    },
+    {
+      "word": "carga",
+      "start": 53.0,
+      "end": 53.26
+    },
+    {
+      "word": "también",
+      "start": 53.26,
+      "end": 53.68
+    },
+    {
+      "word": "que",
+      "start": 53.68,
+      "end": 53.9
+    },
+    {
+      "word": "nunca",
+      "start": 53.9,
+      "end": 54.2
+    },
+    {
+      "word": "llegan",
+      "start": 54.2,
+      "end": 54.54
+    },
+    {
+      "word": "al",
+      "start": 54.54,
+      "end": 54.72
+    },
+    {
+      "word": "punto",
+      "start": 54.72,
+      "end": 54.88
+    },
+    {
+      "word": "de",
+      "start": 54.88,
+      "end": 55.12
+    },
+    {
+      "word": "lesión",
+      "start": 55.12,
+      "end": 55.44
+    },
+    {
+      "word": "Ahora",
+      "start": 55.44,
+      "end": 55.82
+    },
+    {
+      "word": "sí,",
+      "start": 55.82,
+      "end": 56.04
+    },
+    {
+      "word": "vamos",
+      "start": 56.18,
+      "end": 56.36
+    },
+    {
+      "word": "con",
+      "start": 56.36,
+      "end": 56.56
+    },
+    {
+      "word": "el",
+      "start": 56.56,
+      "end": 56.66
+    },
+    {
+      "word": "video,",
+      "start": 56.66,
+      "end": 56.84
+    },
+    {
+      "word": "ligamento",
+      "start": 57.08,
+      "end": 57.42
+    },
+    {
+      "word": "rígidos",
+      "start": 57.42,
+      "end": 57.9
+    },
+    {
+      "word": "vs",
+      "start": 57.9,
+      "end": 58.26
+    },
+    {
+      "word": "helásticos,",
+      "start": 58.26,
+      "end": 59.08
+    },
+    {
+      "word": "no",
+      "start": 59.26,
+      "end": 59.38
+    },
+    {
+      "word": "todos",
+      "start": 59.38,
+      "end": 59.62
+    },
+    {
+      "word": "tenemos",
+      "start": 59.62,
+      "end": 59.94
+    },
+    {
+      "word": "el",
+      "start": 59.94,
+      "end": 60.18
+    },
+    {
+      "word": "mismo",
+      "start": 60.18,
+      "end": 60.44
+    },
+    {
+      "word": "tipo",
+      "start": 60.44,
+      "end": 60.72
+    },
+    {
+      "word": "de",
+      "start": 60.72,
+      "end": 60.92
+    },
+    {
+      "word": "tejido",
+      "start": 60.92,
+      "end": 61.3
+    },
+    {
+      "word": "conectivo,",
+      "start": 61.3,
+      "end": 61.82
+    },
+    {
+      "word": "hay",
+      "start": 61.98,
+      "end": 62.06
+    },
+    {
+      "word": "gente",
+      "start": 62.06,
+      "end": 62.3
+    },
+    {
+      "word": "que",
+      "start": 62.3,
+      "end": 62.5
+    },
+    {
+      "word": "nace",
+      "start": 62.5,
+      "end": 62.74
+    },
+    {
+      "word": "con",
+      "start": 62.74,
+      "end": 62.96
+    },
+    {
+      "word": "ligamentos",
+      "start": 62.96,
+      "end": 63.38
+    },
+    {
+      "word": "más",
+      "start": 63.38,
+      "end": 63.64
+    },
+    {
+      "word": "helásticos",
+      "start": 63.64,
+      "end": 64.2
+    },
+    {
+      "word": "y",
+      "start": 64.2,
+      "end": 64.4
+    },
+    {
+      "word": "otros",
+      "start": 64.4,
+      "end": 64.6
+    },
+    {
+      "word": "con",
+      "start": 64.6,
+      "end": 64.78
+    },
+    {
+      "word": "ligamentos",
+      "start": 64.78,
+      "end": 65.28
+    },
+    {
+      "word": "más",
+      "start": 65.28,
+      "end": 65.5
+    },
+    {
+      "word": "rígidos,",
+      "start": 65.5,
+      "end": 65.96
+    },
+    {
+      "word": "esto",
+      "start": 66.14,
+      "end": 66.38
+    },
+    {
+      "word": "lo",
+      "start": 66.38,
+      "end": 66.54
+    },
+    {
+      "word": "podemos",
+      "start": 66.54,
+      "end": 66.9
+    },
+    {
+      "word": "comprobar",
+      "start": 66.9,
+      "end": 67.44
+    },
+    {
+      "word": "ahora",
+      "start": 67.44,
+      "end": 67.58
+    },
+    {
+      "word": "mismo",
+      "start": 67.58,
+      "end": 67.98
+    },
+    {
+      "word": "Intente",
+      "start": 67.98,
+      "end": 68.58
+    },
+    {
+      "word": "esterar",
+      "start": 68.58,
+      "end": 68.94
+    },
+    {
+      "word": "tu",
+      "start": 68.94,
+      "end": 69.12
+    },
+    {
+      "word": "brazo",
+      "start": 69.12,
+      "end": 69.4
+    },
+    {
+      "word": "completamente",
+      "start": 69.4,
+      "end": 70.1
+    },
+    {
+      "word": "recto,",
+      "start": 70.1,
+      "end": 70.86
+    },
+    {
+      "word": "ahora,",
+      "start": 70.98,
+      "end": 71.18
+    },
+    {
+      "word": "velo",
+      "start": 71.4,
+      "end": 71.64
+    },
+    {
+      "word": "y",
+      "start": 71.64,
+      "end": 71.82
+    },
+    {
+      "word": "pregúntate",
+      "start": 71.82,
+      "end": 72.36
+    },
+    {
+      "word": "si",
+      "start": 72.36,
+      "end": 72.62
+    },
+    {
+      "word": "queda",
+      "start": 72.62,
+      "end": 72.84
+    },
+    {
+      "word": "derecho",
+      "start": 72.84,
+      "end": 73.18
+    },
+    {
+      "word": "o",
+      "start": 73.18,
+      "end": 73.64
+    },
+    {
+      "word": "se",
+      "start": 73.64,
+      "end": 73.86
+    },
+    {
+      "word": "pasa",
+      "start": 73.86,
+      "end": 74.14
+    },
+    {
+      "word": "un",
+      "start": 74.14,
+      "end": 74.42
+    },
+    {
+      "word": "poco,",
+      "start": 74.42,
+      "end": 74.74
+    },
+    {
+      "word": "como",
+      "start": 74.86,
+      "end": 75.0
+    },
+    {
+      "word": "en",
+      "start": 75.0,
+      "end": 75.14
+    },
+    {
+      "word": "esta",
+      "start": 75.14,
+      "end": 75.34
+    },
+    {
+      "word": "imagen,",
+      "start": 75.34,
+      "end": 75.7
+    },
+    {
+      "word": "también",
+      "start": 76.0,
+      "end": 76.38
+    },
+    {
+      "word": "con",
+      "start": 76.38,
+      "end": 76.74
+    },
+    {
+      "word": "el",
+      "start": 76.74,
+      "end": 76.98
+    },
+    {
+      "word": "pulgar",
+      "start": 76.98,
+      "end": 77.28
+    },
+    {
+      "word": "Intenta",
+      "start": 77.78,
+      "end": 78.04
+    },
+    {
+      "word": "doblarlo",
+      "start": 78.04,
+      "end": 78.54
+    },
+    {
+      "word": "hacia",
+      "start": 78.54,
+      "end": 78.7
+    },
+    {
+      "word": "atrás,",
+      "start": 78.7,
+      "end": 79.1
+    },
+    {
+      "word": "llegas",
+      "start": 79.36,
+      "end": 79.68
+    },
+    {
+      "word": "hasta",
+      "start": 79.68,
+      "end": 80.02
+    },
+    {
+      "word": "tonte",
+      "start": 80.02,
+      "end": 80.34
+    },
+    {
+      "word": "brazo,",
+      "start": 80.34,
+      "end": 80.74
+    },
+    {
+      "word": "primero",
+      "start": 81.1,
+      "end": 81.3
+    },
+    {
+      "word": "si",
+      "start": 81.3,
+      "end": 81.62
+    },
+    {
+      "word": "tus",
+      "start": 81.62,
+      "end": 81.88
+    },
+    {
+      "word": "codo",
+      "start": 81.88,
+      "end": 82.12
+    },
+    {
+      "word": "se",
+      "start": 82.12,
+      "end": 82.3
+    },
+    {
+      "word": "pasan",
+      "start": 82.3,
+      "end": 82.7
+    },
+    {
+      "word": "de",
+      "start": 82.7,
+      "end": 82.78
+    },
+    {
+      "word": "recto,",
+      "start": 82.78,
+      "end": 83.14
+    },
+    {
+      "word": "si",
+      "start": 83.2,
+      "end": 83.28
+    },
+    {
+      "word": "tu",
+      "start": 83.28,
+      "end": 83.42
+    },
+    {
+      "word": "pulgar",
+      "start": 83.42,
+      "end": 83.7
+    },
+    {
+      "word": "casi",
+      "start": 83.7,
+      "end": 83.98
+    },
+    {
+      "word": "toca",
+      "start": 83.98,
+      "end": 84.22
+    },
+    {
+      "word": "tu",
+      "start": 84.22,
+      "end": 84.46
+    },
+    {
+      "word": "muñeca,",
+      "start": 84.46,
+      "end": 84.9
+    },
+    {
+      "word": "eres",
+      "start": 85.1,
+      "end": 85.24
+    },
+    {
+      "word": "de",
+      "start": 85.24,
+      "end": 85.44
+    },
+    {
+      "word": "tejido",
+      "start": 85.44,
+      "end": 85.82
+    },
+    {
+      "word": "elástico",
+      "start": 85.82,
+      "end": 86.28
+    },
+    {
+      "word": "Si",
+      "start": 86.28,
+      "end": 86.56
+    },
+    {
+      "word": "todos",
+      "start": 86.56,
+      "end": 86.82
+    },
+    {
+      "word": "se",
+      "start": 86.82,
+      "end": 87.02
+    },
+    {
+      "word": "sintió",
+      "start": 87.02,
+      "end": 87.34
+    },
+    {
+      "word": "tío",
+      "start": 87.34,
+      "end": 87.58
+    },
+    {
+      "word": "eso",
+      "start": 87.58,
+      "end": 87.7
+    },
+    {
+      "word": "y",
+      "start": 87.7,
+      "end": 87.82
+    },
+    {
+      "word": "apenas",
+      "start": 87.82,
+      "end": 88.1
+    },
+    {
+      "word": "tienes",
+      "start": 88.1,
+      "end": 88.48
+    },
+    {
+      "word": "ese",
+      "start": 88.48,
+      "end": 88.74
+    },
+    {
+      "word": "rango,",
+      "start": 88.74,
+      "end": 89.14
+    },
+    {
+      "word": "eres",
+      "start": 89.38,
+      "end": 89.54
+    },
+    {
+      "word": "de",
+      "start": 89.54,
+      "end": 89.74
+    },
+    {
+      "word": "tejido",
+      "start": 89.74,
+      "end": 90.18
+    },
+    {
+      "word": "rígido,",
+      "start": 90.18,
+      "end": 90.68
+    },
+    {
+      "word": "el",
+      "start": 90.78,
+      "end": 90.86
+    },
+    {
+      "word": "tema",
+      "start": 90.86,
+      "end": 91.04
+    },
+    {
+      "word": "es",
+      "start": 91.04,
+      "end": 91.18
+    },
+    {
+      "word": "que",
+      "start": 91.18,
+      "end": 91.3
+    },
+    {
+      "word": "ninguno",
+      "start": 91.3,
+      "end": 91.72
+    },
+    {
+      "word": "de",
+      "start": 91.72,
+      "end": 91.82
+    },
+    {
+      "word": "los",
+      "start": 91.82,
+      "end": 91.96
+    },
+    {
+      "word": "dos",
+      "start": 91.96,
+      "end": 92.08
+    },
+    {
+      "word": "extremos",
+      "start": 92.08,
+      "end": 92.58
+    },
+    {
+      "word": "es",
+      "start": 92.58,
+      "end": 92.74
+    },
+    {
+      "word": "el",
+      "start": 92.74,
+      "end": 92.88
+    },
+    {
+      "word": "bueno",
+      "start": 92.88,
+      "end": 93.14
+    },
+    {
+      "word": "Si",
+      "start": 93.14,
+      "end": 93.42
+    },
+    {
+      "word": "eres",
+      "start": 93.42,
+      "end": 93.54
+    },
+    {
+      "word": "muy",
+      "start": 93.54,
+      "end": 93.72
+    },
+    {
+      "word": "elástico,",
+      "start": 93.72,
+      "end": 94.04
+    },
+    {
+      "word": "tus",
+      "start": 94.3,
+      "end": 94.4
+    },
+    {
+      "word": "articulaciones",
+      "start": 94.4,
+      "end": 95.06
+    },
+    {
+      "word": "se",
+      "start": 95.06,
+      "end": 95.28
+    },
+    {
+      "word": "mueren",
+      "start": 95.28,
+      "end": 95.48
+    },
+    {
+      "word": "más",
+      "start": 95.48,
+      "end": 95.66
+    },
+    {
+      "word": "de",
+      "start": 95.66,
+      "end": 95.82
+    },
+    {
+      "word": "lo",
+      "start": 95.82,
+      "end": 95.92
+    },
+    {
+      "word": "que",
+      "start": 95.92,
+      "end": 96.04
+    },
+    {
+      "word": "deberían,",
+      "start": 96.04,
+      "end": 96.5
+    },
+    {
+      "word": "esto",
+      "start": 96.62,
+      "end": 96.82
+    },
+    {
+      "word": "significa",
+      "start": 96.82,
+      "end": 97.16
+    },
+    {
+      "word": "que",
+      "start": 97.16,
+      "end": 97.48
+    },
+    {
+      "word": "se",
+      "start": 97.48,
+      "end": 97.64
+    },
+    {
+      "word": "disloca",
+      "start": 97.64,
+      "end": 98.08
+    },
+    {
+      "word": "más",
+      "start": 98.08,
+      "end": 98.24
+    },
+    {
+      "word": "fácil,",
+      "start": 98.24,
+      "end": 98.64
+    },
+    {
+      "word": "que",
+      "start": 98.78,
+      "end": 98.84
+    },
+    {
+      "word": "te",
+      "start": 98.84,
+      "end": 98.98
+    },
+    {
+      "word": "esguinsas",
+      "start": 98.98,
+      "end": 99.5
+    },
+    {
+      "word": "más",
+      "start": 99.5,
+      "end": 99.66
+    },
+    {
+      "word": "seguido,",
+      "start": 99.66,
+      "end": 100.06
+    },
+    {
+      "word": "que",
+      "start": 100.14,
+      "end": 100.22
+    },
+    {
+      "word": "el",
+      "start": 100.22,
+      "end": 100.32
+    },
+    {
+      "word": "articulación",
+      "start": 100.32,
+      "end": 100.92
+    },
+    {
+      "word": "sale",
+      "start": 100.92,
+      "end": 101.18
+    },
+    {
+      "word": "de",
+      "start": 101.18,
+      "end": 101.3
+    },
+    {
+      "word": "su",
+      "start": 101.3,
+      "end": 101.44
+    },
+    {
+      "word": "lugar",
+      "start": 101.44,
+      "end": 101.68
+    },
+    {
+      "word": "con",
+      "start": 101.68,
+      "end": 101.94
+    },
+    {
+      "word": "menos",
+      "start": 101.94,
+      "end": 102.22
+    },
+    {
+      "word": "fuerza,",
+      "start": 102.22,
+      "end": 102.64
+    },
+    {
+      "word": "piensan",
+      "start": 102.82,
+      "end": 103.1
+    },
+    {
+      "word": "una",
+      "start": 103.1,
+      "end": 103.34
+    },
+    {
+      "word": "ligad,",
+      "start": 103.34,
+      "end": 103.62
+    },
+    {
+      "word": "se",
+      "start": 103.8,
+      "end": 103.88
+    },
+    {
+      "word": "estira",
+      "start": 103.88,
+      "end": 104.22
+    },
+    {
+      "word": "mucho",
+      "start": 104.22,
+      "end": 104.54
+    },
+    {
+      "word": "pero",
+      "start": 104.54,
+      "end": 104.86
+    },
+    {
+      "word": "no",
+      "start": 104.86,
+      "end": 105.06
+    },
+    {
+      "word": "sostiene",
+      "start": 105.06,
+      "end": 105.46
+    },
+    {
+      "word": "nada",
+      "start": 105.46,
+      "end": 105.74
+    },
+    {
+      "word": "a",
+      "start": 105.74,
+      "end": 105.88
+    },
+    {
+      "word": "firme,",
+      "start": 105.88,
+      "end": 106.22
+    },
+    {
+      "word": "y",
+      "start": 106.34,
+      "end": 106.4
+    },
+    {
+      "word": "por",
+      "start": 106.4,
+      "end": 106.54
+    },
+    {
+      "word": "otro",
+      "start": 106.54,
+      "end": 106.74
+    },
+    {
+      "word": "lado,",
+      "start": 106.74,
+      "end": 106.96
+    },
+    {
+      "word": "tus",
+      "start": 107.12,
+      "end": 107.2
+    },
+    {
+      "word": "articulaciones",
+      "start": 107.2,
+      "end": 107.96
+    },
+    {
+      "word": "aguantan",
+      "start": 107.96,
+      "end": 108.5
+    },
+    {
+      "word": "firmes,",
+      "start": 108.5,
+      "end": 108.96
+    },
+    {
+      "word": "pero",
+      "start": 109.08,
+      "end": 109.2
+    },
+    {
+      "word": "absorben",
+      "start": 109.2,
+      "end": 109.58
+    },
+    {
+      "word": "peor",
+      "start": 109.58,
+      "end": 109.92
+    },
+    {
+      "word": "el",
+      "start": 109.92,
+      "end": 110.06
+    },
+    {
+      "word": "impacto",
+      "start": 110.06,
+      "end": 110.32
+    },
+    {
+      "word": "Toda",
+      "start": 110.32,
+      "end": 110.8
+    },
+    {
+      "word": "esa",
+      "start": 110.8,
+      "end": 110.94
+    },
+    {
+      "word": "fuerza",
+      "start": 110.94,
+      "end": 111.22
+    },
+    {
+      "word": "que",
+      "start": 111.22,
+      "end": 111.46
+    },
+    {
+      "word": "un",
+      "start": 111.46,
+      "end": 111.6
+    },
+    {
+      "word": "cuerpo",
+      "start": 111.6,
+      "end": 111.84
+    },
+    {
+      "word": "elástico",
+      "start": 111.84,
+      "end": 112.26
+    },
+    {
+      "word": "dispersa,",
+      "start": 112.26,
+      "end": 112.98
+    },
+    {
+      "word": "el",
+      "start": 113.14,
+      "end": 113.3
+    },
+    {
+      "word": "rígido",
+      "start": 113.3,
+      "end": 113.7
+    },
+    {
+      "word": "la",
+      "start": 113.7,
+      "end": 113.86
+    },
+    {
+      "word": "recibe",
+      "start": 113.86,
+      "end": 114.26
+    },
+    {
+      "word": "de",
+      "start": 114.26,
+      "end": 114.36
+    },
+    {
+      "word": "golpe,",
+      "start": 114.36,
+      "end": 114.6
+    },
+    {
+      "word": "la",
+      "start": 114.78,
+      "end": 114.86
+    },
+    {
+      "word": "persona",
+      "start": 114.86,
+      "end": 115.18
+    },
+    {
+      "word": "que",
+      "start": 115.18,
+      "end": 115.42
+    },
+    {
+      "word": "nunca",
+      "start": 115.42,
+      "end": 115.6
+    },
+    {
+      "word": "se",
+      "start": 115.6,
+      "end": 115.84
+    },
+    {
+      "word": "rompe",
+      "start": 115.84,
+      "end": 116.14
+    },
+    {
+      "word": "nada",
+      "start": 116.14,
+      "end": 116.4
+    },
+    {
+      "word": "suele",
+      "start": 116.4,
+      "end": 116.66
+    },
+    {
+      "word": "estar",
+      "start": 116.66,
+      "end": 116.9
+    },
+    {
+      "word": "en",
+      "start": 116.9,
+      "end": 117.02
+    },
+    {
+      "word": "un",
+      "start": 117.02,
+      "end": 117.16
+    },
+    {
+      "word": "punto",
+      "start": 117.16,
+      "end": 117.42
+    },
+    {
+      "word": "medio,",
+      "start": 117.42,
+      "end": 117.76
+    },
+    {
+      "word": "ni",
+      "start": 117.92,
+      "end": 117.98
+    },
+    {
+      "word": "liga",
+      "start": 117.98,
+      "end": 118.24
+    },
+    {
+      "word": "ni",
+      "start": 118.24,
+      "end": 118.4
+    },
+    {
+      "word": "cuerda",
+      "start": 118.4,
+      "end": 118.74
+    },
+    {
+      "word": "tensa,",
+      "start": 118.74,
+      "end": 119.24
+    },
+    {
+      "word": "suficiente",
+      "start": 119.36,
+      "end": 119.58
+    },
+    {
+      "word": "rango",
+      "start": 119.58,
+      "end": 120.08
+    },
+    {
+      "word": "para",
+      "start": 120.08,
+      "end": 120.34
+    },
+    {
+      "word": "dispersar",
+      "start": 120.34,
+      "end": 120.94
+    },
+    {
+      "word": "el",
+      "start": 120.94,
+      "end": 121.08
+    },
+    {
+      "word": "impacto",
+      "start": 121.08,
+      "end": 121.44
+    },
+    {
+      "word": "y",
+      "start": 121.44,
+      "end": 121.6
+    },
+    {
+      "word": "suficiente",
+      "start": 121.6,
+      "end": 122.08
+    },
+    {
+      "word": "firmeza",
+      "start": 122.08,
+      "end": 122.64
+    },
+    {
+      "word": "para",
+      "start": 122.64,
+      "end": 122.92
+    },
+    {
+      "word": "sostener",
+      "start": 122.92,
+      "end": 123.4
+    },
+    {
+      "word": "Factor",
+      "start": 123.4,
+      "end": 124.04
+    },
+    {
+      "word": "2,",
+      "start": 124.04,
+      "end": 124.4
+    },
+    {
+      "word": "la",
+      "start": 124.68,
+      "end": 124.8
+    },
+    {
+      "word": "forma",
+      "start": 124.8,
+      "end": 125.14
+    },
+    {
+      "word": "de",
+      "start": 125.14,
+      "end": 125.3
+    },
+    {
+      "word": "tu",
+      "start": 125.3,
+      "end": 125.44
+    },
+    {
+      "word": "cuerpo,",
+      "start": 125.44,
+      "end": 125.76
+    },
+    {
+      "word": "ahora",
+      "start": 125.86,
+      "end": 126.06
+    },
+    {
+      "word": "supongamos",
+      "start": 126.06,
+      "end": 126.7
+    },
+    {
+      "word": "que",
+      "start": 126.7,
+      "end": 126.92
+    },
+    {
+      "word": "las",
+      "start": 126.92,
+      "end": 127.06
+    },
+    {
+      "word": "dos",
+      "start": 127.06,
+      "end": 127.22
+    },
+    {
+      "word": "personas",
+      "start": 127.22,
+      "end": 127.58
+    },
+    {
+      "word": "tienen",
+      "start": 127.58,
+      "end": 127.98
+    },
+    {
+      "word": "el",
+      "start": 127.98,
+      "end": 128.14
+    },
+    {
+      "word": "mismo",
+      "start": 128.14,
+      "end": 128.38
+    },
+    {
+      "word": "tejido,",
+      "start": 128.38,
+      "end": 128.8
+    },
+    {
+      "word": "y",
+      "start": 128.94,
+      "end": 128.98
+    },
+    {
+      "word": "aún",
+      "start": 128.98,
+      "end": 129.08
+    },
+    {
+      "word": "así",
+      "start": 129.08,
+      "end": 129.32
+    },
+    {
+      "word": "uno",
+      "start": 129.32,
+      "end": 129.54
+    },
+    {
+      "word": "de",
+      "start": 129.54,
+      "end": 129.64
+    },
+    {
+      "word": "esos",
+      "start": 129.64,
+      "end": 129.82
+    },
+    {
+      "word": "dos",
+      "start": 129.82,
+      "end": 130.0
+    },
+    {
+      "word": "se",
+      "start": 130.0,
+      "end": 130.2
+    },
+    {
+      "word": "lesiona",
+      "start": 130.2,
+      "end": 130.58
+    },
+    {
+      "word": "más,",
+      "start": 130.58,
+      "end": 130.96
+    },
+    {
+      "word": "porque",
+      "start": 131.16,
+      "end": 131.4
+    },
+    {
+      "word": "no",
+      "start": 131.4,
+      "end": 131.76
+    },
+    {
+      "word": "solo",
+      "start": 131.76,
+      "end": 132.0
+    },
+    {
+      "word": "importa",
+      "start": 132.0,
+      "end": 132.38
+    },
+    {
+      "word": "de",
+      "start": 132.38,
+      "end": 132.56
+    },
+    {
+      "word": "que",
+      "start": 132.56,
+      "end": 132.72
+    },
+    {
+      "word": "estas",
+      "start": 132.72,
+      "end": 132.94
+    },
+    {
+      "word": "hechos",
+      "start": 132.94,
+      "end": 133.26
+    },
+    {
+      "word": "y",
+      "start": 133.26,
+      "end": 133.44
+    },
+    {
+      "word": "no",
+      "start": 133.44,
+      "end": 133.58
+    },
+    {
+      "word": "como",
+      "start": 133.58,
+      "end": 133.8
+    },
+    {
+      "word": "estas",
+      "start": 133.8,
+      "end": 134.04
+    },
+    {
+      "word": "armado,",
+      "start": 134.04,
+      "end": 134.56
+    },
+    {
+      "word": "tenemos",
+      "start": 134.64,
+      "end": 134.86
+    },
+    {
+      "word": "la",
+      "start": 134.86,
+      "end": 135.08
+    },
+    {
+      "word": "forma",
+      "start": 135.08,
+      "end": 135.38
+    },
+    {
+      "word": "de",
+      "start": 135.38,
+      "end": 135.56
+    },
+    {
+      "word": "tus",
+      "start": 135.56,
+      "end": 135.68
+    },
+    {
+      "word": "huesos,",
+      "start": 135.68,
+      "end": 136.16
+    },
+    {
+      "word": "el",
+      "start": 136.28,
+      "end": 136.42
+    },
+    {
+      "word": "ángulo",
+      "start": 136.42,
+      "end": 136.68
+    },
+    {
+      "word": "con",
+      "start": 136.68,
+      "end": 136.94
+    },
+    {
+      "word": "el",
+      "start": 136.94,
+      "end": 137.04
+    },
+    {
+      "word": "que",
+      "start": 137.04,
+      "end": 137.18
+    },
+    {
+      "word": "se",
+      "start": 137.18,
+      "end": 137.32
+    },
+    {
+      "word": "conecta,",
+      "start": 137.32,
+      "end": 137.84
+    },
+    {
+      "word": "como",
+      "start": 137.9,
+      "end": 138.08
+    },
+    {
+      "word": "pisa",
+      "start": 138.08,
+      "end": 138.5
+    },
+    {
+      "word": "hacia",
+      "start": 138.5,
+      "end": 138.76
+    },
+    {
+      "word": "donde",
+      "start": 138.76,
+      "end": 139.08
+    },
+    {
+      "word": "cae",
+      "start": 139.08,
+      "end": 139.32
+    },
+    {
+      "word": "tu",
+      "start": 139.32,
+      "end": 139.5
+    },
+    {
+      "word": "peso",
+      "start": 139.5,
+      "end": 139.66
+    },
+    {
+      "word": "y",
+      "start": 139.66,
+      "end": 139.96
+    },
+    {
+      "word": "cuando",
+      "start": 139.96,
+      "end": 139.96
+    },
+    {
+      "word": "te",
+      "start": 139.96,
+      "end": 140.22
+    },
+    {
+      "word": "risa",
+      "start": 140.22,
+      "end": 140.46
+    },
+    {
+      "word": "tu",
+      "start": 140.46,
+      "end": 140.62
+    },
+    {
+      "word": "un",
+      "start": 140.62,
+      "end": 140.74
+    },
+    {
+      "word": "salto,",
+      "start": 140.74,
+      "end": 141.02
+    },
+    {
+      "word": "todo",
+      "start": 141.1,
+      "end": 141.24
+    },
+    {
+      "word": "eso",
+      "start": 141.24,
+      "end": 141.46
+    },
+    {
+      "word": "decide",
+      "start": 141.46,
+      "end": 141.74
+    },
+    {
+      "word": "donde",
+      "start": 141.74,
+      "end": 142.08
+    },
+    {
+      "word": "aterrizar",
+      "start": 142.08,
+      "end": 142.62
+    },
+    {
+      "word": "la",
+      "start": 142.62,
+      "end": 142.74
+    },
+    {
+      "word": "fuerza",
+      "start": 142.74,
+      "end": 142.94
+    },
+    {
+      "word": "en",
+      "start": 142.94,
+      "end": 143.12
+    },
+    {
+      "word": "tu",
+      "start": 143.12,
+      "end": 143.24
+    },
+    {
+      "word": "cuerpo,",
+      "start": 143.24,
+      "end": 143.46
+    },
+    {
+      "word": "y",
+      "start": 143.7,
+      "end": 143.74
+    },
+    {
+      "word": "hay",
+      "start": 143.74,
+      "end": 143.8
+    },
+    {
+      "word": "formas",
+      "start": 143.8,
+      "end": 144.1
+    },
+    {
+      "word": "que",
+      "start": 144.1,
+      "end": 144.34
+    },
+    {
+      "word": "reparten",
+      "start": 144.34,
+      "end": 144.82
+    },
+    {
+      "word": "esa",
+      "start": 144.82,
+      "end": 145.08
+    },
+    {
+      "word": "fuerza",
+      "start": 145.08,
+      "end": 145.32
+    },
+    {
+      "word": "en",
+      "start": 145.32,
+      "end": 145.5
+    },
+    {
+      "word": "un",
+      "start": 145.5,
+      "end": 145.58
+    },
+    {
+      "word": "buen",
+      "start": 145.58,
+      "end": 145.74
+    },
+    {
+      "word": "lugar",
+      "start": 145.74,
+      "end": 145.98
+    },
+    {
+      "word": "y",
+      "start": 145.98,
+      "end": 146.28
+    },
+    {
+      "word": "formas",
+      "start": 146.28,
+      "end": 146.62
+    },
+    {
+      "word": "que",
+      "start": 146.62,
+      "end": 146.84
+    },
+    {
+      "word": "la",
+      "start": 146.84,
+      "end": 146.96
+    },
+    {
+      "word": "mandan",
+      "start": 146.96,
+      "end": 147.22
+    },
+    {
+      "word": "justo",
+      "start": 147.22,
+      "end": 147.48
+    },
+    {
+      "word": "al",
+      "start": 147.48,
+      "end": 147.66
+    },
+    {
+      "word": "punto",
+      "start": 147.66,
+      "end": 147.78
+    },
+    {
+      "word": "más",
+      "start": 147.78,
+      "end": 148.14
+    },
+    {
+      "word": "débil,",
+      "start": 148.14,
+      "end": 148.42
+    },
+    {
+      "word": "y",
+      "start": 148.58,
+      "end": 148.62
+    },
+    {
+      "word": "aquí",
+      "start": 148.62,
+      "end": 148.76
+    },
+    {
+      "word": "está",
+      "start": 148.76,
+      "end": 148.9
+    },
+    {
+      "word": "el",
+      "start": 148.9,
+      "end": 149.02
+    },
+    {
+      "word": "dato",
+      "start": 149.02,
+      "end": 149.2
+    },
+    {
+      "word": "que",
+      "start": 149.2,
+      "end": 149.42
+    },
+    {
+      "word": "lo",
+      "start": 149.42,
+      "end": 149.54
+    },
+    {
+      "word": "deja",
+      "start": 149.54,
+      "end": 149.76
+    },
+    {
+      "word": "clarísimo,",
+      "start": 149.76,
+      "end": 150.26
+    },
+    {
+      "word": "las",
+      "start": 150.44,
+      "end": 150.56
+    },
+    {
+      "word": "mujeres",
+      "start": 150.56,
+      "end": 150.82
+    },
+    {
+      "word": "suelen",
+      "start": 150.82,
+      "end": 151.2
+    },
+    {
+      "word": "romperse",
+      "start": 151.2,
+      "end": 151.78
+    },
+    {
+      "word": "el",
+      "start": 151.78,
+      "end": 151.88
+    },
+    {
+      "word": "ligamento",
+      "start": 151.88,
+      "end": 152.16
+    },
+    {
+      "word": "cruzado",
+      "start": 152.16,
+      "end": 152.64
+    },
+    {
+      "word": "de",
+      "start": 152.64,
+      "end": 152.72
+    },
+    {
+      "word": "la",
+      "start": 152.72,
+      "end": 152.8
+    },
+    {
+      "word": "rodilla",
+      "start": 152.8,
+      "end": 153.2
+    },
+    {
+      "word": "entre",
+      "start": 153.2,
+      "end": 153.68
+    },
+    {
+      "word": "dos",
+      "start": 153.68,
+      "end": 153.92
+    },
+    {
+      "word": "y",
+      "start": 153.92,
+      "end": 154.12
+    },
+    {
+      "word": "ocho",
+      "start": 154.12,
+      "end": 154.34
+    },
+    {
+      "word": "veces",
+      "start": 154.34,
+      "end": 154.58
+    },
+    {
+      "word": "más",
+      "start": 154.58,
+      "end": 154.86
+    },
+    {
+      "word": "que",
+      "start": 154.86,
+      "end": 155.04
+    },
+    {
+      "word": "los",
+      "start": 155.04,
+      "end": 155.2
+    },
+    {
+      "word": "hombres,",
+      "start": 155.2,
+      "end": 155.54
+    },
+    {
+      "word": "haciendo",
+      "start": 155.76,
+      "end": 155.98
+    },
+    {
+      "word": "el",
+      "start": 155.98,
+      "end": 156.18
+    },
+    {
+      "word": "mismo",
+      "start": 156.18,
+      "end": 156.4
+    },
+    {
+      "word": "deporte,",
+      "start": 156.4,
+      "end": 156.9
+    },
+    {
+      "word": "con",
+      "start": 157.08,
+      "end": 157.2
+    },
+    {
+      "word": "el",
+      "start": 157.2,
+      "end": 157.3
+    },
+    {
+      "word": "mismo",
+      "start": 157.3,
+      "end": 157.58
+    },
+    {
+      "word": "entrenamiento",
+      "start": 157.58,
+      "end": 158.02
+    },
+    {
+      "word": "y",
+      "start": 158.02,
+      "end": 158.28
+    },
+    {
+      "word": "con",
+      "start": 158.28,
+      "end": 158.46
+    },
+    {
+      "word": "el",
+      "start": 158.46,
+      "end": 158.6
+    },
+    {
+      "word": "mismo",
+      "start": 158.6,
+      "end": 158.82
+    },
+    {
+      "word": "esfuerzo,",
+      "start": 158.82,
+      "end": 159.32
+    },
+    {
+      "word": "y",
+      "start": 159.46,
+      "end": 159.52
+    },
+    {
+      "word": "esto",
+      "start": 159.52,
+      "end": 159.74
+    },
+    {
+      "word": "es",
+      "start": 159.74,
+      "end": 159.84
+    },
+    {
+      "word": "justamente",
+      "start": 159.84,
+      "end": 160.26
+    },
+    {
+      "word": "por",
+      "start": 160.26,
+      "end": 160.64
+    },
+    {
+      "word": "la",
+      "start": 160.64,
+      "end": 160.78
+    },
+    {
+      "word": "geometría,",
+      "start": 160.78,
+      "end": 161.38
+    },
+    {
+      "word": "la",
+      "start": 161.66,
+      "end": 161.74
+    },
+    {
+      "word": "cadera",
+      "start": 161.74,
+      "end": 162.04
+    },
+    {
+      "word": "de",
+      "start": 162.04,
+      "end": 162.2
+    },
+    {
+      "word": "una",
+      "start": 162.2,
+      "end": 162.32
+    },
+    {
+      "word": "mujer",
+      "start": 162.32,
+      "end": 162.58
+    },
+    {
+      "word": "suele",
+      "start": 162.58,
+      "end": 162.88
+    },
+    {
+      "word": "ser",
+      "start": 162.88,
+      "end": 163.1
+    },
+    {
+      "word": "ancho,",
+      "start": 163.1,
+      "end": 163.4
+    },
+    {
+      "word": "igual",
+      "start": 163.52,
+      "end": 163.68
+    },
+    {
+      "word": "puede",
+      "start": 163.68,
+      "end": 163.98
+    },
+    {
+      "word": "pasar",
+      "start": 163.98,
+      "end": 164.3
+    },
+    {
+      "word": "en",
+      "start": 164.3,
+      "end": 164.46
+    },
+    {
+      "word": "hombres,",
+      "start": 164.46,
+      "end": 164.74
+    },
+    {
+      "word": "pero",
+      "start": 164.9,
+      "end": 165.0
+    },
+    {
+      "word": "una",
+      "start": 165.0,
+      "end": 165.16
+    },
+    {
+      "word": "cadera",
+      "start": 165.16,
+      "end": 165.5
+    },
+    {
+      "word": "más",
+      "start": 165.5,
+      "end": 165.7
+    },
+    {
+      "word": "ancha",
+      "start": 165.7,
+      "end": 166.0
+    },
+    {
+      "word": "cambia",
+      "start": 166.0,
+      "end": 166.4
+    },
+    {
+      "word": "el",
+      "start": 166.4,
+      "end": 166.52
+    },
+    {
+      "word": "ángulo",
+      "start": 166.52,
+      "end": 166.78
+    },
+    {
+      "word": "con",
+      "start": 166.78,
+      "end": 167.06
+    },
+    {
+      "word": "el",
+      "start": 167.06,
+      "end": 167.22
+    },
+    {
+      "word": "que",
+      "start": 167.22,
+      "end": 167.26
+    },
+    {
+      "word": "el",
+      "start": 167.26,
+      "end": 167.4
+    },
+    {
+      "word": "femur",
+      "start": 167.4,
+      "end": 167.68
+    },
+    {
+      "word": "baja",
+      "start": 167.68,
+      "end": 167.88
+    },
+    {
+      "word": "hacia",
+      "start": 167.88,
+      "end": 168.14
+    },
+    {
+      "word": "la",
+      "start": 168.14,
+      "end": 168.26
+    },
+    {
+      "word": "rodilla,",
+      "start": 168.26,
+      "end": 168.66
+    },
+    {
+      "word": "ese",
+      "start": 168.8,
+      "end": 168.98
+    },
+    {
+      "word": "ángulo",
+      "start": 168.98,
+      "end": 169.24
+    },
+    {
+      "word": "un",
+      "start": 169.24,
+      "end": 169.48
+    },
+    {
+      "word": "poco",
+      "start": 169.48,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "un",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "poco",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "más",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "fácil,",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "y",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "verdad",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "es",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "que",
+      "start": 169.64,
+      "end": 169.64
+    },
+    {
+      "word": "la",
+      "start": 176.6,
+      "end": 177.0
+    },
+    {
+      "word": "verdad",
+      "start": 177.0,
+      "end": 177.4
+    },
+    {
+      "word": "es",
+      "start": 177.4,
+      "end": 181.84
+    },
+    {
+      "word": "que",
+      "start": 181.84,
+      "end": 185.9
+    },
+    {
+      "word": "la",
+      "start": 185.9,
+      "end": 186.8
+    },
+    {
+      "word": "verdad",
+      "start": 186.8,
+      "end": 186.82
+    },
+    {
+      "word": "es",
+      "start": 186.82,
+      "end": 187.78
+    },
+    {
+      "word": "que",
+      "start": 187.78,
+      "end": 187.78
+    },
+    {
+      "word": "la",
+      "start": 187.78,
+      "end": 187.9
+    },
+    {
+      "word": "verdad",
+      "start": 187.9,
+      "end": 187.9
+    },
+    {
+      "word": "es",
+      "start": 187.9,
+      "end": 188.48
+    },
+    {
+      "word": "que",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "la",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "verdad",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "es",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "que",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "la",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "verdad",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "es",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "que",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "la",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "verdad",
+      "start": 188.48,
+      "end": 188.48
+    },
+    {
+      "word": "es",
+      "start": 188.48,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "que",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "la",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "verdad",
+      "start": 188.54,
+      "end": 188.54
+    },
+    {
+      "word": "es",
+      "start": 188.54,
+      "end": 188.72
+    },
+    {
+      "word": "que",
+      "start": 188.72,
+      "end": 188.72
+    },
+    {
+      "word": "la",
+      "start": 188.72,
+      "end": 188.8
+    },
+    {
+      "word": "verdad",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "es",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "que",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "la",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "verdad",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "es",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "que",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "la",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "verdad",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "es",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "que",
+      "start": 188.8,
+      "end": 188.8
+    },
+    {
+      "word": "la",
+      "start": 188.8,
+      "end": 188.82
+    },
+    {
+      "word": "verdad",
+      "start": 188.82,
+      "end": 188.82
+    },
+    {
+      "word": "es",
+      "start": 188.82,
+      "end": 188.82
+    },
+    {
+      "word": "que",
+      "start": 188.82,
+      "end": 188.82
+    },
+    {
+      "word": "la",
+      "start": 188.82,
+      "end": 188.9
+    },
+    {
+      "word": "verdad",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "es",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "que",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "la",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "verdad",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "es",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "que",
+      "start": 188.9,
+      "end": 188.9
+    },
+    {
+      "word": "la",
+      "start": 188.9,
+      "end": 188.94
+    },
+    {
+      "word": "verdad",
+      "start": 188.94,
+      "end": 189.36
+    },
+    {
+      "word": "es",
+      "start": 189.36,
+      "end": 189.46
+    },
+    {
+      "word": "que",
+      "start": 189.46,
+      "end": 189.46
+    },
+    {
+      "word": "la",
+      "start": 189.46,
+      "end": 189.76
+    },
+    {
+      "word": "verdad",
+      "start": 189.76,
+      "end": 190.12
+    },
+    {
+      "word": "es",
+      "start": 190.12,
+      "end": 190.46
+    },
+    {
+      "word": "que",
+      "start": 190.46,
+      "end": 190.46
+    },
+    {
+      "word": "la",
+      "start": 190.46,
+      "end": 190.46
+    },
+    {
+      "word": "verdad",
+      "start": 190.46,
+      "end": 190.54
+    },
+    {
+      "word": "es",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "que",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "la",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "verdad",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "es",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "que",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "la",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "verdad",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "es",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "que",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "la",
+      "start": 190.54,
+      "end": 190.54
+    },
+    {
+      "word": "verdad",
+      "start": 190.54,
+      "end": 190.68
+    },
+    {
+      "word": "es",
+      "start": 190.68,
+      "end": 190.68
+    },
+    {
+      "word": "que",
+      "start": 190.68,
+      "end": 190.68
+    },
+    {
+      "word": "la",
+      "start": 190.68,
+      "end": 190.68
+    },
+    {
+      "word": "verdad",
+      "start": 190.68,
+      "end": 190.84
+    },
+    {
+      "word": "es",
+      "start": 190.84,
+      "end": 190.98
+    },
+    {
+      "word": "que",
+      "start": 190.98,
+      "end": 191.24
+    },
+    {
+      "word": "la",
+      "start": 191.24,
+      "end": 191.24
+    },
+    {
+      "word": "verdad",
+      "start": 191.24,
+      "end": 191.24
+    },
+    {
+      "word": "es",
+      "start": 191.24,
+      "end": 191.24
+    },
+    {
+      "word": "que",
+      "start": 191.24,
+      "end": 191.24
+    },
+    {
+      "word": "la",
+      "start": 191.24,
+      "end": 191.26
+    },
+    {
+      "word": "verdad",
+      "start": 191.26,
+      "end": 191.46
+    },
+    {
+      "word": "es",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "que",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "la",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "verdad",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "es",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "que",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "la",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "verdad",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "es",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "que",
+      "start": 191.46,
+      "end": 191.46
+    },
+    {
+      "word": "la",
+      "start": 191.46,
+      "end": 191.82
+    },
+    {
+      "word": "verdad",
+      "start": 191.82,
+      "end": 192.16
+    },
+    {
+      "word": "es",
+      "start": 192.16,
+      "end": 192.16
+    },
+    {
+      "word": "que",
+      "start": 192.16,
+      "end": 192.32
+    },
+    {
+      "word": "la",
+      "start": 192.32,
+      "end": 192.64
+    },
+    {
+      "word": "verdad",
+      "start": 192.64,
+      "end": 192.7
+    },
+    {
+      "word": "es",
+      "start": 192.7,
+      "end": 192.74
+    },
+    {
+      "word": "que",
+      "start": 192.74,
+      "end": 192.78
+    },
+    {
+      "word": "la",
+      "start": 192.78,
+      "end": 193.08
+    },
+    {
+      "word": "verdad",
+      "start": 193.08,
+      "end": 193.26
+    },
+    {
+      "word": "es",
+      "start": 193.26,
+      "end": 193.36
+    },
+    {
+      "word": "que",
+      "start": 193.36,
+      "end": 193.36
+    },
+    {
+      "word": "la",
+      "start": 193.36,
+      "end": 193.36
+    },
+    {
+      "word": "verdad",
+      "start": 193.36,
+      "end": 193.36
+    },
+    {
+      "word": "es",
+      "start": 193.36,
+      "end": 193.4
+    },
+    {
+      "word": "que",
+      "start": 193.4,
+      "end": 193.4
+    },
+    {
+      "word": "la",
+      "start": 193.4,
+      "end": 193.4
+    },
+    {
+      "word": "verdad",
+      "start": 193.4,
+      "end": 193.4
+    },
+    {
+      "word": "es",
+      "start": 193.4,
+      "end": 193.6
+    },
+    {
+      "word": "que",
+      "start": 193.6,
+      "end": 193.6
+    },
+    {
+      "word": "la",
+      "start": 193.6,
+      "end": 193.6
+    },
+    {
+      "word": "verdad",
+      "start": 193.6,
+      "end": 193.6
+    },
+    {
+      "word": "es",
+      "start": 193.6,
+      "end": 193.66
+    },
+    {
+      "word": "que",
+      "start": 193.66,
+      "end": 193.76
+    },
+    {
+      "word": "la",
+      "start": 193.76,
+      "end": 194.12
+    },
+    {
+      "word": "verdad",
+      "start": 194.12,
+      "end": 194.12
+    },
+    {
+      "word": "es",
+      "start": 194.12,
+      "end": 194.36
+    },
+    {
+      "word": "que",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "la",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "verdad",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "es",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "que",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "la",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "verdad",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "es",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "que",
+      "start": 194.36,
+      "end": 194.36
+    },
+    {
+      "word": "la",
+      "start": 194.36,
+      "end": 195.26
+    },
+    {
+      "word": "verdad",
+      "start": 195.26,
+      "end": 195.5
+    },
+    {
+      "word": "es",
+      "start": 195.5,
+      "end": 197.3
+    },
+    {
+      "word": "que",
+      "start": 197.3,
+      "end": 197.48
+    },
+    {
+      "word": "la",
+      "start": 197.48,
+      "end": 198.34
+    },
+    {
+      "word": "verdad",
+      "start": 198.34,
+      "end": 198.68
+    },
+    {
+      "word": "es",
+      "start": 198.68,
+      "end": 198.68
+    },
+    {
+      "word": "que",
+      "start": 198.68,
+      "end": 198.92
+    },
+    {
+      "word": "la",
+      "start": 198.92,
+      "end": 199.52
+    },
+    {
+      "word": "verdad",
+      "start": 199.52,
+      "end": 199.52
+    },
+    {
+      "word": "es",
+      "start": 199.52,
+      "end": 199.52
+    },
+    {
+      "word": "que",
+      "start": 199.52,
+      "end": 199.52
+    },
+    {
+      "word": "la",
+      "start": 199.52,
+      "end": 199.62
+    },
+    {
+      "word": "verdad",
+      "start": 212.84,
+      "end": 213.22
+    },
+    {
+      "word": "es",
+      "start": 213.22,
+      "end": 213.6
+    },
+    {
+      "word": "que",
+      "start": 213.6,
+      "end": 213.72
+    },
+    {
+      "word": "la",
+      "start": 213.72,
+      "end": 213.72
+    },
+    {
+      "word": "verdad",
+      "start": 213.72,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "verdad",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "es",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "que",
+      "start": 213.76,
+      "end": 213.76
+    },
+    {
+      "word": "la",
+      "start": 213.76,
+      "end": 213.8
+    },
+    {
+      "word": "verdad",
+      "start": 213.8,
+      "end": 213.8
+    },
+    {
+      "word": "es",
+      "start": 213.8,
+      "end": 214.06
+    },
+    {
+      "word": "que",
+      "start": 214.06,
+      "end": 214.12
+    },
+    {
+      "word": "la",
+      "start": 214.12,
+      "end": 214.12
+    },
+    {
+      "word": "verdad",
+      "start": 214.12,
+      "end": 214.12
+    },
+    {
+      "word": "es",
+      "start": 214.12,
+      "end": 214.12
+    },
+    {
+      "word": "que",
+      "start": 214.12,
+      "end": 214.24
+    },
+    {
+      "word": "la",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "verdad",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "es",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "que",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "la",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "verdad",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "es",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "que",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "la",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "verdad",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "es",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "que",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "la",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "verdad",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "es",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "que",
+      "start": 214.24,
+      "end": 214.24
+    },
+    {
+      "word": "la",
+      "start": 214.24,
+      "end": 214.42
+    },
+    {
+      "word": "verdad",
+      "start": 214.42,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "es",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "que",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "la",
+      "start": 214.48,
+      "end": 214.48
+    },
+    {
+      "word": "verdad",
+      "start": 214.48,
+      "end": 214.56
+    },
+    {
+      "word": "es",
+      "start": 214.56,
+      "end": 214.56
+    },
+    {
+      "word": "que",
+      "start": 214.56,
+      "end": 214.56
+    },
+    {
+      "word": "la",
+      "start": 214.56,
+      "end": 214.68
+    },
+    {
+      "word": "verdad",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "es",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "que",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "la",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "verdad",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "es",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "que",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "la",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "verdad",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "es",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "que",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "la",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "verdad",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "es",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "que",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "la",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "verdad",
+      "start": 214.68,
+      "end": 214.68
+    },
+    {
+      "word": "es",
+      "start": 214.68,
+      "end": 214.84
+    },
+    {
+      "word": "que",
+      "start": 214.84,
+      "end": 214.84
+    },
+    {
+      "word": "la",
+      "start": 214.84,
+      "end": 214.84
+    },
+    {
+      "word": "verdad",
+      "start": 214.84,
+      "end": 214.84
+    },
+    {
+      "word": "es",
+      "start": 214.84,
+      "end": 214.9
+    },
+    {
+      "word": "que",
+      "start": 214.9,
+      "end": 214.9
+    },
+    {
+      "word": "la",
+      "start": 214.9,
+      "end": 215.1
+    },
+    {
+      "word": "verdad",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "es",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "que",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "la",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "verdad",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "es",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "que",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "la",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "verdad",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "es",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "que",
+      "start": 215.1,
+      "end": 215.1
+    },
+    {
+      "word": "la",
+      "start": 215.1,
+      "end": 215.4
+    },
+    {
+      "word": "verdad",
+      "start": 215.4,
+      "end": 215.4
+    },
+    {
+      "word": "es",
+      "start": 215.4,
+      "end": 215.4
+    },
+    {
+      "word": "que",
+      "start": 215.4,
+      "end": 215.4
+    },
+    {
+      "word": "la",
+      "start": 215.4,
+      "end": 215.86
+    },
+    {
+      "word": "verdad",
+      "start": 215.86,
+      "end": 215.86
+    },
+    {
+      "word": "es",
+      "start": 215.86,
+      "end": 215.86
+    },
+    {
+      "word": "que",
+      "start": 215.86,
+      "end": 215.86
+    },
+    {
+      "word": "la",
+      "start": 215.86,
+      "end": 215.86
+    },
+    {
+      "word": "verdad",
+      "start": 215.86,
+      "end": 216.3
+    },
+    {
+      "word": "es",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "que",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "la",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "verdad",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "es",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "que",
+      "start": 216.3,
+      "end": 216.3
+    },
+    {
+      "word": "la",
+      "start": 216.3,
+      "end": 216.34
+    },
+    {
+      "word": "verdad",
+      "start": 216.34,
+      "end": 216.34
+    },
+    {
+      "word": "es",
+      "start": 216.34,
+      "end": 216.34
+    },
+    {
+      "word": "que",
+      "start": 216.34,
+      "end": 216.34
+    },
+    {
+      "word": "la",
+      "start": 216.34,
+      "end": 216.86
+    },
+    {
+      "word": "verdad",
+      "start": 216.86,
+      "end": 216.86
+    },
+    {
+      "word": "es",
+      "start": 216.86,
+      "end": 216.86
+    },
+    {
+      "word": "que",
+      "start": 216.86,
+      "end": 216.86
+    },
+    {
+      "word": "la",
+      "start": 216.86,
+      "end": 216.86
+    },
+    {
+      "word": "verdad",
+      "start": 216.86,
+      "end": 217.18
+    },
+    {
+      "word": "es",
+      "start": 217.18,
+      "end": 217.18
+    },
+    {
+      "word": "que",
+      "start": 217.18,
+      "end": 217.18
+    },
+    {
+      "word": "la",
+      "start": 217.18,
+      "end": 217.18
+    },
+    {
+      "word": "verdad",
+      "start": 217.18,
+      "end": 217.18
+    },
+    {
+      "word": "es",
+      "start": 217.18,
+      "end": 217.4
+    },
+    {
+      "word": "que",
+      "start": 217.4,
+      "end": 217.4
+    },
+    {
+      "word": "la",
+      "start": 217.4,
+      "end": 217.62
+    },
+    {
+      "word": "verdad",
+      "start": 217.62,
+      "end": 217.62
+    },
+    {
+      "word": "es",
+      "start": 217.62,
+      "end": 217.8
+    },
+    {
+      "word": "que",
+      "start": 217.8,
+      "end": 217.8
+    },
+    {
+      "word": "la",
+      "start": 217.8,
+      "end": 217.82
+    },
+    {
+      "word": "verdad",
+      "start": 217.82,
+      "end": 217.92
+    },
+    {
+      "word": "es",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "que",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "la",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "verdad",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "es",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "que",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "la",
+      "start": 217.92,
+      "end": 217.92
+    },
+    {
+      "word": "verdad",
+      "start": 217.92,
+      "end": 218.4
+    },
+    {
+      "word": "es",
+      "start": 218.4,
+      "end": 218.68
+    },
+    {
+      "word": "que",
+      "start": 218.68,
+      "end": 218.68
+    },
+    {
+      "word": "la",
+      "start": 218.68,
+      "end": 221.8
+    },
+    {
+      "word": "verdad",
+      "start": 221.8,
+      "end": 222.42
+    },
+    {
+      "word": "es",
+      "start": 222.42,
+      "end": 222.42
+    },
+    {
+      "word": "que",
+      "start": 222.42,
+      "end": 222.42
+    },
+    {
+      "word": "la",
+      "start": 222.42,
+      "end": 224.88
+    },
+    {
+      "word": "verdad",
+      "start": 224.88,
+      "end": 225.04
+    },
+    {
+      "word": "es",
+      "start": 225.04,
+      "end": 225.04
+    },
+    {
+      "word": "que",
+      "start": 225.04,
+      "end": 225.04
+    },
+    {
+      "word": "la",
+      "start": 225.04,
+      "end": 225.04
+    },
+    {
+      "word": "verdad",
+      "start": 225.04,
+      "end": 225.2
+    },
+    {
+      "word": "es",
+      "start": 225.2,
+      "end": 225.34
+    },
+    {
+      "word": "que",
+      "start": 225.34,
+      "end": 225.38
+    },
+    {
+      "word": "la",
+      "start": 225.38,
+      "end": 225.72
+    },
+    {
+      "word": "verdad",
+      "start": 225.72,
+      "end": 226.16
+    },
+    {
+      "word": "es",
+      "start": 226.16,
+      "end": 226.76
+    },
+    {
+      "word": "que",
+      "start": 226.76,
+      "end": 226.96
+    },
+    {
+      "word": "la",
+      "start": 226.96,
+      "end": 227.16
+    },
+    {
+      "word": "verdad",
+      "start": 227.16,
+      "end": 227.34
+    },
+    {
+      "word": "es",
+      "start": 227.34,
+      "end": 227.44
+    },
+    {
+      "word": "que",
+      "start": 227.44,
+      "end": 227.44
+    },
+    {
+      "word": "la",
+      "start": 227.44,
+      "end": 228.54
+    },
+    {
+      "word": "verdad",
+      "start": 228.54,
+      "end": 228.54
+    },
+    {
+      "word": "es",
+      "start": 228.54,
+      "end": 228.54
+    },
+    {
+      "word": "que",
+      "start": 228.54,
+      "end": 228.54
+    },
+    {
+      "word": "la",
+      "start": 228.54,
+      "end": 228.54
+    },
+    {
+      "word": "verdad",
+      "start": 228.54,
+      "end": 228.72
+    },
+    {
+      "word": "es",
+      "start": 228.72,
+      "end": 228.9
+    },
+    {
+      "word": "que",
+      "start": 228.9,
+      "end": 228.9
+    },
+    {
+      "word": "la",
+      "start": 228.9,
+      "end": 229.6
+    },
+    {
+      "word": "verdad",
+      "start": 229.6,
+      "end": 229.6
+    },
+    {
+      "word": "que",
+      "start": 233.32,
+      "end": 233.8
+    },
+    {
+      "word": "la",
+      "start": 233.8,
+      "end": 234.28
+    },
+    {
+      "word": "verdad",
+      "start": 234.28,
+      "end": 234.94
+    },
+    {
+      "word": "es",
+      "start": 234.94,
+      "end": 235.18
+    },
+    {
+      "word": "que",
+      "start": 235.18,
+      "end": 235.4
+    },
+    {
+      "word": "la",
+      "start": 235.4,
+      "end": 235.66
+    },
+    {
+      "word": "verdad",
+      "start": 235.66,
+      "end": 235.7
+    },
+    {
+      "word": "es",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "que",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "la",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "verdad",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "es",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "que",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "la",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "verdad",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "es",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "que",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "la",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "verdad",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "es",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "que",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "la",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "verdad",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "es",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "que",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "la",
+      "start": 235.7,
+      "end": 235.7
+    },
+    {
+      "word": "verdad",
+      "start": 235.7,
+      "end": 235.84
+    },
+    {
+      "word": "es",
+      "start": 235.84,
+      "end": 235.98
+    },
+    {
+      "word": "que",
+      "start": 235.98,
+      "end": 235.98
+    },
+    {
+      "word": "la",
+      "start": 235.98,
+      "end": 236.28
+    },
+    {
+      "word": "verdad",
+      "start": 236.28,
+      "end": 236.56
+    },
+    {
+      "word": "es",
+      "start": 236.56,
+      "end": 236.56
+    },
+    {
+      "word": "que",
+      "start": 236.56,
+      "end": 236.58
+    },
+    {
+      "word": "la",
+      "start": 236.58,
+      "end": 237.58
+    },
+    {
+      "word": "verdad",
+      "start": 237.58,
+      "end": 237.94
+    },
+    {
+      "word": "es",
+      "start": 237.94,
+      "end": 238.22
+    },
+    {
+      "word": "que",
+      "start": 238.22,
+      "end": 238.22
+    },
+    {
+      "word": "la",
+      "start": 238.22,
+      "end": 238.22
+    },
+    {
+      "word": "verdad",
+      "start": 238.22,
+      "end": 238.58
+    },
+    {
+      "word": "es",
+      "start": 238.58,
+      "end": 238.82
+    },
+    {
+      "word": "que",
+      "start": 238.82,
+      "end": 238.82
+    },
+    {
+      "word": "la",
+      "start": 238.82,
+      "end": 238.82
+    },
+    {
+      "word": "verdad",
+      "start": 238.82,
+      "end": 239.76
+    },
+    {
+      "word": "es",
+      "start": 239.76,
+      "end": 239.76
+    },
+    {
+      "word": "que",
+      "start": 239.76,
+      "end": 239.76
+    },
+    {
+      "word": "la",
+      "start": 239.76,
+      "end": 240.0
+    },
+    {
+      "word": "verdad",
+      "start": 240.0,
+      "end": 240.0
+    },
+    {
+      "word": "es",
+      "start": 240.0,
+      "end": 240.0
+    },
+    {
+      "word": "que",
+      "start": 240.0,
+      "end": 240.0
+    },
+    {
+      "word": "la",
+      "start": 240.0,
+      "end": 240.0
+    },
+    {
+      "word": "verdad",
+      "start": 240.0,
+      "end": 240.16
+    },
+    {
+      "word": "es",
+      "start": 240.16,
+      "end": 240.16
+    },
+    {
+      "word": "que",
+      "start": 240.16,
+      "end": 240.16
+    },
+    {
+      "word": "la",
+      "start": 240.16,
+      "end": 240.16
+    },
+    {
+      "word": "verdad",
+      "start": 240.16,
+      "end": 240.24
+    },
+    {
+      "word": "es",
+      "start": 240.24,
+      "end": 242.3
+    },
+    {
+      "word": "que",
+      "start": 242.3,
+      "end": 242.3
+    },
+    {
+      "word": "la",
+      "start": 242.3,
+      "end": 242.32
+    },
+    {
+      "word": "verdad",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "es",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "que",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "la",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "verdad",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "es",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "que",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "la",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "verdad",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "es",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "que",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "la",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "verdad",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "es",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "que",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "la",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "verdad",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "es",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "que",
+      "start": 242.32,
+      "end": 242.32
+    },
+    {
+      "word": "la",
+      "start": 242.32,
+      "end": 242.88
+    },
+    {
+      "word": "verdad",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "es",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "que",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "la",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "verdad",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "es",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "que",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "la",
+      "start": 242.88,
+      "end": 242.88
+    },
+    {
+      "word": "verdad",
+      "start": 242.88,
+      "end": 243.06
+    },
+    {
+      "word": "es",
+      "start": 243.06,
+      "end": 243.3
+    },
+    {
+      "word": "que",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "la",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "verdad",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "es",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "que",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "la",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "verdad",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "es",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "que",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "la",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "verdad",
+      "start": 243.3,
+      "end": 243.3
+    },
+    {
+      "word": "es",
+      "start": 243.3,
+      "end": 243.36
+    },
+    {
+      "word": "que",
+      "start": 243.36,
+      "end": 243.36
+    },
+    {
+      "word": "la",
+      "start": 243.36,
+      "end": 243.58
+    },
+    {
+      "word": "verdad",
+      "start": 243.58,
+      "end": 243.58
+    },
+    {
+      "word": "es",
+      "start": 243.58,
+      "end": 244.56
+    },
+    {
+      "word": "que",
+      "start": 244.56,
+      "end": 244.56
+    },
+    {
+      "word": "la",
+      "start": 244.56,
+      "end": 245.16
+    },
+    {
+      "word": "verdad",
+      "start": 245.16,
+      "end": 245.16
+    },
+    {
+      "word": "es",
+      "start": 245.16,
+      "end": 245.16
+    },
+    {
+      "word": "que",
+      "start": 245.16,
+      "end": 245.16
+    },
+    {
+      "word": "la",
+      "start": 245.16,
+      "end": 245.64
+    },
+    {
+      "word": "verdad",
+      "start": 245.64,
+      "end": 245.9
+    },
+    {
+      "word": "es",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "que",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "la",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "verdad",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "es",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "que",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "la",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "verdad",
+      "start": 245.9,
+      "end": 245.9
+    },
+    {
+      "word": "es",
+      "start": 245.9,
+      "end": 245.98
+    },
+    {
+      "word": "que",
+      "start": 245.98,
+      "end": 245.98
+    },
+    {
+      "word": "la",
+      "start": 245.98,
+      "end": 245.98
+    },
+    {
+      "word": "verdad",
+      "start": 245.98,
+      "end": 245.98
+    },
+    {
+      "word": "es",
+      "start": 245.98,
+      "end": 245.98
+    },
+    {
+      "word": "que",
+      "start": 245.98,
+      "end": 245.98
+    },
+    {
+      "word": "la",
+      "start": 245.98,
+      "end": 246.22
+    },
+    {
+      "word": "verdad",
+      "start": 246.22,
+      "end": 246.22
+    },
+    {
+      "word": "es",
+      "start": 246.22,
+      "end": 246.22
+    },
+    {
+      "word": "que",
+      "start": 246.22,
+      "end": 246.22
+    },
+    {
+      "word": "la",
+      "start": 246.22,
+      "end": 246.22
+    },
+    {
+      "word": "verdad",
+      "start": 246.22,
+      "end": 246.4
+    },
+    {
+      "word": "es",
+      "start": 246.4,
+      "end": 246.4
+    },
+    {
+      "word": "que",
+      "start": 246.4,
+      "end": 246.4
+    },
+    {
+      "word": "la",
+      "start": 246.4,
+      "end": 246.44
+    },
+    {
+      "word": "verdad",
+      "start": 246.44,
+      "end": 246.44
+    },
+    {
+      "word": "es",
+      "start": 246.44,
+      "end": 246.44
+    },
+    {
+      "word": "que",
+      "start": 246.44,
+      "end": 246.44
+    },
+    {
+      "word": "la",
+      "start": 246.44,
+      "end": 246.86
+    },
+    {
+      "word": "verdad",
+      "start": 246.86,
+      "end": 247.34
+    },
+    {
+      "word": "es",
+      "start": 247.34,
+      "end": 247.68
+    },
+    {
+      "word": "que",
+      "start": 247.68,
+      "end": 247.68
+    },
+    {
+      "word": "la",
+      "start": 247.68,
+      "end": 247.68
+    },
+    {
+      "word": "verdad",
+      "start": 247.68,
+      "end": 247.68
+    },
+    {
+      "word": "es",
+      "start": 247.68,
+      "end": 247.68
+    },
+    {
+      "word": "que",
+      "start": 247.68,
+      "end": 247.68
+    },
+    {
+      "word": "la",
+      "start": 247.68,
+      "end": 247.94
+    },
+    {
+      "word": "verdad",
+      "start": 247.94,
+      "end": 248.06
+    },
+    {
+      "word": "es",
+      "start": 248.06,
+      "end": 248.08
+    },
+    {
+      "word": "que",
+      "start": 248.08,
+      "end": 248.36
+    },
+    {
+      "word": "la",
+      "start": 248.36,
+      "end": 248.4
+    },
+    {
+      "word": "verdad",
+      "start": 248.4,
+      "end": 248.4
+    },
+    {
+      "word": "es",
+      "start": 248.4,
+      "end": 248.4
+    },
+    {
+      "word": "que",
+      "start": 248.4,
+      "end": 248.4
+    },
+    {
+      "word": "la",
+      "start": 248.4,
+      "end": 248.42
+    },
+    {
+      "word": "verdad",
+      "start": 248.42,
+      "end": 248.56
+    },
+    {
+      "word": "es",
+      "start": 248.56,
+      "end": 248.76
+    },
+    {
+      "word": "que",
+      "start": 248.76,
+      "end": 249.02
+    },
+    {
+      "word": "la",
+      "start": 249.02,
+      "end": 249.3
+    },
+    {
+      "word": "verdad",
+      "start": 249.3,
+      "end": 249.36
+    },
+    {
+      "word": "es",
+      "start": 249.36,
+      "end": 250.7
+    },
+    {
+      "word": "que",
+      "start": 250.7,
+      "end": 250.78
+    },
+    {
+      "word": "la",
+      "start": 250.78,
+      "end": 250.78
+    },
+    {
+      "word": "verdad",
+      "start": 250.78,
+      "end": 250.78
+    },
+    {
+      "word": "es",
+      "start": 250.78,
+      "end": 250.78
+    },
+    {
+      "word": "que",
+      "start": 250.78,
+      "end": 250.9
+    },
+    {
+      "word": "la",
+      "start": 250.9,
+      "end": 250.9
+    },
+    {
+      "word": "verdad",
+      "start": 250.9,
+      "end": 251.04
+    },
+    {
+      "word": "es",
+      "start": 251.04,
+      "end": 251.04
+    },
+    {
+      "word": "que",
+      "start": 251.04,
+      "end": 251.04
+    },
+    {
+      "word": "la",
+      "start": 251.04,
+      "end": 251.04
+    },
+    {
+      "word": "verdad",
+      "start": 251.04,
+      "end": 251.28
+    },
+    {
+      "word": "es",
+      "start": 251.28,
+      "end": 251.42
+    },
+    {
+      "word": "que",
+      "start": 251.42,
+      "end": 251.66
+    },
+    {
+      "word": "la",
+      "start": 251.66,
+      "end": 252.7
+    },
+    {
+      "word": "verdad",
+      "start": 252.7,
+      "end": 253.1
+    },
+    {
+      "word": "es",
+      "start": 253.1,
+      "end": 253.1
+    },
+    {
+      "word": "que",
+      "start": 253.1,
+      "end": 253.34
+    },
+    {
+      "word": "la",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "verdad",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "es",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "que",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "la",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "verdad",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "es",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "que",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "la",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "verdad",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "es",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "que",
+      "start": 253.34,
+      "end": 253.34
+    },
+    {
+      "word": "la",
+      "start": 253.34,
+      "end": 253.54
+    },
+    {
+      "word": "verdad",
+      "start": 253.54,
+      "end": 253.56
+    },
+    {
+      "word": "es",
+      "start": 253.56,
+      "end": 253.56
+    },
+    {
+      "word": "que",
+      "start": 253.56,
+      "end": 253.56
+    },
+    {
+      "word": "la",
+      "start": 253.56,
+      "end": 253.56
+    },
+    {
+      "word": "verdad",
+      "start": 253.56,
+      "end": 253.74
+    },
+    {
+      "word": "es",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "que",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "la",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "verdad",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "es",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "que",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "la",
+      "start": 253.74,
+      "end": 253.74
+    },
+    {
+      "word": "verdad",
+      "start": 253.74,
+      "end": 253.78
+    },
+    {
+      "word": "es",
+      "start": 253.78,
+      "end": 254.16
+    },
+    {
+      "word": "que",
+      "start": 254.16,
+      "end": 254.32
+    },
+    {
+      "word": "la",
+      "start": 254.32,
+      "end": 254.32
+    },
+    {
+      "word": "verdad",
+      "start": 254.32,
+      "end": 254.32
+    },
+    {
+      "word": "es",
+      "start": 254.32,
+      "end": 254.32
+    },
+    {
+      "word": "que",
+      "start": 254.32,
+      "end": 254.32
+    },
+    {
+      "word": "la",
+      "start": 254.32,
+      "end": 255.38
+    },
+    {
+      "word": "verdad",
+      "start": 255.38,
+      "end": 255.66
+    },
+    {
+      "word": "es",
+      "start": 255.66,
+      "end": 255.78
+    },
+    {
+      "word": "que",
+      "start": 255.78,
+      "end": 256.0
+    },
+    {
+      "word": "la",
+      "start": 256.0,
+      "end": 256.28
+    },
+    {
+      "word": "verdad",
+      "start": 256.28,
+      "end": 256.28
+    },
+    {
+      "word": "es",
+      "start": 256.28,
+      "end": 256.42
+    },
+    {
+      "word": "que",
+      "start": 256.42,
+      "end": 257.26
+    },
+    {
+      "word": "la",
+      "start": 257.26,
+      "end": 257.74
+    },
+    {
+      "word": "verdad",
+      "start": 257.74,
+      "end": 258.36
+    },
+    {
+      "word": "es",
+      "start": 258.36,
+      "end": 258.36
+    },
+    {
+      "word": "que",
+      "start": 258.36,
+      "end": 258.36
+    },
+    {
+      "word": "la",
+      "start": 263.68,
+      "end": 264.12
+    },
+    {
+      "word": "verdad",
+      "start": 264.12,
+      "end": 264.2
+    },
+    {
+      "word": "es",
+      "start": 264.2,
+      "end": 264.62
+    },
+    {
+      "word": "que",
+      "start": 264.62,
+      "end": 264.62
+    },
+    {
+      "word": "la",
+      "start": 264.62,
+      "end": 264.74
+    },
+    {
+      "word": "verdad",
+      "start": 264.74,
+      "end": 264.94
+    },
+    {
+      "word": "es",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "que",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "la",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "verdad",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "es",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "que",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "la",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "verdad",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "es",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "que",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "la",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "verdad",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "es",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "que",
+      "start": 264.94,
+      "end": 264.94
+    },
+    {
+      "word": "la",
+      "start": 264.94,
+      "end": 264.98
+    },
+    {
+      "word": "verdad",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "es",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "que",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "la",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "verdad",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "es",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "que",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "la",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "verdad",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "es",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "que",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "la",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "verdad",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "es",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "que",
+      "start": 264.98,
+      "end": 264.98
+    },
+    {
+      "word": "la",
+      "start": 264.98,
+      "end": 265.64
+    },
+    {
+      "word": "verdad",
+      "start": 265.64,
+      "end": 265.86
+    },
+    {
+      "word": "es",
+      "start": 265.86,
+      "end": 265.86
+    },
+    {
+      "word": "que",
+      "start": 265.86,
+      "end": 265.86
+    },
+    {
+      "word": "la",
+      "start": 265.86,
+      "end": 266.58
+    },
+    {
+      "word": "verdad",
+      "start": 266.58,
+      "end": 267.08
+    },
+    {
+      "word": "es",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "que",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "la",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "verdad",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "es",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "que",
+      "start": 267.08,
+      "end": 267.08
+    },
+    {
+      "word": "la",
+      "start": 267.08,
+      "end": 267.52
+    },
+    {
+      "word": "verdad",
+      "start": 267.52,
+      "end": 267.52
+    },
+    {
+      "word": "es",
+      "start": 267.52,
+      "end": 267.52
+    },
+    {
+      "word": "que",
+      "start": 267.52,
+      "end": 267.52
+    },
+    {
+      "word": "la",
+      "start": 267.52,
+      "end": 269.0
+    },
+    {
+      "word": "verdad",
+      "start": 269.0,
+      "end": 269.0
+    },
+    {
+      "word": "es",
+      "start": 269.0,
+      "end": 271.34
+    },
+    {
+      "word": "que",
+      "start": 271.34,
+      "end": 271.34
+    },
+    {
+      "word": "la",
+      "start": 271.34,
+      "end": 271.46
+    },
+    {
+      "word": "verdad",
+      "start": 271.46,
+      "end": 271.46
+    },
+    {
+      "word": "es",
+      "start": 271.46,
+      "end": 271.46
+    },
+    {
+      "word": "que",
+      "start": 271.46,
+      "end": 271.62
+    },
+    {
+      "word": "la",
+      "start": 271.62,
+      "end": 271.64
+    },
+    {
+      "word": "verdad",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "es",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "que",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "la",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "verdad",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "es",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "que",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "la",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "verdad",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "es",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "que",
+      "start": 271.64,
+      "end": 271.64
+    },
+    {
+      "word": "la",
+      "start": 271.64,
+      "end": 271.98
+    },
+    {
+      "word": "verdad",
+      "start": 271.98,
+      "end": 271.98
+    },
+    {
+      "word": "es",
+      "start": 271.98,
+      "end": 272.0
+    },
+    {
+      "word": "que",
+      "start": 272.0,
+      "end": 272.06
+    },
+    {
+      "word": "la",
+      "start": 272.06,
+      "end": 272.06
+    },
+    {
+      "word": "verdad",
+      "start": 272.06,
+      "end": 272.06
+    },
+    {
+      "word": "es",
+      "start": 272.06,
+      "end": 272.06
+    },
+    {
+      "word": "que",
+      "start": 272.06,
+      "end": 272.06
+    },
+    {
+      "word": "la",
+      "start": 272.06,
+      "end": 272.18
+    },
+    {
+      "word": "verdad",
+      "start": 272.18,
+      "end": 272.18
+    },
+    {
+      "word": "es",
+      "start": 272.18,
+      "end": 272.18
+    },
+    {
+      "word": "que",
+      "start": 272.18,
+      "end": 272.18
+    },
+    {
+      "word": "la",
+      "start": 272.18,
+      "end": 272.18
+    },
+    {
+      "word": "verdad",
+      "start": 272.18,
+      "end": 272.18
+    },
+    {
+      "word": "es",
+      "start": 272.18,
+      "end": 272.34
+    },
+    {
+      "word": "que",
+      "start": 272.34,
+      "end": 272.34
+    },
+    {
+      "word": "la",
+      "start": 272.34,
+      "end": 272.52
+    },
+    {
+      "word": "verdad",
+      "start": 272.52,
+      "end": 272.52
+    },
+    {
+      "word": "es",
+      "start": 272.52,
+      "end": 272.92
+    },
+    {
+      "word": "que",
+      "start": 272.92,
+      "end": 272.92
+    },
+    {
+      "word": "la",
+      "start": 272.92,
+      "end": 273.02
+    },
+    {
+      "word": "verdad",
+      "start": 273.02,
+      "end": 273.02
+    },
+    {
+      "word": "es",
+      "start": 273.02,
+      "end": 273.44
+    },
+    {
+      "word": "que",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "la",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "verdad",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "es",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "que",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "la",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "verdad",
+      "start": 273.44,
+      "end": 273.44
+    },
+    {
+      "word": "es",
+      "start": 273.44,
+      "end": 273.48
+    },
+    {
+      "word": "que",
+      "start": 273.48,
+      "end": 273.48
+    },
+    {
+      "word": "la",
+      "start": 273.48,
+      "end": 274.0
+    },
+    {
+      "word": "verdad",
+      "start": 274.0,
+      "end": 274.38
+    },
+    {
+      "word": "es",
+      "start": 274.38,
+      "end": 274.38
+    },
+    {
+      "word": "que",
+      "start": 274.38,
+      "end": 274.38
+    },
+    {
+      "word": "la",
+      "start": 274.38,
+      "end": 274.6
+    },
+    {
+      "word": "verdad",
+      "start": 274.6,
+      "end": 274.6
+    },
+    {
+      "word": "es",
+      "start": 274.6,
+      "end": 274.6
+    },
+    {
+      "word": "que",
+      "start": 274.6,
+      "end": 274.82
+    },
+    {
+      "word": "la",
+      "start": 274.82,
+      "end": 274.84
+    },
+    {
+      "word": "verdad",
+      "start": 274.84,
+      "end": 274.96
+    },
+    {
+      "word": "es",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "que",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "la",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "verdad",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "es",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "que",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "la",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "verdad",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "es",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "que",
+      "start": 274.96,
+      "end": 274.96
+    },
+    {
+      "word": "la",
+      "start": 274.96,
+      "end": 275.2
+    },
+    {
+      "word": "verdad",
+      "start": 275.2,
+      "end": 275.36
+    },
+    {
+      "word": "es",
+      "start": 275.36,
+      "end": 275.52
+    },
+    {
+      "word": "que",
+      "start": 275.52,
+      "end": 275.52
+    },
+    {
+      "word": "la",
+      "start": 275.52,
+      "end": 275.6
+    },
+    {
+      "word": "verdad",
+      "start": 275.6,
+      "end": 275.72
+    },
+    {
+      "word": "es",
+      "start": 275.72,
+      "end": 276.12
+    },
+    {
+      "word": "que",
+      "start": 276.12,
+      "end": 276.12
+    },
+    {
+      "word": "la",
+      "start": 276.12,
+      "end": 276.12
+    },
+    {
+      "word": "verdad",
+      "start": 276.12,
+      "end": 276.44
+    },
+    {
+      "word": "es",
+      "start": 276.44,
+      "end": 277.0
+    },
+    {
+      "word": "que",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "la",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "verdad",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "es",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "que",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "la",
+      "start": 277.0,
+      "end": 277.0
+    },
+    {
+      "word": "verdad",
+      "start": 277.0,
+      "end": 277.36
+    },
+    {
+      "word": "es",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "que",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "la",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "verdad",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "es",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "que",
+      "start": 277.36,
+      "end": 277.36
+    },
+    {
+      "word": "la",
+      "start": 277.36,
+      "end": 277.9
+    },
+    {
+      "word": "verdad",
+      "start": 277.9,
+      "end": 277.9
+    },
+    {
+      "word": "es",
+      "start": 277.9,
+      "end": 278.28
+    },
+    {
+      "word": "que",
+      "start": 278.28,
+      "end": 278.64
+    },
+    {
+      "word": "la",
+      "start": 278.64,
+      "end": 278.84
+    },
+    {
+      "word": "verdad",
+      "start": 278.84,
+      "end": 278.84
+    },
+    {
+      "word": "es",
+      "start": 278.84,
+      "end": 279.48
+    },
+    {
+      "word": "que",
+      "start": 279.48,
+      "end": 280.12
+    },
+    {
+      "word": "la",
+      "start": 280.12,
+      "end": 280.36
+    },
+    {
+      "word": "verdad",
+      "start": 280.36,
+      "end": 280.58
+    },
+    {
+      "word": "es",
+      "start": 280.58,
+      "end": 280.6
+    },
+    {
+      "word": "que",
+      "start": 280.6,
+      "end": 280.6
+    },
+    {
+      "word": "la",
+      "start": 280.6,
+      "end": 281.7
+    },
+    {
+      "word": "verdad",
+      "start": 281.7,
+      "end": 281.9
+    },
+    {
+      "word": "es",
+      "start": 281.9,
+      "end": 282.3
+    },
+    {
+      "word": "que",
+      "start": 282.3,
+      "end": 282.3
+    },
+    {
+      "word": "la",
+      "start": 282.3,
+      "end": 282.56
+    },
+    {
+      "word": "verdad",
+      "start": 282.56,
+      "end": 283.28
+    },
+    {
+      "word": "es",
+      "start": 283.28,
+      "end": 283.36
+    },
+    {
+      "word": "que",
+      "start": 283.36,
+      "end": 283.4
+    },
+    {
+      "word": "la",
+      "start": 283.4,
+      "end": 283.82
+    },
+    {
+      "word": "verdad",
+      "start": 283.82,
+      "end": 283.94
+    },
+    {
+      "word": "es",
+      "start": 283.94,
+      "end": 283.94
+    },
+    {
+      "word": "que",
+      "start": 283.94,
+      "end": 283.94
+    },
+    {
+      "word": "la",
+      "start": 283.94,
+      "end": 284.3
+    },
+    {
+      "word": "verdad",
+      "start": 284.3,
+      "end": 284.32
+    },
+    {
+      "word": "es",
+      "start": 284.32,
+      "end": 284.32
+    },
+    {
+      "word": "que",
+      "start": 284.32,
+      "end": 284.32
+    },
+    {
+      "word": "la",
+      "start": 284.32,
+      "end": 284.4
+    },
+    {
+      "word": "verdad",
+      "start": 284.4,
+      "end": 284.4
+    },
+    {
+      "word": "es",
+      "start": 284.4,
+      "end": 284.4
+    },
+    {
+      "word": "que",
+      "start": 284.4,
+      "end": 284.4
+    },
+    {
+      "word": "la",
+      "start": 284.4,
+      "end": 284.4
+    },
+    {
+      "word": "verdad",
+      "start": 284.4,
+      "end": 284.58
+    },
+    {
+      "word": "es",
+      "start": 284.58,
+      "end": 284.76
+    },
+    {
+      "word": "que",
+      "start": 284.76,
+      "end": 284.76
+    },
+    {
+      "word": "la",
+      "start": 284.76,
+      "end": 284.76
+    },
+    {
+      "word": "verdad",
+      "start": 284.76,
+      "end": 284.78
+    },
+    {
+      "word": "es",
+      "start": 284.78,
+      "end": 284.78
+    },
+    {
+      "word": "que",
+      "start": 284.78,
+      "end": 284.78
+    },
+    {
+      "word": "la",
+      "start": 284.78,
+      "end": 284.78
+    },
+    {
+      "word": "verdad",
+      "start": 284.78,
+      "end": 285.04
+    },
+    {
+      "word": "es",
+      "start": 285.04,
+      "end": 285.28
+    },
+    {
+      "word": "que",
+      "start": 285.28,
+      "end": 285.28
+    },
+    {
+      "word": "la",
+      "start": 285.28,
+      "end": 285.28
+    },
+    {
+      "word": "verdad",
+      "start": 285.28,
+      "end": 285.66
+    },
+    {
+      "word": "es",
+      "start": 285.66,
+      "end": 285.66
+    },
+    {
+      "word": "que",
+      "start": 285.66,
+      "end": 285.7
+    },
+    {
+      "word": "la",
+      "start": 285.7,
+      "end": 285.76
+    },
+    {
+      "word": "verdad",
+      "start": 285.76,
+      "end": 285.76
+    },
+    {
+      "word": "es",
+      "start": 285.76,
+      "end": 285.76
+    },
+    {
+      "word": "que",
+      "start": 285.76,
+      "end": 285.76
+    },
+    {
+      "word": "la",
+      "start": 285.76,
+      "end": 287.84
+    },
+    {
+      "word": "verdad",
+      "start": 287.84,
+      "end": 287.84
+    },
+    {
+      "word": "es",
+      "start": 287.84,
+      "end": 287.84
+    },
+    {
+      "word": "que",
+      "start": 287.84,
+      "end": 287.84
+    },
+    {
+      "word": "la",
+      "start": 287.84,
+      "end": 288.08
+    },
+    {
+      "word": "verdad",
+      "start": 288.08,
+      "end": 288.08
+    },
+    {
+      "word": "es",
+      "start": 288.08,
+      "end": 288.08
+    },
+    {
+      "word": "que",
+      "start": 288.08,
+      "end": 288.08
+    },
+    {
+      "word": "la",
+      "start": 288.08,
+      "end": 288.26
+    },
+    {
+      "word": "verdad",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "es",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "que",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "la",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "verdad",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "es",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "que",
+      "start": 288.26,
+      "end": 288.26
+    },
+    {
+      "word": "la",
+      "start": 288.26,
+      "end": 288.34
+    },
+    {
+      "word": "verdad",
+      "start": 288.34,
+      "end": 288.34
+    },
+    {
+      "word": "es",
+      "start": 288.34,
+      "end": 288.34
+    },
+    {
+      "word": "que",
+      "start": 288.34,
+      "end": 288.34
+    },
+    {
+      "word": "la",
+      "start": 288.34,
+      "end": 288.34
+    },
+    {
+      "word": "la",
+      "start": 292.82,
+      "end": 293.2
+    },
+    {
+      "word": "verdad",
+      "start": 293.2,
+      "end": 293.58
+    },
+    {
+      "word": "es",
+      "start": 293.58,
+      "end": 293.98
+    },
+    {
+      "word": "que",
+      "start": 293.98,
+      "end": 293.98
+    },
+    {
+      "word": "la",
+      "start": 293.98,
+      "end": 294.02
+    },
+    {
+      "word": "verdad",
+      "start": 294.02,
+      "end": 294.56
+    },
+    {
+      "word": "es",
+      "start": 294.56,
+      "end": 294.56
+    },
+    {
+      "word": "que",
+      "start": 294.56,
+      "end": 294.7
+    },
+    {
+      "word": "la",
+      "start": 294.7,
+      "end": 294.7
+    },
+    {
+      "word": "verdad",
+      "start": 294.7,
+      "end": 294.7
+    },
+    {
+      "word": "es",
+      "start": 294.7,
+      "end": 294.7
+    },
+    {
+      "word": "que",
+      "start": 294.7,
+      "end": 294.7
+    },
+    {
+      "word": "la",
+      "start": 294.7,
+      "end": 294.76
+    },
+    {
+      "word": "verdad",
+      "start": 294.76,
+      "end": 294.84
+    },
+    {
+      "word": "es",
+      "start": 294.84,
+      "end": 294.84
+    },
+    {
+      "word": "que",
+      "start": 294.84,
+      "end": 294.84
+    },
+    {
+      "word": "la",
+      "start": 294.84,
+      "end": 294.84
+    },
+    {
+      "word": "verdad",
+      "start": 294.84,
+      "end": 295.04
+    },
+    {
+      "word": "es",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "que",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "la",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "verdad",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "es",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "que",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "la",
+      "start": 295.04,
+      "end": 295.04
+    },
+    {
+      "word": "verdad",
+      "start": 295.04,
+      "end": 295.3
+    },
+    {
+      "word": "es",
+      "start": 295.3,
+      "end": 295.58
+    },
+    {
+      "word": "que",
+      "start": 295.58,
+      "end": 295.58
+    },
+    {
+      "word": "la",
+      "start": 295.58,
+      "end": 295.58
+    },
+    {
+      "word": "verdad",
+      "start": 295.58,
+      "end": 295.58
+    },
+    {
+      "word": "es",
+      "start": 295.58,
+      "end": 295.58
+    },
+    {
+      "word": "que",
+      "start": 295.58,
+      "end": 295.58
+    },
+    {
+      "word": "la",
+      "start": 295.58,
+      "end": 295.6
+    },
+    {
+      "word": "verdad",
+      "start": 295.6,
+      "end": 295.86
+    },
+    {
+      "word": "es",
+      "start": 295.86,
+      "end": 296.14
+    },
+    {
+      "word": "que",
+      "start": 296.14,
+      "end": 296.26
+    },
+    {
+      "word": "la",
+      "start": 296.26,
+      "end": 296.34
+    },
+    {
+      "word": "verdad",
+      "start": 296.34,
+      "end": 296.4
+    },
+    {
+      "word": "es",
+      "start": 296.4,
+      "end": 296.72
+    },
+    {
+      "word": "que",
+      "start": 296.72,
+      "end": 296.72
+    },
+    {
+      "word": "la",
+      "start": 296.72,
+      "end": 297.6
+    },
+    {
+      "word": "verdad",
+      "start": 297.6,
+      "end": 297.84
+    },
+    {
+      "word": "es",
+      "start": 297.84,
+      "end": 297.84
+    },
+    {
+      "word": "que",
+      "start": 297.84,
+      "end": 297.84
+    },
+    {
+      "word": "la",
+      "start": 297.84,
+      "end": 298.82
+    },
+    {
+      "word": "verdad",
+      "start": 298.82,
+      "end": 298.82
+    },
+    {
+      "word": "es",
+      "start": 298.82,
+      "end": 299.08
+    },
+    {
+      "word": "que",
+      "start": 299.08,
+      "end": 299.08
+    },
+    {
+      "word": "la",
+      "start": 299.08,
+      "end": 299.1
+    },
+    {
+      "word": "verdad",
+      "start": 299.1,
+      "end": 299.1
+    },
+    {
+      "word": "es",
+      "start": 299.1,
+      "end": 299.1
+    },
+    {
+      "word": "que",
+      "start": 299.1,
+      "end": 299.24
+    },
+    {
+      "word": "la",
+      "start": 299.24,
+      "end": 299.28
+    },
+    {
+      "word": "verdad",
+      "start": 299.28,
+      "end": 299.28
+    },
+    {
+      "word": "es",
+      "start": 299.28,
+      "end": 300.06
+    },
+    {
+      "word": "que",
+      "start": 300.06,
+      "end": 300.2
+    },
+    {
+      "word": "la",
+      "start": 300.2,
+      "end": 300.56
+    },
+    {
+      "word": "verdad",
+      "start": 300.56,
+      "end": 300.74
+    },
+    {
+      "word": "es",
+      "start": 300.74,
+      "end": 301.0
+    },
+    {
+      "word": "que",
+      "start": 301.0,
+      "end": 301.0
+    },
+    {
+      "word": "la",
+      "start": 301.0,
+      "end": 301.9
+    },
+    {
+      "word": "verdad",
+      "start": 301.9,
+      "end": 301.94
+    },
+    {
+      "word": "es",
+      "start": 301.94,
+      "end": 301.98
+    },
+    {
+      "word": "que",
+      "start": 301.98,
+      "end": 301.98
+    },
+    {
+      "word": "la",
+      "start": 301.98,
+      "end": 301.98
+    },
+    {
+      "word": "verdad",
+      "start": 301.98,
+      "end": 301.98
+    },
+    {
+      "word": "es",
+      "start": 301.98,
+      "end": 302.26
+    },
+    {
+      "word": "que",
+      "start": 302.26,
+      "end": 302.26
+    },
+    {
+      "word": "la",
+      "start": 302.26,
+      "end": 302.32
+    },
+    {
+      "word": "verdad",
+      "start": 302.32,
+      "end": 302.32
+    },
+    {
+      "word": "es",
+      "start": 302.32,
+      "end": 302.36
+    },
+    {
+      "word": "que",
+      "start": 302.36,
+      "end": 302.36
+    },
+    {
+      "word": "la",
+      "start": 302.36,
+      "end": 302.36
+    },
+    {
+      "word": "verdad",
+      "start": 302.36,
+      "end": 302.5
+    },
+    {
+      "word": "es",
+      "start": 302.5,
+      "end": 302.88
+    },
+    {
+      "word": "que",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "la",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "verdad",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "es",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "que",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "la",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "verdad",
+      "start": 302.88,
+      "end": 302.88
+    },
+    {
+      "word": "es",
+      "start": 302.88,
+      "end": 303.06
+    },
+    {
+      "word": "que",
+      "start": 303.06,
+      "end": 303.06
+    },
+    {
+      "word": "la",
+      "start": 303.06,
+      "end": 303.06
+    },
+    {
+      "word": "verdad",
+      "start": 303.06,
+      "end": 303.24
+    },
+    {
+      "word": "es",
+      "start": 303.24,
+      "end": 303.26
+    },
+    {
+      "word": "que",
+      "start": 303.26,
+      "end": 303.62
+    },
+    {
+      "word": "la",
+      "start": 303.62,
+      "end": 303.8
+    },
+    {
+      "word": "verdad",
+      "start": 303.8,
+      "end": 304.36
+    },
+    {
+      "word": "es",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "que",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "la",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "verdad",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "es",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "que",
+      "start": 304.36,
+      "end": 304.36
+    },
+    {
+      "word": "la",
+      "start": 304.36,
+      "end": 305.34
+    },
+    {
+      "word": "verdad",
+      "start": 305.34,
+      "end": 305.4
+    },
+    {
+      "word": "es",
+      "start": 305.4,
+      "end": 305.4
+    },
+    {
+      "word": "que",
+      "start": 305.4,
+      "end": 305.4
+    },
+    {
+      "word": "la",
+      "start": 305.4,
+      "end": 305.4
+    },
+    {
+      "word": "verdad",
+      "start": 305.4,
+      "end": 305.44
+    },
+    {
+      "word": "es",
+      "start": 305.44,
+      "end": 305.86
+    },
+    {
+      "word": "que",
+      "start": 305.86,
+      "end": 306.1
+    },
+    {
+      "word": "la",
+      "start": 306.1,
+      "end": 306.1
+    },
+    {
+      "word": "verdad",
+      "start": 306.1,
+      "end": 306.1
+    },
+    {
+      "word": "es",
+      "start": 306.1,
+      "end": 306.1
+    },
+    {
+      "word": "que",
+      "start": 306.1,
+      "end": 306.1
+    },
+    {
+      "word": "la",
+      "start": 306.1,
+      "end": 306.24
+    },
+    {
+      "word": "verdad",
+      "start": 306.24,
+      "end": 306.66
+    },
+    {
+      "word": "es",
+      "start": 306.66,
+      "end": 306.88
+    },
+    {
+      "word": "que",
+      "start": 306.88,
+      "end": 307.04
+    },
+    {
+      "word": "la",
+      "start": 307.04,
+      "end": 307.18
+    },
+    {
+      "word": "verdad",
+      "start": 307.18,
+      "end": 307.96
+    },
+    {
+      "word": "es",
+      "start": 307.96,
+      "end": 308.24
+    },
+    {
+      "word": "que",
+      "start": 308.24,
+      "end": 308.24
+    },
+    {
+      "word": "la",
+      "start": 308.24,
+      "end": 308.24
+    },
+    {
+      "word": "verdad",
+      "start": 308.24,
+      "end": 308.24
+    },
+    {
+      "word": "es",
+      "start": 308.24,
+      "end": 308.24
+    },
+    {
+      "word": "que",
+      "start": 308.24,
+      "end": 308.24
+    },
+    {
+      "word": "la",
+      "start": 308.24,
+      "end": 308.34
+    },
+    {
+      "word": "verdad",
+      "start": 308.34,
+      "end": 308.36
+    },
+    {
+      "word": "es",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "que",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "la",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "verdad",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "es",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "que",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "la",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "verdad",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "es",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "que",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "la",
+      "start": 308.36,
+      "end": 308.36
+    },
+    {
+      "word": "verdad",
+      "start": 308.36,
+      "end": 308.52
+    },
+    {
+      "word": "es",
+      "start": 308.52,
+      "end": 309.08
+    },
+    {
+      "word": "que",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "la",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "verdad",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "es",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "que",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "la",
+      "start": 309.08,
+      "end": 309.08
+    },
+    {
+      "word": "verdad",
+      "start": 309.08,
+      "end": 309.26
+    },
+    {
+      "word": "es",
+      "start": 309.26,
+      "end": 309.38
+    },
+    {
+      "word": "que",
+      "start": 309.38,
+      "end": 309.54
+    },
+    {
+      "word": "la",
+      "start": 309.54,
+      "end": 309.6
+    },
+    {
+      "word": "verdad",
+      "start": 309.6,
+      "end": 309.92
+    },
+    {
+      "word": "es",
+      "start": 309.92,
+      "end": 310.26
+    },
+    {
+      "word": "que",
+      "start": 310.26,
+      "end": 310.28
+    },
+    {
+      "word": "la",
+      "start": 310.28,
+      "end": 310.36
+    },
+    {
+      "word": "verdad",
+      "start": 310.36,
+      "end": 310.36
+    },
+    {
+      "word": "es",
+      "start": 310.36,
+      "end": 310.36
+    },
+    {
+      "word": "que",
+      "start": 310.36,
+      "end": 310.72
+    },
+    {
+      "word": "la",
+      "start": 310.72,
+      "end": 310.74
+    },
+    {
+      "word": "verdad",
+      "start": 310.74,
+      "end": 311.3
+    },
+    {
+      "word": "es",
+      "start": 311.3,
+      "end": 311.3
+    },
+    {
+      "word": "que",
+      "start": 311.3,
+      "end": 311.48
+    },
+    {
+      "word": "la",
+      "start": 311.48,
+      "end": 311.48
+    },
+    {
+      "word": "verdad",
+      "start": 311.48,
+      "end": 311.48
+    },
+    {
+      "word": "es",
+      "start": 311.48,
+      "end": 311.48
+    },
+    {
+      "word": "que",
+      "start": 311.48,
+      "end": 311.48
+    },
+    {
+      "word": "la",
+      "start": 311.48,
+      "end": 311.48
+    },
+    {
+      "word": "verdad",
+      "start": 311.48,
+      "end": 311.56
+    },
+    {
+      "word": "es",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "que",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "la",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "verdad",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "es",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "que",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "la",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "verdad",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "es",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "que",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "la",
+      "start": 311.56,
+      "end": 311.56
+    },
+    {
+      "word": "verdad",
+      "start": 311.56,
+      "end": 311.7
+    },
+    {
+      "word": "es",
+      "start": 311.7,
+      "end": 311.7
+    },
+    {
+      "word": "que",
+      "start": 311.7,
+      "end": 312.0
+    },
+    {
+      "word": "la",
+      "start": 312.0,
+      "end": 312.0
+    },
+    {
+      "word": "verdad",
+      "start": 312.0,
+      "end": 312.0
+    },
+    {
+      "word": "es",
+      "start": 312.0,
+      "end": 312.0
+    },
+    {
+      "word": "que",
+      "start": 312.0,
+      "end": 312.0
+    },
+    {
+      "word": "la",
+      "start": 312.0,
+      "end": 312.0
+    },
+    {
+      "word": "verdad",
+      "start": 312.0,
+      "end": 312.22
+    },
+    {
+      "word": "es",
+      "start": 312.22,
+      "end": 312.58
+    },
+    {
+      "word": "que",
+      "start": 312.58,
+      "end": 312.66
+    },
+    {
+      "word": "la",
+      "start": 312.66,
+      "end": 312.66
+    },
+    {
+      "word": "verdad",
+      "start": 312.66,
+      "end": 312.66
+    },
+    {
+      "word": "es",
+      "start": 312.66,
+      "end": 312.66
+    },
+    {
+      "word": "que",
+      "start": 312.66,
+      "end": 312.66
+    },
+    {
+      "word": "la",
+      "start": 312.66,
+      "end": 312.66
+    },
+    {
+      "word": "verdad",
+      "start": 312.66,
+      "end": 312.82
+    },
+    {
+      "word": "es",
+      "start": 312.82,
+      "end": 312.82
+    },
+    {
+      "word": "que",
+      "start": 312.82,
+      "end": 312.82
+    },
+    {
+      "word": "la",
+      "start": 312.82,
+      "end": 312.82
+    },
+    {
+      "word": "verdad",
+      "start": 312.82,
+      "end": 312.82
+    },
+    {
+      "word": "es",
+      "start": 312.82,
+      "end": 312.82
+    },
+    {
+      "word": "que",
+      "start": 312.82,
+      "end": 312.88
+    },
+    {
+      "word": "la",
+      "start": 312.88,
+      "end": 314.46
+    },
+    {
+      "word": "verdad",
+      "start": 314.46,
+      "end": 314.68
+    },
+    {
+      "word": "es",
+      "start": 314.68,
+      "end": 314.72
+    },
+    {
+      "word": "que",
+      "start": 314.72,
+      "end": 315.58
+    },
+    {
+      "word": "la",
+      "start": 315.58,
+      "end": 315.58
+    },
+    {
+      "word": "verdad",
+      "start": 315.58,
+      "end": 315.58
+    },
+    {
+      "word": "es",
+      "start": 315.58,
+      "end": 315.58
+    },
+    {
+      "word": "que",
+      "start": 315.58,
+      "end": 315.58
+    },
+    {
+      "word": "la",
+      "start": 315.58,
+      "end": 317.46
+    },
+    {
+      "word": "verdad",
+      "start": 317.46,
+      "end": 317.84
+    },
+    {
+      "word": "es",
+      "start": 317.84,
+      "end": 317.84
+    },
+    {
+      "word": "que",
+      "start": 317.84,
+      "end": 318.08
+    },
+    {
+      "word": "la",
+      "start": 318.08,
+      "end": 318.32
+    },
+    {
+      "word": "verdad",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "es",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "que",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "la",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "verdad",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "es",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "que",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "la",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "verdad",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "es",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "que",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "la",
+      "start": 318.32,
+      "end": 318.32
+    },
+    {
+      "word": "verdad",
+      "start": 334.4,
+      "end": 334.88
+    },
+    {
+      "word": "es",
+      "start": 334.88,
+      "end": 335.36
+    },
+    {
+      "word": "que",
+      "start": 335.36,
+      "end": 337.3
+    },
+    {
+      "word": "la",
+      "start": 337.3,
+      "end": 337.34
+    },
+    {
+      "word": "verdad",
+      "start": 337.34,
+      "end": 337.58
+    },
+    {
+      "word": "es",
+      "start": 337.58,
+      "end": 337.82
+    },
+    {
+      "word": "que",
+      "start": 337.82,
+      "end": 337.94
+    },
+    {
+      "word": "la",
+      "start": 337.94,
+      "end": 338.08
+    },
+    {
+      "word": "verdad",
+      "start": 338.08,
+      "end": 338.1
+    },
+    {
+      "word": "es",
+      "start": 338.1,
+      "end": 338.3
+    },
+    {
+      "word": "que",
+      "start": 338.3,
+      "end": 338.3
+    },
+    {
+      "word": "la",
+      "start": 338.3,
+      "end": 338.3
+    },
+    {
+      "word": "verdad",
+      "start": 338.3,
+      "end": 338.3
+    },
+    {
+      "word": "es",
+      "start": 338.3,
+      "end": 338.64
+    },
+    {
+      "word": "que",
+      "start": 338.64,
+      "end": 338.76
+    },
+    {
+      "word": "la",
+      "start": 338.76,
+      "end": 338.76
+    },
+    {
+      "word": "verdad",
+      "start": 338.76,
+      "end": 338.76
+    },
+    {
+      "word": "es",
+      "start": 338.76,
+      "end": 338.92
+    },
+    {
+      "word": "que",
+      "start": 338.92,
+      "end": 338.92
+    },
+    {
+      "word": "la",
+      "start": 338.92,
+      "end": 338.92
+    },
+    {
+      "word": "verdad",
+      "start": 338.92,
+      "end": 338.92
+    },
+    {
+      "word": "es",
+      "start": 338.92,
+      "end": 339.56
+    },
+    {
+      "word": "que",
+      "start": 339.56,
+      "end": 341.3
+    },
+    {
+      "word": "la",
+      "start": 341.3,
+      "end": 341.3
+    },
+    {
+      "word": "verdad",
+      "start": 341.3,
+      "end": 341.54
+    },
+    {
+      "word": "es",
+      "start": 341.54,
+      "end": 341.78
+    },
+    {
+      "word": "que",
+      "start": 341.78,
+      "end": 341.9
+    },
+    {
+      "word": "la",
+      "start": 341.9,
+      "end": 341.9
+    },
+    {
+      "word": "verdad",
+      "start": 341.9,
+      "end": 341.9
+    },
+    {
+      "word": "es",
+      "start": 341.9,
+      "end": 341.9
+    },
+    {
+      "word": "que",
+      "start": 341.9,
+      "end": 342.24
+    },
+    {
+      "word": "la",
+      "start": 342.24,
+      "end": 342.24
+    },
+    {
+      "word": "verdad",
+      "start": 342.24,
+      "end": 342.24
+    },
+    {
+      "word": "es",
+      "start": 342.24,
+      "end": 342.5
+    },
+    {
+      "word": "que",
+      "start": 342.5,
+      "end": 343.32
+    },
+    {
+      "word": "la",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "verdad",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "es",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "que",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "la",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "verdad",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "es",
+      "start": 343.32,
+      "end": 343.32
+    },
+    {
+      "word": "que",
+      "start": 343.32,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "que",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "la",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "verdad",
+      "start": 343.36,
+      "end": 343.36
+    },
+    {
+      "word": "es",
+      "start": 343.36,
+      "end": 343.4
+    },
+    {
+      "word": "que",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "la",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "verdad",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "es",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "que",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "la",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "verdad",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "es",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "que",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "la",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "verdad",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "es",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "que",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "la",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "verdad",
+      "start": 343.4,
+      "end": 343.4
+    },
+    {
+      "word": "es",
+      "start": 343.4,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "que",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "la",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "verdad",
+      "start": 343.46,
+      "end": 343.46
+    },
+    {
+      "word": "es",
+      "start": 343.46,
+      "end": 343.68
+    },
+    {
+      "word": "que",
+      "start": 343.68,
+      "end": 343.68
+    },
+    {
+      "word": "la",
+      "start": 343.68,
+      "end": 343.68
+    },
+    {
+      "word": "verdad",
+      "start": 343.68,
+      "end": 343.68
+    },
+    {
+      "word": "es",
+      "start": 343.68,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "es",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "que",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "la",
+      "start": 344.28,
+      "end": 344.28
+    },
+    {
+      "word": "verdad",
+      "start": 344.28,
+      "end": 344.28
+    }
+  ],
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.94,
+      "text": "Todos que conocemos a esa persona, la que se avienta a la y cualquier lugar, juega a football, se cae de la moto, bajas caleras de 3 en 3"
+    },
+    {
+      "start": 6.94,
+      "end": 12.58,
+      "text": "y cuando se cae se levanta como si nada, nunca tuvo una factura, nunca un jezo, nunca usó muletas"
+    },
+    {
+      "start": 12.58,
+      "end": 21.06,
+      "text": "y luego estás tu o tu amigo, que consolo pisar a mal una banqueta y anda cojando una semana, uno termina en el hospital, otro ni se despeina"
+    },
+    {
+      "start": 21.06,
+      "end": 21.92,
+      "text": "¿Por qué?"
+    },
+    {
+      "start": 21.92,
+      "end": 35.98,
+      "text": "Hay razones reales, físicas, medibles por las que ciertos cuerpos aguantan lo que otros nos quiebra, si eres de los que nunca se arrotonara, déjame decir que no es casualidad, traes contigo una serie de factores que la mayoría no tienen y vamos a verlos uno por uno"
+    },
+    {
+      "start": 35.98,
+      "end": 41.78,
+      "text": "Así que hoy veamos la ciencia detrás de las personas que nunca se rompe nada, antes de empezar una aclaración"
+    },
+    {
+      "start": 41.78,
+      "end": 55.44,
+      "text": "Cuando hablamos de esa persona que nunca se rompe nada, no estamos hablando de alguien con huesos de titánio, estamos hablando de alguien cuyo sistema completo, huesos, ligamentos o reflejos, se reparten la carga también que nunca llegan al punto de lesión"
+    },
+    {
+      "start": 55.44,
+      "end": 67.98,
+      "text": "Ahora sí, vamos con el video, ligamento rígidos vs helásticos, no todos tenemos el mismo tipo de tejido conectivo, hay gente que nace con ligamentos más helásticos y otros con ligamentos más rígidos, esto lo podemos comprobar ahora mismo"
+    },
+    {
+      "start": 67.98,
+      "end": 77.28,
+      "text": "Intente esterar tu brazo completamente recto, ahora, velo y pregúntate si queda derecho o se pasa un poco, como en esta imagen, también con el pulgar"
+    },
+    {
+      "start": 77.78,
+      "end": 86.28,
+      "text": "Intenta doblarlo hacia atrás, llegas hasta tonte brazo, primero si tus codo se pasan de recto, si tu pulgar casi toca tu muñeca, eres de tejido elástico"
+    },
+    {
+      "start": 86.28,
+      "end": 93.14,
+      "text": "Si todos se sintió tío eso y apenas tienes ese rango, eres de tejido rígido, el tema es que ninguno de los dos extremos es el bueno"
+    },
+    {
+      "start": 93.14,
+      "end": 110.32,
+      "text": "Si eres muy elástico, tus articulaciones se mueren más de lo que deberían, esto significa que se disloca más fácil, que te esguinsas más seguido, que el articulación sale de su lugar con menos fuerza, piensan una ligad, se estira mucho pero no sostiene nada a firme, y por otro lado, tus articulaciones aguantan firmes, pero absorben peor el impacto"
+    },
+    {
+      "start": 110.32,
+      "end": 123.4,
+      "text": "Toda esa fuerza que un cuerpo elástico dispersa, el rígido la recibe de golpe, la persona que nunca se rompe nada suele estar en un punto medio, ni liga ni cuerda tensa, suficiente rango para dispersar el impacto y suficiente firmeza para sostener"
+    },
+    {
+      "start": 123.4,
+      "end": 139.66,
+      "text": "Factor 2, la forma de tu cuerpo, ahora supongamos que las dos personas tienen el mismo tejido, y aún así uno de esos dos se lesiona más, porque no solo importa de que estas hechos y no como estas armado, tenemos la forma de tus huesos, el ángulo con el que se conecta, como pisa hacia donde cae tu peso"
+    },
+    {
+      "start": 139.66,
+      "end": 169.64,
+      "text": "y cuando te risa tu un salto, todo eso decide donde aterrizar la fuerza en tu cuerpo, y hay formas que reparten esa fuerza en un buen lugar y formas que la mandan justo al punto más débil, y aquí está el dato que lo deja clarísimo, las mujeres suelen romperse el ligamento cruzado de la rodilla entre dos y ocho veces más que los hombres, haciendo el mismo deporte, con el mismo entrenamiento y con el mismo esfuerzo, y esto es justamente por la geometría, la cadera de una mujer suele ser ancho, igual puede pasar en hombres, pero una cadera más ancha cambia el ángulo con el que el femur baja hacia la rodilla, ese ángulo un poco es un poco más fácil, y la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que"
+    },
+    {
+      "start": 176.6,
+      "end": 199.62,
+      "text": "la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la"
+    },
+    {
+      "start": 212.84,
+      "end": 229.6,
+      "text": "verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad"
+    },
+    {
+      "start": 233.32,
+      "end": 258.36,
+      "text": "que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que"
+    },
+    {
+      "start": 263.68,
+      "end": 288.34,
+      "text": "la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la"
+    },
+    {
+      "start": 292.82,
+      "end": 318.32,
+      "text": "la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la"
+    },
+    {
+      "start": 334.4,
+      "end": 344.28,
+      "text": "verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad es que la verdad"
+    }
+  ],
+  "language": "es"
+}

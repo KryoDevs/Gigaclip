@@ -1,13 +1,21 @@
 """
-Pipeline turbo de Gigaclip.
-Ejecuta recorte facial, escalado a 9:16, quemado de subtitulos y mezcla de audio
-en una UNICA pasada de FFmpeg ultrarrapida por clip (-preset veryfast).
+Pipeline Pro de Gigaclip.
+Soporta renderizado en 1080p Full HD (CRF 18, audio 192k),
+rangos de duracion ajustables por el usuario y metadatos virales.
 """
 import os
 import subprocess
 from pathlib import Path
 
-from config import OUTPUT_DIR, NUM_CLIPS, FFMPEG_BIN
+from config import (
+    OUTPUT_DIR,
+    NUM_CLIPS,
+    CLIP_MIN_SECONDS,
+    CLIP_MAX_SECONDS,
+    FFMPEG_BIN,
+    VIDEO_QUALITY_PRESETS,
+    DEFAULT_QUALITY,
+)
 from download import download_video
 from audio_analysis import analyze_audio_energy, correlate_energy_with_segments
 from transcribe import transcribe
@@ -22,9 +30,18 @@ def _words_between(words: list[dict], start: float, end: float) -> list[dict]:
 
 
 def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip: list[dict],
-                      final_output: str, style: str = "hormozi", crop_mode: str = "face_track") -> None:
-    """Renderiza el clip en 1 sola pasada combinada de FFmpeg."""
-    # 1. Generar archivo .ass temporal
+                      final_output: str, style: str = "hormozi", crop_mode: str = "face_track",
+                      quality: str = DEFAULT_QUALITY) -> None:
+    """Renderiza el clip en alta calidad con parámetros optimizados."""
+    preset_data = VIDEO_QUALITY_PRESETS.get(quality, VIDEO_QUALITY_PRESETS["1080p"])
+    target_w = preset_data["width"]
+    target_h = preset_data["height"]
+    crf = preset_data["crf"]
+    v_bitrate = preset_data["video_bitrate"]
+    a_bitrate = preset_data["audio_bitrate"]
+    ff_preset = preset_data["preset"]
+
+    # 1. Generar archivo .ass con resolucion exacta del target
     ass_path = str(Path(final_output).with_suffix(".ass"))
     builder = _STYLE_BUILDERS.get(style, _build_ass_hormozi)
     
@@ -32,14 +49,14 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         {"word": w["word"], "start": w["start"] - start, "end": w["end"] - start}
         for w in words_in_clip
     ]
-    # Resolucion vertical estandar 720x1280 (9:16)
-    builder(relative_words, 720, 1280, ass_path)
+    builder(relative_words, target_w, target_h, ass_path)
 
     ass_path_rel = os.path.relpath(ass_path).replace("\\", "/")
 
-    # 2. Construir filtro combinado (crop + scale + subtitle)
+    # 2. Construir filtro combinado (crop + scale + subtitle + sharpen)
+    filter_str = build_ffmpeg_filter(source_path, start, end, ass_path_rel, mode=crop_mode, quality=quality)
+
     if crop_mode in ("podcast_split", "blur_background"):
-        filter_str = build_ffmpeg_filter(source_path, start, end, ass_path_rel, mode=crop_mode)
         cmd = [
             FFMPEG_BIN, "-y",
             "-ss", str(start), "-to", str(end),
@@ -47,20 +64,23 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
             "-filter_complex", filter_str,
             "-map", "[outv]",
             "-map", "0:a?",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
-            "-c:a", "aac", "-b:a", "128k",
+            "-c:v", "libx264", "-preset", ff_preset, "-crf", crf,
+            "-b:v", v_bitrate, "-maxrate", "8000k", "-bufsize", "12000k",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", a_bitrate, "-ar", "48000",
             "-shortest",
             final_output
         ]
     else:
-        filter_str = build_ffmpeg_filter(source_path, start, end, ass_path_rel, mode="face_track")
         cmd = [
             FFMPEG_BIN, "-y",
             "-ss", str(start), "-to", str(end),
             "-i", source_path,
             "-vf", filter_str,
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
-            "-c:a", "aac", "-b:a", "128k",
+            "-c:v", "libx264", "-preset", ff_preset, "-crf", crf,
+            "-b:v", v_bitrate, "-maxrate", "8000k", "-bufsize", "12000k",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", a_bitrate, "-ar", "48000",
             "-shortest",
             final_output
         ]
@@ -69,7 +89,8 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
 
 
 def run(url: str, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
-        crop_mode: str = "face_track", progress_callback=None) -> list[dict]:
+        crop_mode: str = "face_track", quality: str = DEFAULT_QUALITY,
+        min_seconds: int = None, max_seconds: int = None, progress_callback=None) -> dict:
     
     def log(msg, step_pct=None):
         if progress_callback:
@@ -77,29 +98,32 @@ def run(url: str, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
         else:
             print(msg)
 
-    # 1. Descarga Turbo
-    log(f"[1/5] ⚡ Descargando video: {url}", 15)
+    min_s = min_seconds or CLIP_MIN_SECONDS
+    max_s = max_seconds or CLIP_MAX_SECONDS
+
+    # 1. Descarga en alta resolucion
+    log(f"[1/5] ⚡ Descargando video en HD: {url}", 15)
     video = download_video(url)
     source_path = video["path"]
     log(f"      → {video['title']} ({video['duration']}s)", 20)
 
-    # 2. Analisis de audio y transcripcion paralela/rapida
-    log("[2/5] 🎙️ Analizando audio y transcribiendo con Whisper...", 30)
+    # 2. Analisis acustico y transcripcion Whisper
+    log("[2/5] 🎙️ Analizando energia de audio y transcribiendo...", 30)
     energy_data = analyze_audio_energy(source_path)
     transcript = transcribe(source_path)
     segments_with_energy = correlate_energy_with_segments(transcript["segments"], energy_data)
     log(f"      → {len(transcript['words'])} palabras analizadas", 55)
 
-    # 3. Seleccion con LLM
-    log("[3/5] 🧠 Seleccionando mejores momentos virales...", 65)
-    clips = select_clips(segments_with_energy, num_clips=num_clips)
+    # 3. Seleccion con LLM respetando rango de duracion
+    log(f"[3/5] 🧠 Seleccionando momentos virales ({min_s}s - {max_s}s)...", 65)
+    clips = select_clips(segments_with_energy, num_clips=num_clips, min_seconds=min_s, max_seconds=max_s)
     log(f"      → {len(clips)} clips seleccionados", 70)
 
     final_clips_info = []
     for i, clip in enumerate(clips, start=1):
         title = clip.get("title", f"Clip {i}")
         pct = 70 + int((i / len(clips)) * 25)
-        log(f"[4/5] ⚡ Renderizando clip {i}/{len(clips)}: \"{title}\"...", pct)
+        log(f"[4/5] 🎬 Renderizando clip {i}/{len(clips)} en {quality} Full HD...", pct)
 
         clip_words = _words_between(transcript["words"], clip["start"], clip["end"])
         safe_title = "".join(c for c in title if c.isalnum() or c in " _-")[:35].strip()
@@ -113,7 +137,8 @@ def run(url: str, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
             words_in_clip=clip_words,
             final_output=final_path,
             style=subtitle_style,
-            crop_mode=crop_mode
+            crop_mode=crop_mode,
+            quality=quality,
         )
 
         snippet = " ".join(w["word"] for w in clip_words[:35])
@@ -133,13 +158,18 @@ def run(url: str, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
             "social": social_meta,
             "style": subtitle_style,
             "crop_mode": crop_mode,
+            "quality": quality,
             "words": clip_words,
             "source_path": source_path,
         }
         final_clips_info.append(clip_data)
 
-    log(f"[5/5] 🎉 ¡Listo! {len(final_clips_info)} clips listos en tiempo record.", 100)
-    return final_clips_info
+    log(f"[5/5] 🎉 ¡Listo! {len(final_clips_info)} clips en {quality} generados.", 100)
+    return {
+        "clips": final_clips_info,
+        "transcript": transcript,
+        "video_info": video,
+    }
 
 
 if __name__ == "__main__":
