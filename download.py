@@ -1,6 +1,5 @@
 """
-Descarga el video fuente con yt-dlp y devuelve la ruta local + metadatos.
-Soporta YouTube, Vimeo, Twitch y Kick (lo que soporte yt-dlp en general).
+Descarga optimizada con yt-dlp usando fragmentos concurrentes para maxima velocidad.
 """
 from pathlib import Path
 import yt_dlp
@@ -9,25 +8,24 @@ from config import DOWNLOAD_DIR, DOWNLOAD_MAX_HEIGHT
 
 
 def download_video(url: str) -> dict:
-    """
-    Descarga el video en la mejor calidad hasta DOWNLOAD_MAX_HEIGHT.
-    Devuelve un dict con: path, title, duration (segundos), id.
-    """
+    """Descarga acelerada en calidad optima para clips verticales."""
     outtmpl = str(DOWNLOAD_DIR / "%(id)s.%(ext)s")
     max_h = DOWNLOAD_MAX_HEIGHT
 
     ydl_opts = {
-        "format": f"bestvideo[height<={max_h}][ext=mp4]+bestaudio[ext=m4a]/best[height<={max_h}][ext=mp4]/best",
+        "format": f"bestvideo[height<={max_h}][ext=mp4]+bestaudio[ext=m4a]/best[height<={max_h}][ext=mp4]/best[height<={max_h}]/best",
         "outtmpl": outtmpl,
         "merge_output_format": "mp4",
-        "quiet": False,
+        "quiet": True,
         "no_warnings": True,
+        "concurrent_fragment_downloads": 4,  # Descarga paralela de fragmentos
+        "socket_timeout": 15,
+        "retries": 3,
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filepath = ydl.prepare_filename(info)
-        # Si yt-dlp fusiono a mp4, el nombre final puede diferir en extension
         filepath = str(Path(filepath).with_suffix(".mp4"))
 
     return {

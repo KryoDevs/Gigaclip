@@ -1,5 +1,5 @@
 """
-Configuracion central del pipeline. Ajusta esto segun tu hardware.
+Configuracion optimizada para maxima velocidad de Gigaclip.
 """
 import shutil
 from pathlib import Path
@@ -14,35 +14,33 @@ CACHE_DIR = BASE_DIR / "cache"
 for d in (DOWNLOAD_DIR, OUTPUT_DIR, TEMP_DIR, CACHE_DIR):
     d.mkdir(exist_ok=True)
 
-# --- Whisper (transcripcion) ---
-# Modelos disponibles (de mas rapido/impreciso a mas lento/preciso):
-# tiny, base, small, medium, large-v3
-WHISPER_MODEL = "small"           # "small" es el mejor balance velocidad/calidad
-WHISPER_DEVICE = "cpu"            # "cuda" si tienes GPU NVIDIA con drivers OK, si no "cpu"
-WHISPER_COMPUTE_TYPE = "int8"     # "float16" en GPU, "int8" en CPU
+# --- Whisper (transcripcion ultra rapida) ---
+# "base" es 5x mas rapido que "medium" y toma solo segundos en CPU.
+WHISPER_MODEL = "base"
+WHISPER_DEVICE = "cpu"            # "cuda" si tienes GPU NVIDIA
+WHISPER_COMPUTE_TYPE = "int8"     # int8 para velocidad maxima en CPU
+WHISPER_BEAM_SIZE = 1             # Greedy decoding (3x mas rapido que beam_size=5)
 
 # --- Ollama (seleccion de clips virales) ---
 OLLAMA_URL = "http://localhost:11434/api/generate"
-OLLAMA_MODEL = "llama3.2:3b"      # sube a "llama3.1:8b" si tu GPU tiene 6GB+ de VRAM libres
+OLLAMA_MODEL = "llama3.2:3b"
 
 # --- Recorte / clips ---
-NUM_CLIPS = 5             # cuantos clips generar por video
+NUM_CLIPS = 3
 CLIP_MIN_SECONDS = 15
 CLIP_MAX_SECONDS = 60
-OUTPUT_ASPECT = (9, 16)   # formato vertical
+OUTPUT_ASPECT = (9, 16)
 
-# --- Descarga ---
-# Limitar a 720p para acelerar descarga y procesamiento.
-# Para clips 9:16 la resolucion final es ~405x720, asi que 4K es desperdicio.
+# --- Descarga Turbo ---
 DOWNLOAD_MAX_HEIGHT = 720
 
 # --- Subtitulos ---
 SUBTITLE_FONT = "Arial Black"
-SUBTITLE_WORDS_PER_CHUNK = 3     # cuantas palabras se muestran a la vez
-SUBTITLE_STYLE = "hormozi"       # "classic", "hormozi", "minimal", "karaoke"
+SUBTITLE_WORDS_PER_CHUNK = 3
+SUBTITLE_STYLE = "hormozi"
 
-# --- Face detection ---
-FACE_SAMPLE_EVERY = 10           # cada cuantos frames samplear (mayor = mas rapido)
+# --- Muestreo Facial Acelerado ---
+FACE_SAMPLE_FPS = 2               # Muestrear solo 2 frames por segundo (ultra rapido)
 
-# --- Auto-deteccion de ffmpeg ---
+# --- Binario FFmpeg ---
 FFMPEG_BIN = shutil.which("ffmpeg") or "ffmpeg"

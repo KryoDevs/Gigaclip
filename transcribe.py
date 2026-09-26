@@ -1,17 +1,24 @@
 """
-Transcribe el video con faster-whisper, con timestamps a nivel de palabra.
-Esto le da al LLM el material para elegir momentos virales, y a
-subtitles.py los tiempos exactos para las palabras en pantalla.
-
-Incluye cache: si el video ya fue transcrito, no lo re-procesa.
+Transcripcion ultra-rapida con faster-whisper.
+Extrae audio WAV mono a 16kHz primero y usa decodificacion directa (beam_size=1)
+para reducir el tiempo de transcripcion a solo unos segundos.
 """
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 from faster_whisper import WhisperModel
 
-from config import WHISPER_MODEL, WHISPER_DEVICE, WHISPER_COMPUTE_TYPE, CACHE_DIR
+from config import (
+    WHISPER_MODEL,
+    WHISPER_DEVICE,
+    WHISPER_COMPUTE_TYPE,
+    WHISPER_BEAM_SIZE,
+    CACHE_DIR,
+    TEMP_DIR,
+    FFMPEG_BIN,
+)
 
 _model = None
 
@@ -23,42 +30,54 @@ def _get_model():
             WHISPER_MODEL,
             device=WHISPER_DEVICE,
             compute_type=WHISPER_COMPUTE_TYPE,
+            cpu_threads=4,
         )
     return _model
 
 
 def _cache_key(path: str) -> Path:
-    """Genera un hash del archivo para usar como clave de cache."""
     h = hashlib.md5(Path(path).name.encode()).hexdigest()[:12]
     return CACHE_DIR / f"{h}_{WHISPER_MODEL}.json"
 
 
-def transcribe(audio_or_video_path: str) -> dict:
-    """
-    Devuelve:
-      - "words": lista de {"word": str, "start": float, "end": float}
-      - "segments": frases naturales de Whisper (para el prompt del LLM)
-      - "language": idioma detectado
+def _extract_fast_audio(video_path: str) -> str:
+    """Extrae audio mono liviano para alimentar directamente a Whisper."""
+    wav_path = str(TEMP_DIR / f"{Path(video_path).stem}_whisper.wav")
+    if not Path(wav_path).exists():
+        cmd = [
+            FFMPEG_BIN, "-y",
+            "-i", video_path,
+            "-vn", "-ac", "1", "-ar", "16000",
+            "-f", "wav",
+            wav_path
+        ]
+        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    return wav_path
 
-    Si existe cache, devuelve directo sin re-transcribir.
-    """
+
+def transcribe(audio_or_video_path: str) -> dict:
     cache_file = _cache_key(audio_or_video_path)
     if cache_file.exists():
         return json.loads(cache_file.read_text(encoding="utf-8"))
 
+    audio_path = _extract_fast_audio(audio_or_video_path)
+
     model = _get_model()
     segments, info = model.transcribe(
-        audio_or_video_path,
+        audio_path,
         word_timestamps=True,
-        vad_filter=True,  # filtra silencios largos, ayuda con podcasts/streams largos
+        vad_filter=True,
+        beam_size=WHISPER_BEAM_SIZE,
+        best_of=1,
+        temperature=0.0,
     )
 
     words = []
     sentence_segments = []
     for seg in segments:
         sentence_segments.append({
-            "start": seg.start,
-            "end": seg.end,
+            "start": round(seg.start, 2),
+            "end": round(seg.end, 2),
             "text": seg.text.strip(),
         })
         if seg.words:
@@ -70,9 +89,13 @@ def transcribe(audio_or_video_path: str) -> dict:
                 })
 
     result = {"words": words, "segments": sentence_segments, "language": info.language}
-
-    # Guardar en cache
     cache_file.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    # Limpiar audio temporal
+    try:
+        Path(audio_path).unlink(missing_ok=True)
+    except Exception:
+        pass
 
     return result
 
