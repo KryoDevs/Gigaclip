@@ -144,8 +144,18 @@ def run(url: str, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
         snippet = " ".join(w["word"] for w in clip_words[:35])
         social_meta = generate_social_metadata(title, snippet)
 
+        # Extraer miniatura automatica
+        from social_publisher import extract_thumbnail
+        thumb_file = ""
+        try:
+            thumb_path = extract_thumbnail(final_path, timestamp_sec=1.0)
+            thumb_file = Path(thumb_path).name
+        except Exception:
+            pass
+
         clip_data = {
             "filename": final_name,
+            "thumbnail": thumb_file,
             "title": title,
             "start": clip["start"],
             "end": clip["end"],

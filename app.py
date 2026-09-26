@@ -181,6 +181,77 @@ def api_generate_social():
     return jsonify(metadata)
 
 
+@app.route("/api/social/settings", methods=["GET", "POST"])
+def api_social_settings():
+    from social_publisher import get_social_config, save_social_config
+    if request.method == "POST":
+        data = request.get_json() or {}
+        save_social_config(data)
+        return jsonify({"success": True, "message": "Ajustes sociales guardados"})
+    return jsonify(get_social_config())
+
+
+@app.route("/api/publish/direct", methods=["POST"])
+def api_publish_direct():
+    from social_publisher import publish_to_webhook
+    data = request.get_json() or {}
+    clip_filename = data.get("filename", "")
+    title = data.get("title", "")
+    caption = data.get("caption", "")
+    hashtags = data.get("hashtags", "")
+    platform = data.get("platform", "all")
+    webhook_url = data.get("webhook_url", None)
+
+    res = publish_to_webhook(
+        clip_filename=clip_filename,
+        title=title,
+        caption=caption,
+        hashtags=hashtags,
+        platform=platform,
+        custom_webhook=webhook_url
+    )
+    return jsonify(res)
+
+
+@app.route("/api/publish/telegram", methods=["POST"])
+def api_publish_telegram():
+    from social_publisher import publish_to_telegram
+    data = request.get_json() or {}
+    clip_filename = data.get("filename", "")
+    caption = data.get("caption", "")
+
+    res = publish_to_telegram(clip_filename=clip_filename, caption=caption)
+    return jsonify(res)
+
+
+@app.route("/api/publish/schedule", methods=["POST"])
+def api_publish_schedule():
+    from social_publisher import schedule_post
+    data = request.get_json() or {}
+    clip_filename = data.get("filename", "")
+    title = data.get("title", "")
+    caption = data.get("caption", "")
+    hashtags = data.get("hashtags", "")
+    platform = data.get("platform", "all")
+    publish_at = float(data.get("publish_at", time.time() + 3600))
+
+    res = schedule_post(
+        clip_filename=clip_filename,
+        title=title,
+        caption=caption,
+        hashtags=hashtags,
+        platform=platform,
+        publish_at_timestamp=publish_at
+    )
+    return jsonify(res)
+
+
+@app.route("/api/publish/queue", methods=["GET"])
+def api_publish_queue():
+    from social_publisher import get_publish_queue
+    return jsonify(get_publish_queue())
+
+
 @app.route("/output/<path:filename>")
 def serve_output(filename):
     return send_from_directory(str(OUTPUT_DIR), filename)

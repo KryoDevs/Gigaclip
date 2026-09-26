@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gigaclip Pro 🎬 - Generador & Editor de Clips Virales en 1080p</title>
+    <title>Gigaclip Pro 🎬 - Generador & Auto-Publicador de Clips Virales en 1080p</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -46,7 +46,7 @@
 
         /* Navbar */
         nav {
-            padding: 18px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
             background: rgba(9, 10, 15, 0.9);
             backdrop-filter: blur(14px);
@@ -69,17 +69,28 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .pro-badge {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 214, 160, 0.15));
-            color: #c4b5fd;
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 700;
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 12px;
+        }
+        .btn-settings {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-settings:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: var(--primary);
         }
 
         /* Hero */
@@ -126,9 +137,8 @@
             border-radius: var(--radius);
             padding: 26px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            max-width: 860px;
+            max-width: 880px;
             margin: 0 auto 30px;
-            position: relative;
         }
         .input-bar {
             display: flex;
@@ -202,7 +212,6 @@
             font-size: 13px;
             font-family: inherit;
         }
-        .opt-select:focus { border-color: var(--primary); }
 
         /* Progress Panel */
         .progress-panel {
@@ -210,7 +219,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 24px;
-            max-width: 860px;
+            max-width: 880px;
             margin: 0 auto 40px;
             display: none;
         }
@@ -259,7 +268,7 @@
         }
         .clips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 24px;
         }
         .clip-card {
@@ -302,6 +311,7 @@
             padding: 3px 8px;
             border-radius: 4px;
             border: 1px solid rgba(251, 191, 36, 0.4);
+            z-index: 2;
         }
         .clip-details {
             padding: 18px;
@@ -378,13 +388,13 @@
 
         /* Actions */
         .card-actions {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 8px;
             margin-top: auto;
             padding-top: 10px;
         }
         .btn-action {
-            flex: 1;
             padding: 10px;
             border-radius: 8px;
             font-size: 13px;
@@ -404,6 +414,12 @@
             color: #fff;
         }
         .btn-download:hover { background: var(--primary-hover); }
+        .btn-publish {
+            background: linear-gradient(135deg, #06d6a0, #059669);
+            color: #000;
+            font-weight: 700;
+        }
+        .btn-publish:hover { opacity: 0.9; }
         .btn-edit {
             background: rgba(255,255,255,0.08);
             color: #fff;
@@ -411,7 +427,7 @@
         }
         .btn-edit:hover { background: rgba(255,255,255,0.15); }
 
-        /* Timeline Modal Editor */
+        /* Modal Base */
         .modal {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -500,15 +516,17 @@
         <div class="logo">
             <span>🎬</span> Gigaclip Pro
         </div>
-        <div class="pro-badge">⚡ 1080p Full HD & Engine Pro</div>
+        <div class="nav-actions">
+            <button class="btn-settings" onclick="openSettingsModal()">⚙️ Ajustes de Publicación</button>
+        </div>
     </div>
 </nav>
 
 <div class="container">
     <section class="hero">
         <div class="hero-glow"></div>
-        <h1>Convierte videos largos en <br><span>clips virales en 1080p</span></h1>
-        <p class="tagline">Recorte facial inteligente de alta precisión, ajuste fino de timeline y subtítulos dinámicos de máxima calidad.</p>
+        <h1>Convierte videos largos en <br><span>clips virales y auto-publica</span></h1>
+        <p class="tagline">Recorte facial 1080p, subtítulos dinámicos y publicación directa a TikTok, YouTube Shorts e Instagram.</p>
         
         <div class="form-card">
             <form id="processForm" onsubmit="handleStart(event)">
@@ -588,7 +606,7 @@
     <section class="results-section" id="resultsSection">
         <div class="section-header">
             <h2>🎉 Clips Virales en 1080p Generados</h2>
-            <p class="tagline" style="margin-bottom:0">Listos para publicar o ajustar en el timeline</p>
+            <p class="tagline" style="margin-bottom:0">Listos para publicar en redes sociales o ajustar en el timeline</p>
         </div>
         <div class="clips-grid" id="clipsGrid"></div>
     </section>
@@ -657,6 +675,80 @@
     </div>
 </div>
 
+<!-- Modal Publish / Social Automation -->
+<div class="modal" id="publishModal">
+    <div class="modal-box">
+        <h3>🚀 Publicar Clip en Redes Sociales</h3>
+        
+        <div class="opt-group">
+            <label>Destino de Publicación:</label>
+            <select id="pubPlatform" class="opt-select">
+                <option value="all">Todas las Redes (TikTok + Shorts + Reels)</option>
+                <option value="tiktok">TikTok</option>
+                <option value="youtube">YouTube Shorts</option>
+                <option value="instagram">Instagram Reels</option>
+                <option value="telegram">Enviar a mi Telegram</option>
+            </select>
+        </div>
+
+        <div class="opt-group">
+            <label>Título / Gancho:</label>
+            <input type="text" id="pubTitle" class="opt-select">
+        </div>
+
+        <div class="opt-group">
+            <label>Descripción & Hashtags:</label>
+            <textarea id="pubCaption" class="opt-select" rows="3" style="resize:vertical;"></textarea>
+        </div>
+
+        <div class="opt-group">
+            <label>Tipo de Lanzamiento:</label>
+            <select id="pubTiming" class="opt-select" onchange="toggleScheduleTime(this.value)">
+                <option value="now">⚡ Publicar Inmediatamente</option>
+                <option value="schedule">📅 Programar para después</option>
+            </select>
+        </div>
+
+        <div class="opt-group" id="scheduleDateGroup" style="display:none;">
+            <label>Fecha y Hora:</label>
+            <input type="datetime-local" id="pubDateTime" class="opt-select">
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-action btn-edit" onclick="closePublishModal()">Cancelar</button>
+            <button class="btn-action btn-publish" id="btnSubmitPublish" onclick="submitPublish()">🚀 Publicar Ahora</button>
+        </div>
+    </div>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal" id="settingsModal">
+    <div class="modal-box">
+        <h3>⚙️ Ajustes de Automatización Social</h3>
+        <p style="font-size:13px; color:var(--text-muted)">Configura los Webhooks de Make/Zapier o tu bot de Telegram para auto-publicar:</p>
+
+        <div class="opt-group">
+            <label>URL de Webhook (Zapier / Make / Metricool / n8n):</label>
+            <input type="url" id="settingWebhook" class="opt-select" placeholder="https://hook.eu1.make.com/...">
+        </div>
+
+        <div class="opt-group">
+            <label>Token de Bot de Telegram (Opcional):</label>
+            <input type="text" id="settingTgToken" class="opt-select" placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11">
+        </div>
+
+        <div class="opt-group">
+            <label>Chat ID de Telegram (Opcional):</label>
+            <input type="text" id="settingTgChatId" class="opt-select" placeholder="-100123456789">
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-action btn-edit" onclick="closeSettingsModal()">Cerrar</button>
+            <button class="btn-action btn-download" onclick="saveSettings()">💾 Guardar Ajustes</button>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <p>Gigaclip Pro · Motor 1080p con Whisper, Ollama y FFmpeg Lanczos · <a href="https://github.com/nicolasdcarrillo-create/Gigaclip" target="_blank">GitHub</a></p>
@@ -667,6 +759,7 @@
     let activeJobId = null;
     let pollTimer = null;
     let activeEditingClip = null;
+    let activePublishClip = null;
     let customMin = 20;
     let customMax = 60;
 
@@ -799,7 +892,8 @@
 
                     <div class="card-actions">
                         <a href="/output/${encodeURIComponent(c.filename)}" download class="btn-action btn-download">⬇️ Descargar</a>
-                        <button class="btn-action btn-edit" onclick='openEditModal(${JSON.stringify(c)})'>✂️ Ajustar Timeline</button>
+                        <button class="btn-action btn-publish" onclick='openPublishModal(${JSON.stringify(c)})'>🚀 Publicar</button>
+                        <button class="btn-action btn-edit" style="grid-column:1/-1;" onclick='openEditModal(${JSON.stringify(c)})'>✂️ Ajustar Timeline</button>
                     </div>
                 </div>
             `;
@@ -822,6 +916,133 @@
     function closeModal() {
         document.getElementById('editModal').style.display = 'none';
         activeEditingClip = null;
+    }
+
+    function openPublishModal(clip) {
+        activePublishClip = clip;
+        const soc = clip.social || {};
+        document.getElementById('pubTitle').value = soc.viral_title || clip.title;
+        document.getElementById('pubCaption').value = soc.tiktok_caption || clip.title;
+        document.getElementById('publishModal').style.display = 'flex';
+    }
+
+    function closePublishModal() {
+        document.getElementById('publishModal').style.display = 'none';
+        activePublishClip = null;
+    }
+
+    function toggleScheduleTime(val) {
+        document.getElementById('scheduleDateGroup').style.display = val === 'schedule' ? 'block' : 'none';
+        document.getElementById('btnSubmitPublish').textContent = val === 'schedule' ? '📅 Programar Post' : '🚀 Publicar Ahora';
+    }
+
+    function submitPublish() {
+        if (!activePublishClip) return;
+        const btn = document.getElementById('btnSubmitPublish');
+        btn.disabled = true;
+        btn.textContent = '⏳ Enviando...';
+
+        const platform = document.getElementById('pubPlatform').value;
+        const title = document.getElementById('pubTitle').value;
+        const caption = document.getElementById('pubCaption').value;
+        const timing = document.getElementById('pubTiming').value;
+
+        if (platform === 'telegram') {
+            fetch('/api/publish/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filename: activePublishClip.filename, caption })
+            })
+            .then(r => r.json())
+            .then(res => {
+                btn.disabled = false;
+                btn.textContent = '🚀 Publicar Ahora';
+                if (res.success) {
+                    alert('¡Video enviado a tu Telegram con éxito!');
+                    closePublishModal();
+                } else {
+                    alert('Error: ' + res.error);
+                }
+            });
+            return;
+        }
+
+        if (timing === 'schedule') {
+            const dt = document.getElementById('pubDateTime').value;
+            const ts = dt ? new Date(dt).getTime() / 1000 : (Date.now() / 1000 + 3600);
+            fetch('/api/publish/schedule', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    filename: activePublishClip.filename,
+                    title,
+                    caption,
+                    platform,
+                    publish_at: ts
+                })
+            })
+            .then(r => r.json())
+            .then(res => {
+                btn.disabled = false;
+                btn.textContent = '📅 Programar Post';
+                alert('¡Clip programado en la cola exitosamente!');
+                closePublishModal();
+            });
+        } else {
+            fetch('/api/publish/direct', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    filename: activePublishClip.filename,
+                    title,
+                    caption,
+                    platform
+                })
+            })
+            .then(r => r.json())
+            .then(res => {
+                btn.disabled = false;
+                btn.textContent = '🚀 Publicar Ahora';
+                if (res.success) {
+                    alert('¡Publicación enviada exitosamente a tu automatizador!');
+                    closePublishModal();
+                } else {
+                    alert('Error: ' + res.error + '\n\nConfigura tu Webhook en "Ajustes de Publicación".');
+                }
+            });
+        }
+    }
+
+    function openSettingsModal() {
+        fetch('/api/social/settings')
+        .then(r => r.json())
+        .then(cfg => {
+            document.getElementById('settingWebhook').value = cfg.webhook_url || '';
+            document.getElementById('settingTgToken').value = cfg.telegram_bot_token || '';
+            document.getElementById('settingTgChatId').value = cfg.telegram_chat_id || '';
+            document.getElementById('settingsModal').style.display = 'flex';
+        });
+    }
+
+    function closeSettingsModal() {
+        document.getElementById('settingsModal').style.display = 'none';
+    }
+
+    function saveSettings() {
+        const webhook_url = document.getElementById('settingWebhook').value.trim();
+        const telegram_bot_token = document.getElementById('settingTgToken').value.trim();
+        const telegram_chat_id = document.getElementById('settingTgChatId').value.trim();
+
+        fetch('/api/social/settings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ webhook_url, telegram_bot_token, telegram_chat_id })
+        })
+        .then(r => r.json())
+        .then(res => {
+            alert('¡Ajustes guardados correctamente!');
+            closeSettingsModal();
+        });
     }
 
     function nudgeTime(fieldId, delta) {
