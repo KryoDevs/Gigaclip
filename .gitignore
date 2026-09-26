@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Downloads and temp files (large/generated)
+downloads/
+temp/
+output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model files (too large for git)
+*.bin
+*.pt
+*.onnx
+
+# Haar cascade (downloaded at runtime)
+haarcascade_frontalface_default.xml

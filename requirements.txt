@@ -1,0 +1,7 @@
+yt-dlp
+faster-whisper
+opencv-python
+mediapipe<1.0
+numpy
+requests
+flask
