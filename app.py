@@ -31,7 +31,10 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 jobs = {}  # job_id -> {status, progress, logs, clips, transcript, error, ...}
 
 
-def _run_job_thread(job_id: str, url: str, num_clips: int, subtitle_style: str,
+UPLOAD_DIR = TEMP_DIR / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+def _run_job_thread(job_id: str, url: str, local_path: str, num_clips: int, subtitle_style: str,
                     crop_mode: str, quality: str, min_seconds: int, max_seconds: int):
     job = jobs[job_id]
     
@@ -43,6 +46,7 @@ def _run_job_thread(job_id: str, url: str, num_clips: int, subtitle_style: str,
     try:
         result = run_pipeline(
             url=url,
+            local_path=local_path,
             num_clips=num_clips,
             subtitle_style=subtitle_style,
             crop_mode=crop_mode,
@@ -67,10 +71,28 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/api/upload", methods=["POST"])
+def api_upload():
+    if "file" not in request.files:
+        return jsonify({"error": "No se envió ningún archivo"}), 400
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"error": "Nombre de archivo vacío"}), 400
+    
+    # Save file
+    safe_name = "".join(c for c in file.filename if c.isalnum() or c in "._-").strip()
+    filename = f"{int(time.time())}_{safe_name}"
+    filepath = UPLOAD_DIR / filename
+    file.save(str(filepath))
+    
+    return jsonify({"success": True, "local_path": str(filepath)})
+
+
 @app.route("/api/process", methods=["POST"])
 def api_process():
     data = request.get_json() or {}
     url = data.get("url", "").strip()
+    local_path = data.get("local_path", "").strip()
     num_clips = int(data.get("num_clips", NUM_CLIPS))
     subtitle_style = data.get("subtitle_style", "hormozi")
     crop_mode = data.get("crop_mode", "face_track")
@@ -78,8 +100,8 @@ def api_process():
     min_seconds = int(data.get("min_seconds", CLIP_MIN_SECONDS))
     max_seconds = int(data.get("max_seconds", CLIP_MAX_SECONDS))
 
-    if not url:
-        return jsonify({"error": "La URL del video es obligatoria"}), 400
+    if not url and not local_path:
+        return jsonify({"error": "La URL del video o un archivo local es obligatorio"}), 400
 
     job_id = str(uuid.uuid4())[:8]
     jobs[job_id] = {
@@ -91,6 +113,7 @@ def api_process():
         "video_info": {},
         "error": None,
         "url": url,
+        "local_path": local_path,
         "num_clips": num_clips,
         "subtitle_style": subtitle_style,
         "crop_mode": crop_mode,
@@ -102,7 +125,7 @@ def api_process():
 
     thread = threading.Thread(
         target=_run_job_thread,
-        args=(job_id, url, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds),
+        args=(job_id, url, local_path, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds),
         daemon=True,
     )
     thread.start()

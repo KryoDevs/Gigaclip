@@ -31,3 +31,7 @@ desktop.ini
 
 # Haar cascade (downloaded at runtime)
 haarcascade_frontalface_default.xml
+
+cache/
+uploads/
+

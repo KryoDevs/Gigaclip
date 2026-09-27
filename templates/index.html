@@ -1,11 +1,79 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gigaclip Pro 🎬 - Generador & Auto-Publicador de Clips Virales en 1080p</title>
+    <title>Gigaclip Pro ðŸŽ¬ - Generador & Auto-Publicador de Clips Virales en 1080p</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">    // --- DRAG AND DROP LOGIC ---
+    let currentInputMode = 'url';
+    function switchTab(mode) {
+        currentInputMode = mode;
+        document.getElementById('tabUrl').classList.toggle('active', mode === 'url');
+        document.getElementById('tabFile').classList.toggle('active', mode === 'file');
+        document.getElementById('tabUrl').style.color = mode === 'url' ? 'var(--primary)' : 'var(--text-muted)';
+        document.getElementById('tabFile').style.color = mode === 'file' ? 'var(--primary)' : 'var(--text-muted)';
+        document.getElementById('urlZone').style.display = mode === 'url' ? 'flex' : 'none';
+        document.getElementById('fileZone').style.display = mode === 'file' ? 'block' : 'none';
+        
+        document.getElementById('urlInput').required = (mode === 'url');
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        document.getElementById('fileZone').style.borderColor = 'var(--border)';
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            document.getElementById('fileInput').files = e.dataTransfer.files;
+            handleFileSelect({target: document.getElementById('fileInput')});
+        }
+    }
+
+    function handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        document.getElementById('dropText').innerHTML = Archivo seleccionado: <span style="color:var(--primary)"> + file.name + </span>;
+        uploadFile(file);
+    }
+
+    function uploadFile(file) {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const progDiv = document.getElementById('uploadProgress');
+        progDiv.style.display = 'block';
+        progDiv.textContent = 'Subiendo... 0%';
+        
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/upload', true);
+        
+        xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                progDiv.textContent = 'Subiendo... ' + percent + '%';
+            }
+        };
+        
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.responseText);
+                if (res.success) {
+                    document.getElementById('localPath').value = res.local_path;
+                    progDiv.textContent = '✅ Subida completada. ¡Listo para generar clips!';
+                    progDiv.style.color = 'var(--accent)';
+                } else {
+                    progDiv.textContent = '❌ Error: ' + res.error;
+                    progDiv.style.color = 'var(--danger)';
+                }
+            } else {
+                progDiv.textContent = '❌ Error al subir';
+                progDiv.style.color = 'var(--danger)';
+            }
+        };
+        
+        xhr.send(formData);
+    }
+    // ---------------------------
+</script>
     <style>
         :root {
             --bg: #090a0f;
@@ -514,10 +582,10 @@
 <nav>
     <div class="container nav-inner">
         <div class="logo">
-            <span>🎬</span> Gigaclip Pro
+            <span>ðŸŽ¬</span> Gigaclip Pro
         </div>
         <div class="nav-actions">
-            <button class="btn-settings" onclick="openSettingsModal()">⚙️ Ajustes de Publicación</button>
+            <button class="btn-settings" onclick="openSettingsModal()">âš™ï¸ Ajustes de PublicaciÃ³n</button>
         </div>
     </div>
 </nav>
@@ -526,50 +594,58 @@
     <section class="hero">
         <div class="hero-glow"></div>
         <h1>Convierte videos largos en <br><span>clips virales y auto-publica</span></h1>
-        <p class="tagline">Recorte facial 1080p, subtítulos dinámicos y publicación directa a TikTok, YouTube Shorts e Instagram.</p>
+        <p class="tagline">Recorte facial 1080p, subtÃ­tulos dinÃ¡micos y publicaciÃ³n directa a TikTok, YouTube Shorts e Instagram.</p>
         
         <div class="form-card">
             <form id="processForm" onsubmit="handleStart(event)">
-                <div class="input-bar">
-                    <input type="url" id="urlInput" class="url-input" placeholder="Pega el enlace de YouTube, Twitch o Vimeo aquí..." required>
-                    <button type="submit" id="btnSubmit" class="btn-submit">
-                        🚀 Generar Clips
-                    </button>
-                </div>
+                <div class="tabs" style="display:flex; gap:20px; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+    <button type="button" id="tabUrl" class="tab-btn active" onclick="switchTab('url')" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer; font-size: 14px;">🔗 Enlace web</button>
+    <button type="button" id="tabFile" class="tab-btn" onclick="switchTab('file')" style="background:none; border:none; color:var(--text-muted); font-weight:bold; cursor:pointer; font-size: 14px;">📁 Archivo Local</button>
+</div>
+<div id="urlZone" class="input-bar">
+    <input type="url" id="urlInput" class="url-input" placeholder="Pega el enlace de YouTube, Twitch o Vimeo aquí..." required>
+</div>
+<div id="fileZone" class="drop-zone" style="display:none; border: 2px dashed var(--border); border-radius: 10px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.2s;" onclick="document.getElementById('fileInput').click();" ondragover="event.preventDefault(); this.style.borderColor='var(--primary)';" ondragleave="this.style.borderColor='var(--border)';" ondrop="handleDrop(event)">
+    <p id="dropText" style="margin-bottom: 10px; color: var(--text-muted); font-size: 15px;">Arrastra tu video aquí o <span style="color:var(--primary)">haz clic para buscar</span></p>
+    <input type="file" id="fileInput" accept="video/mp4,video/quicktime,video/webm" style="display:none;" onchange="handleFileSelect(event)">
+    <div id="uploadProgress" style="display:none; margin-top: 10px; font-size: 14px; color: var(--primary); font-weight: bold;">Subiendo... 0%</div>
+</div>
+<input type="hidden" id="localPath" value="">
+<button type="submit" id="btnSubmit" class="btn-submit" style="width: 100%; justify-content: center; margin-top: 15px;">🚀 Generar Clips</button>
 
                 <div class="options-grid">
                     <div class="opt-group">
-                        <label>🎬 Calidad de Video</label>
+                        <label>ðŸŽ¬ Calidad de Video</label>
                         <select id="videoQuality" class="opt-select">
                             <option value="1080p" selected>1080p Full HD (Lanczos + Nitidez)</option>
-                            <option value="720p">720p HD (Rápido)</option>
+                            <option value="720p">720p HD (RÃ¡pido)</option>
                         </select>
                     </div>
 
                     <div class="opt-group">
-                        <label>⏱️ Rango de Duración</label>
+                        <label>â±ï¸ Rango de DuraciÃ³n</label>
                         <select id="durationRange" class="opt-select" onchange="updateDurationRange(this.value)">
-                            <option value="15-30">Shorts Rápidos (15s - 30s)</option>
-                            <option value="20-60" selected>TikTok Estándar (20s - 60s)</option>
+                            <option value="15-30">Shorts RÃ¡pidos (15s - 30s)</option>
+                            <option value="20-60" selected>TikTok EstÃ¡ndar (20s - 60s)</option>
                             <option value="45-90">Deep-Dive / Reels (45s - 90s)</option>
                             <option value="custom">Personalizado...</option>
                         </select>
                     </div>
 
                     <div class="opt-group">
-                        <label>🎨 Estilo de Subtítulos</label>
+                        <label>ðŸŽ¨ Estilo de SubtÃ­tulos</label>
                         <select id="subStyle" class="opt-select">
                             <option value="hormozi" selected>Hormozi (Oro + Pop)</option>
                             <option value="mrbeast">MrBeast (Amarillo/Cian)</option>
                             <option value="ali_abdaal">Ali Abdaal (Sticker)</option>
                             <option value="karaoke">Karaoke (Llenado)</option>
                             <option value="minimal">Minimalista (Sutil)</option>
-                            <option value="classic">Clásico (Blanco/Negro)</option>
+                            <option value="classic">ClÃ¡sico (Blanco/Negro)</option>
                         </select>
                     </div>
 
                     <div class="opt-group">
-                        <label>📐 Reencuadre (9:16)</label>
+                        <label>ðŸ“ Reencuadre (9:16)</label>
                         <select id="cropMode" class="opt-select">
                             <option value="face_track" selected>Seguimiento de Rostro</option>
                             <option value="podcast_split">Podcast Split-Screen</option>
@@ -578,9 +654,9 @@
                     </div>
 
                     <div class="opt-group">
-                        <label>🔢 Cantidad</label>
+                        <label>ðŸ”¢ Cantidad</label>
                         <select id="numClips" class="opt-select">
-                            <option value="1">1 clip rápido</option>
+                            <option value="1">1 clip rÃ¡pido</option>
                             <option value="3" selected>3 mejores clips</option>
                             <option value="5">5 clips completos</option>
                         </select>
@@ -605,7 +681,7 @@
     <!-- Results Gallery -->
     <section class="results-section" id="resultsSection">
         <div class="section-header">
-            <h2>🎉 Clips Virales en 1080p Generados</h2>
+            <h2>ðŸŽ‰ Clips Virales en 1080p Generados</h2>
             <p class="tagline" style="margin-bottom:0">Listos para publicar en redes sociales o ajustar en el timeline</p>
         </div>
         <div class="clips-grid" id="clipsGrid"></div>
@@ -615,12 +691,12 @@
 <!-- Timeline & Subtitle Modal Editor -->
 <div class="modal" id="editModal">
     <div class="modal-box">
-        <h3>✂️ Timeline & Editor de Clip</h3>
-        <p style="font-size:13px; color:var(--text-muted)">Ajusta los segundos exactos de inicio/fin y re-renderiza en alta definición:</p>
+        <h3>âœ‚ï¸ Timeline & Editor de Clip</h3>
+        <p style="font-size:13px; color:var(--text-muted)">Ajusta los segundos exactos de inicio/fin y re-renderiza en alta definiciÃ³n:</p>
         
         <div class="timeline-controls">
             <div class="time-adjust-row">
-                <label>⏱️ Inicio:</label>
+                <label>â±ï¸ Inicio:</label>
                 <input type="number" step="0.1" id="editStart" class="opt-select" style="width:90px;" oninput="updateDurationCalc()">
                 <div class="nudge-btn-group">
                     <button type="button" class="btn-nudge" onclick="nudgeTime('editStart', -1)">-1s</button>
@@ -631,7 +707,7 @@
             </div>
 
             <div class="time-adjust-row">
-                <label>⏱️ Fin:</label>
+                <label>â±ï¸ Fin:</label>
                 <input type="number" step="0.1" id="editEnd" class="opt-select" style="width:90px;" oninput="updateDurationCalc()">
                 <div class="nudge-btn-group">
                     <button type="button" class="btn-nudge" onclick="nudgeTime('editEnd', -1)">-1s</button>
@@ -642,21 +718,21 @@
             </div>
 
             <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--accent); font-weight:700;">
-                <span>Duración Total:</span>
+                <span>DuraciÃ³n Total:</span>
                 <span id="calcDuration" style="font-family:'JetBrains Mono'; font-size:14px;">0.0s</span>
             </div>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
             <div class="opt-group">
-                <label>Estilo de Subtítulos:</label>
+                <label>Estilo de SubtÃ­tulos:</label>
                 <select id="editStyle" class="opt-select">
                     <option value="hormozi">Hormozi (Oro)</option>
                     <option value="mrbeast">MrBeast</option>
                     <option value="ali_abdaal">Ali Abdaal</option>
                     <option value="karaoke">Karaoke</option>
                     <option value="minimal">Minimalista</option>
-                    <option value="classic">Clásico</option>
+                    <option value="classic">ClÃ¡sico</option>
                 </select>
             </div>
             <div class="opt-group">
@@ -670,7 +746,7 @@
 
         <div class="modal-footer">
             <button class="btn-action btn-edit" onclick="closeModal()">Cancelar</button>
-            <button class="btn-action btn-download" id="btnRerender" onclick="submitRerender()">⚡ Re-renderizar Clip</button>
+            <button class="btn-action btn-download" id="btnRerender" onclick="submitRerender()">âš¡ Re-renderizar Clip</button>
         </div>
     </div>
 </div>
@@ -678,10 +754,10 @@
 <!-- Modal Publish / Social Automation -->
 <div class="modal" id="publishModal">
     <div class="modal-box">
-        <h3>🚀 Publicar Clip en Redes Sociales</h3>
+        <h3>ðŸš€ Publicar Clip en Redes Sociales</h3>
         
         <div class="opt-group">
-            <label>Destino de Publicación:</label>
+            <label>Destino de PublicaciÃ³n:</label>
             <select id="pubPlatform" class="opt-select">
                 <option value="all">Todas las Redes (TikTok + Shorts + Reels)</option>
                 <option value="tiktok">TikTok</option>
@@ -692,20 +768,20 @@
         </div>
 
         <div class="opt-group">
-            <label>Título / Gancho:</label>
+            <label>TÃ­tulo / Gancho:</label>
             <input type="text" id="pubTitle" class="opt-select">
         </div>
 
         <div class="opt-group">
-            <label>Descripción & Hashtags:</label>
+            <label>DescripciÃ³n & Hashtags:</label>
             <textarea id="pubCaption" class="opt-select" rows="3" style="resize:vertical;"></textarea>
         </div>
 
         <div class="opt-group">
             <label>Tipo de Lanzamiento:</label>
             <select id="pubTiming" class="opt-select" onchange="toggleScheduleTime(this.value)">
-                <option value="now">⚡ Publicar Inmediatamente</option>
-                <option value="schedule">📅 Programar para después</option>
+                <option value="now">âš¡ Publicar Inmediatamente</option>
+                <option value="schedule">ðŸ“… Programar para despuÃ©s</option>
             </select>
         </div>
 
@@ -716,7 +792,7 @@
 
         <div class="modal-footer">
             <button class="btn-action btn-edit" onclick="closePublishModal()">Cancelar</button>
-            <button class="btn-action btn-publish" id="btnSubmitPublish" onclick="submitPublish()">🚀 Publicar Ahora</button>
+            <button class="btn-action btn-publish" id="btnSubmitPublish" onclick="submitPublish()">ðŸš€ Publicar Ahora</button>
         </div>
     </div>
 </div>
@@ -724,7 +800,7 @@
 <!-- Settings Modal -->
 <div class="modal" id="settingsModal">
     <div class="modal-box">
-        <h3>⚙️ Ajustes de Automatización Social</h3>
+        <h3>âš™ï¸ Ajustes de AutomatizaciÃ³n Social</h3>
         <p style="font-size:13px; color:var(--text-muted)">Configura los Webhooks de Make/Zapier o tu bot de Telegram para auto-publicar:</p>
 
         <div class="opt-group">
@@ -744,14 +820,14 @@
 
         <div class="modal-footer">
             <button class="btn-action btn-edit" onclick="closeSettingsModal()">Cerrar</button>
-            <button class="btn-action btn-download" onclick="saveSettings()">💾 Guardar Ajustes</button>
+            <button class="btn-action btn-download" onclick="saveSettings()">ðŸ’¾ Guardar Ajustes</button>
         </div>
     </div>
 </div>
 
 <footer>
     <div class="container">
-        <p>Gigaclip Pro · Motor 1080p con Whisper, Ollama y FFmpeg Lanczos · <a href="https://github.com/nicolasdcarrillo-create/Gigaclip" target="_blank">GitHub</a></p>
+        <p>Gigaclip Pro Â· Motor 1080p con Whisper, Ollama y FFmpeg Lanczos Â· <a href="https://github.com/nicolasdcarrillo-create/Gigaclip" target="_blank">GitHub</a></p>
     </div>
 </footer>
 
@@ -768,8 +844,8 @@
         else if (val === '20-60') { customMin = 20; customMax = 60; }
         else if (val === '45-90') { customMin = 45; customMax = 90; }
         else {
-            const min = prompt("Duración mínima en segundos:", "15");
-            const max = prompt("Duración máxima en segundos:", "60");
+            const min = prompt("DuraciÃ³n mÃ­nima en segundos:", "15");
+            const max = prompt("DuraciÃ³n mÃ¡xima en segundos:", "60");
             customMin = parseInt(min) || 15;
             customMax = parseInt(max) || 60;
         }
@@ -777,17 +853,19 @@
 
     function handleStart(e) {
         e.preventDefault();
-        const url = document.getElementById('urlInput').value.trim();
+        const url = currentInputMode === 'url' ? document.getElementById('urlInput').value.trim() : '';
+        const local_path = currentInputMode === 'file' ? document.getElementById('localPath').value : '';
         const quality = document.getElementById('videoQuality').value;
         const subtitle_style = document.getElementById('subStyle').value;
         const crop_mode = document.getElementById('cropMode').value;
         const num_clips = parseInt(document.getElementById('numClips').value);
 
-        if (!url) return;
+        if (currentInputMode === 'url' && !url) return;
+        if (currentInputMode === 'file' && !local_path) { alert('Sube un archivo primero'); return; }
 
         const btn = document.getElementById('btnSubmit');
         btn.disabled = true;
-        btn.innerHTML = '⏳ Procesando en 1080p...';
+        btn.innerHTML = 'â³ Procesando en 1080p...';
 
         document.getElementById('progressPanel').style.display = 'block';
         document.getElementById('resultsSection').style.display = 'none';
@@ -803,6 +881,7 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 url,
+                local_path,
                 quality,
                 subtitle_style,
                 crop_mode,
@@ -822,7 +901,7 @@
             }
         })
         .catch(err => {
-            alert('Error de conexión: ' + err.message);
+            alert('Error de conexiÃ³n: ' + err.message);
             resetForm();
         });
     }
@@ -873,27 +952,27 @@
                 </div>
                 <div class="clip-details">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <span class="score-pill">🔥 Viral: ${c.score || 90}/100</span>
-                        <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono';">⏱️ ${c.duration}s (${c.start}s - ${c.end}s)</span>
+                        <span class="score-pill">ðŸ”¥ Viral: ${c.score || 90}/100</span>
+                        <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono';">â±ï¸ ${c.duration}s (${c.start}s - ${c.end}s)</span>
                     </div>
                     <div class="clip-title">${c.title}</div>
                     ${c.hook ? `<div class="hook-box">"${c.hook}"</div>` : ''}
 
                     <div class="social-kit">
                         <div class="social-row">
-                            <span>📱 TikTok: ${soc.tiktok_caption || c.title}</span>
+                            <span>ðŸ“± TikTok: ${soc.tiktok_caption || c.title}</span>
                             <button class="btn-copy" onclick="copyText('${escapeQuotes(soc.tiktok_caption || c.title)}', this)">Copiar</button>
                         </div>
                         <div class="social-row">
-                            <span>💬 Comentario: ${soc.pinned_comment || '¿Qué opinas?'}</span>
+                            <span>ðŸ’¬ Comentario: ${soc.pinned_comment || 'Â¿QuÃ© opinas?'}</span>
                             <button class="btn-copy" onclick="copyText('${escapeQuotes(soc.pinned_comment || '')}', this)">Copiar</button>
                         </div>
                     </div>
 
                     <div class="card-actions">
-                        <a href="/output/${encodeURIComponent(c.filename)}" download class="btn-action btn-download">⬇️ Descargar</a>
-                        <button class="btn-action btn-publish" onclick='openPublishModal(${JSON.stringify(c)})'>🚀 Publicar</button>
-                        <button class="btn-action btn-edit" style="grid-column:1/-1;" onclick='openEditModal(${JSON.stringify(c)})'>✂️ Ajustar Timeline</button>
+                        <a href="/output/${encodeURIComponent(c.filename)}" download class="btn-action btn-download">â¬‡ï¸ Descargar</a>
+                        <button class="btn-action btn-publish" onclick='openPublishModal(${JSON.stringify(c)})'>ðŸš€ Publicar</button>
+                        <button class="btn-action btn-edit" style="grid-column:1/-1;" onclick='openEditModal(${JSON.stringify(c)})'>âœ‚ï¸ Ajustar Timeline</button>
                     </div>
                 </div>
             `;
@@ -933,14 +1012,14 @@
 
     function toggleScheduleTime(val) {
         document.getElementById('scheduleDateGroup').style.display = val === 'schedule' ? 'block' : 'none';
-        document.getElementById('btnSubmitPublish').textContent = val === 'schedule' ? '📅 Programar Post' : '🚀 Publicar Ahora';
+        document.getElementById('btnSubmitPublish').textContent = val === 'schedule' ? 'ðŸ“… Programar Post' : 'ðŸš€ Publicar Ahora';
     }
 
     function submitPublish() {
         if (!activePublishClip) return;
         const btn = document.getElementById('btnSubmitPublish');
         btn.disabled = true;
-        btn.textContent = '⏳ Enviando...';
+        btn.textContent = 'â³ Enviando...';
 
         const platform = document.getElementById('pubPlatform').value;
         const title = document.getElementById('pubTitle').value;
@@ -956,9 +1035,9 @@
             .then(r => r.json())
             .then(res => {
                 btn.disabled = false;
-                btn.textContent = '🚀 Publicar Ahora';
+                btn.textContent = 'ðŸš€ Publicar Ahora';
                 if (res.success) {
-                    alert('¡Video enviado a tu Telegram con éxito!');
+                    alert('Â¡Video enviado a tu Telegram con Ã©xito!');
                     closePublishModal();
                 } else {
                     alert('Error: ' + res.error);
@@ -984,8 +1063,8 @@
             .then(r => r.json())
             .then(res => {
                 btn.disabled = false;
-                btn.textContent = '📅 Programar Post';
-                alert('¡Clip programado en la cola exitosamente!');
+                btn.textContent = 'ðŸ“… Programar Post';
+                alert('Â¡Clip programado en la cola exitosamente!');
                 closePublishModal();
             });
         } else {
@@ -1002,12 +1081,12 @@
             .then(r => r.json())
             .then(res => {
                 btn.disabled = false;
-                btn.textContent = '🚀 Publicar Ahora';
+                btn.textContent = 'ðŸš€ Publicar Ahora';
                 if (res.success) {
-                    alert('¡Publicación enviada exitosamente a tu automatizador!');
+                    alert('Â¡PublicaciÃ³n enviada exitosamente a tu automatizador!');
                     closePublishModal();
                 } else {
-                    alert('Error: ' + res.error + '\n\nConfigura tu Webhook en "Ajustes de Publicación".');
+                    alert('Error: ' + res.error + '\n\nConfigura tu Webhook en "Ajustes de PublicaciÃ³n".');
                 }
             });
         }
@@ -1040,7 +1119,7 @@
         })
         .then(r => r.json())
         .then(res => {
-            alert('¡Ajustes guardados correctamente!');
+            alert('Â¡Ajustes guardados correctamente!');
             closeSettingsModal();
         });
     }
@@ -1064,7 +1143,7 @@
         if (!activeEditingClip) return;
         const btn = document.getElementById('btnRerender');
         btn.disabled = true;
-        btn.textContent = '⏳ Renderizando en 1080p...';
+        btn.textContent = 'â³ Renderizando en 1080p...';
 
         fetch('/api/clip/re-render', {
             method: 'POST',
@@ -1083,10 +1162,10 @@
         .then(r => r.json())
         .then(res => {
             btn.disabled = false;
-            btn.textContent = '⚡ Re-renderizar Clip';
+            btn.textContent = 'âš¡ Re-renderizar Clip';
             if (res.success) {
                 closeModal();
-                alert('¡Clip re-renderizado con éxito en 1080p! Recargando...');
+                alert('Â¡Clip re-renderizado con Ã©xito en 1080p! Recargando...');
                 location.reload();
             } else {
                 alert('Error al re-renderizar: ' + (res.error || ''));
@@ -1094,7 +1173,7 @@
         })
         .catch(err => {
             btn.disabled = false;
-            btn.textContent = '⚡ Re-renderizar Clip';
+            btn.textContent = 'âš¡ Re-renderizar Clip';
             alert('Error: ' + err.message);
         });
     }
@@ -1102,7 +1181,7 @@
     function copyText(text, btn) {
         navigator.clipboard.writeText(text).then(() => {
             const old = btn.textContent;
-            btn.textContent = '✅ Copiado';
+            btn.textContent = 'âœ… Copiado';
             setTimeout(() => btn.textContent = old, 1800);
         });
     }
@@ -1114,9 +1193,81 @@
     function resetForm() {
         const btn = document.getElementById('btnSubmit');
         btn.disabled = false;
-        btn.innerHTML = '🚀 Generar Clips';
+        btn.innerHTML = 'ðŸš€ Generar Clips';
     }
+    // --- DRAG AND DROP LOGIC ---
+    let currentInputMode = 'url';
+    function switchTab(mode) {
+        currentInputMode = mode;
+        document.getElementById('tabUrl').classList.toggle('active', mode === 'url');
+        document.getElementById('tabFile').classList.toggle('active', mode === 'file');
+        document.getElementById('tabUrl').style.color = mode === 'url' ? 'var(--primary)' : 'var(--text-muted)';
+        document.getElementById('tabFile').style.color = mode === 'file' ? 'var(--primary)' : 'var(--text-muted)';
+        document.getElementById('urlZone').style.display = mode === 'url' ? 'flex' : 'none';
+        document.getElementById('fileZone').style.display = mode === 'file' ? 'block' : 'none';
+        
+        document.getElementById('urlInput').required = (mode === 'url');
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        document.getElementById('fileZone').style.borderColor = 'var(--border)';
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            document.getElementById('fileInput').files = e.dataTransfer.files;
+            handleFileSelect({target: document.getElementById('fileInput')});
+        }
+    }
+
+    function handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        document.getElementById('dropText').innerHTML = Archivo seleccionado: <span style="color:var(--primary)"> + file.name + </span>;
+        uploadFile(file);
+    }
+
+    function uploadFile(file) {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const progDiv = document.getElementById('uploadProgress');
+        progDiv.style.display = 'block';
+        progDiv.textContent = 'Subiendo... 0%';
+        
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/upload', true);
+        
+        xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                progDiv.textContent = 'Subiendo... ' + percent + '%';
+            }
+        };
+        
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const res = JSON.parse(xhr.responseText);
+                if (res.success) {
+                    document.getElementById('localPath').value = res.local_path;
+                    progDiv.textContent = '✅ Subida completada. ¡Listo para generar clips!';
+                    progDiv.style.color = 'var(--accent)';
+                } else {
+                    progDiv.textContent = '❌ Error: ' + res.error;
+                    progDiv.style.color = 'var(--danger)';
+                }
+            } else {
+                progDiv.textContent = '❌ Error al subir';
+                progDiv.style.color = 'var(--danger)';
+            }
+        };
+        
+        xhr.send(formData);
+    }
+    // ---------------------------
 </script>
 
 </body>
 </html>
+
+
+
+
