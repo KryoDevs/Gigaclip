@@ -1,4 +1,4 @@
-"""
+﻿"""
 Selector inteligente de momentos virales con LLM local (Ollama).
 Incorpora analisis de texto, transcripcion con timestamps y senales
 de energia acustica para priorizar momentos con ganchos solidos y alta retencion.
@@ -45,7 +45,7 @@ def _format_transcript_with_energy(segments: list[dict]) -> str:
     lines = []
     for s in segments:
         energy = s.get("energy_score", 5.0)
-        peak_str = " 🔥" if s.get("has_energy_peak") else ""
+        peak_str = " ðŸ”¥" if s.get("has_energy_peak") else ""
         lines.append(f"[{s['start']:.1f}-{s['end']:.1f} | Energia: {energy:.1f}/10{peak_str}] {s['text']}")
     return "\n".join(lines)
 
@@ -146,3 +146,4 @@ def _parse_llm_json(raw: str) -> dict:
         if match:
             return json.loads(match.group(0))
         raise ValueError("JSON no valido")
+

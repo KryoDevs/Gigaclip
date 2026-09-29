@@ -799,30 +799,48 @@
 
 <!-- Settings Modal -->
 <div class="modal" id="settingsModal">
-    <div class="modal-box">
-        <h3>âš™ï¸ Ajustes de AutomatizaciÃ³n Social</h3>
-        <p style="font-size:13px; color:var(--text-muted)">Configura los Webhooks de Make/Zapier o tu bot de Telegram para auto-publicar:</p>
+    <div class="modal-box" style="max-height: 85vh; overflow-y: auto;">
+        <h3>⚙️ Ajustes Globales</h3>
+        <p style="font-size:13px; color:var(--text-muted)">Configura el motor de IA y automatizaciones sociales:</p>
 
+        <h4 style="margin-top: 15px; color: var(--primary);">🧠 Motor de Inteligencia Artificial (Cerebro)</h4>
         <div class="opt-group">
-            <label>URL de Webhook (Zapier / Make / Metricool / n8n):</label>
+            <label>Proveedor de IA:</label>
+            <select id="settingLlmProvider" class="opt-select">
+                <option value="ollama">Ollama (Local / Gratis)</option>
+                <option value="openai">OpenAI (Recomendado)</option>
+                <option value="deepseek">DeepSeek (Recomendado)</option>
+            </select>
+        </div>
+        <div class="opt-group">
+            <label>API Key (OpenAI / DeepSeek):</label>
+            <input type="password" id="settingLlmApiKey" class="opt-select" placeholder="sk-...">
+        </div>
+        <div class="opt-group">
+            <label>Modelo:</label>
+            <input type="text" id="settingLlmModel" class="opt-select" placeholder="gpt-4o-mini o deepseek-chat">
+        </div>
+
+        <h4 style="margin-top: 20px; color: var(--primary);">🚀 Automatización Social</h4>
+        <div class="opt-group">
+            <label>URL de Webhook (Zapier / Make / n8n):</label>
             <input type="url" id="settingWebhook" class="opt-select" placeholder="https://hook.eu1.make.com/...">
         </div>
-
         <div class="opt-group">
-            <label>Token de Bot de Telegram (Opcional):</label>
+            <label>Token de Bot de Telegram:</label>
             <input type="text" id="settingTgToken" class="opt-select" placeholder="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11">
         </div>
-
         <div class="opt-group">
-            <label>Chat ID de Telegram (Opcional):</label>
+            <label>Chat ID de Telegram:</label>
             <input type="text" id="settingTgChatId" class="opt-select" placeholder="-100123456789">
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer" style="margin-top: 20px;">
             <button class="btn-action btn-edit" onclick="closeSettingsModal()">Cerrar</button>
-            <button class="btn-action btn-download" onclick="saveSettings()">ðŸ’¾ Guardar Ajustes</button>
+            <button class="btn-action btn-download" onclick="saveSettings()">💾 Guardar Ajustes</button>
         </div>
     </div>
+</div>
 </div>
 
 <footer>
@@ -1097,6 +1115,9 @@
         .then(r => r.json())
         .then(cfg => {
             document.getElementById('settingWebhook').value = cfg.webhook_url || '';
+            document.getElementById('settingLlmProvider').value = cfg.llm_provider || 'ollama';
+            document.getElementById('settingLlmApiKey').value = cfg.llm_api_key || '';
+            document.getElementById('settingLlmModel').value = cfg.llm_model || 'gpt-4o-mini';
             document.getElementById('settingTgToken').value = cfg.telegram_bot_token || '';
             document.getElementById('settingTgChatId').value = cfg.telegram_chat_id || '';
             document.getElementById('settingsModal').style.display = 'flex';
@@ -1109,13 +1130,16 @@
 
     function saveSettings() {
         const webhook_url = document.getElementById('settingWebhook').value.trim();
+        const llm_provider = document.getElementById('settingLlmProvider').value;
+        const llm_api_key = document.getElementById('settingLlmApiKey').value.trim();
+        const llm_model = document.getElementById('settingLlmModel').value.trim();
         const telegram_bot_token = document.getElementById('settingTgToken').value.trim();
         const telegram_chat_id = document.getElementById('settingTgChatId').value.trim();
 
         fetch('/api/social/settings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ webhook_url, telegram_bot_token, telegram_chat_id })
+            body: JSON.stringify({ webhook_url, telegram_bot_token, telegram_chat_id, llm_provider, llm_api_key, llm_model })
         })
         .then(r => r.json())
         .then(res => {
@@ -1267,6 +1291,9 @@
 
 </body>
 </html>
+
+
+
 
 
 
