@@ -32,7 +32,7 @@ def _words_between(words: list[dict], start: float, end: float) -> list[dict]:
 
 def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip: list[dict],
                       final_output: str, style: str = "hormozi", crop_mode: str = "face_track",
-                      quality: str = DEFAULT_QUALITY, watermark: str = "") -> None:
+                      quality: str = DEFAULT_QUALITY, watermark: str = "", hw_accel: str = "cpu") -> None:
     """Renderiza el clip en alta calidad con parÃ¡metros optimizados."""
     preset_data = VIDEO_QUALITY_PRESETS.get(quality, VIDEO_QUALITY_PRESETS["1080p"])
     target_w = preset_data["width"]
@@ -73,6 +73,15 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         f'[0:a][sfx1][sfx2]amix=inputs=3:duration=first:dropout_transition=2:normalize=0[outa]'
     )
 
+    v_codec = 'libx264'
+    v_preset = ff_preset
+    v_crf_args = ['-crf', crf]
+    
+    if hw_accel == 'nvenc':
+        v_codec = 'h264_nvenc'
+        v_preset = 'p4' # NVENC recommended fast preset
+        v_crf_args = ['-cq', crf] # NVENC uses -cq instead of -crf for constant quality
+
     cmd = [
         FFMPEG_BIN, '-y',
         '-ss', str(start), '-to', str(end),
@@ -82,7 +91,7 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         '-filter_complex', complex_filter,
         '-map', '[outv]',
         '-map', '[outa]',
-        '-c:v', 'libx264', '-preset', ff_preset, '-crf', crf,
+        '-c:v', v_codec, '-preset', v_preset, *v_crf_args,
         '-b:v', v_bitrate, '-maxrate', '8000k', '-bufsize', '12000k',
         '-pix_fmt', 'yuv420p',
         '-c:a', 'aac', '-b:a', a_bitrate, '-ar', '48000',
@@ -138,7 +147,7 @@ def _generate_sequential_clips(segments: list, min_s: int, max_s: int, max_clips
 def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
         crop_mode: str = "face_track", quality: str = DEFAULT_QUALITY,
         min_seconds: int = None, max_seconds: int = None, extraction_strategy: str = "ai_viral",
-        watermark: str = "", progress_callback=None) -> dict:
+        watermark: str = "", hw_accel: str = "cpu", progress_callback=None) -> dict:
     
     def log(msg, step_pct=None):
         if progress_callback:
@@ -204,7 +213,8 @@ def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, sub
             style=subtitle_style,
             crop_mode=crop_mode,
             quality=quality,
-            watermark=watermark
+            watermark=watermark,
+            hw_accel=hw_accel
         )
 
         snippet = " ".join(w["word"] for w in clip_words[:35])

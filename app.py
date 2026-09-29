@@ -36,7 +36,8 @@ UPLOAD_DIR = TEMP_DIR / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 def _run_job_thread(job_id: str, url: str, local_path: str, num_clips: int, subtitle_style: str,
-                    crop_mode: str, quality: str, min_seconds: int, max_seconds: int, extraction_strategy: str):
+                    crop_mode: str, quality: str, min_seconds: int, max_seconds: int, extraction_strategy: str,
+                    watermark: str, hw_accel: str):
     job = jobs[job_id]
     
     def callback(msg, pct):
@@ -55,6 +56,8 @@ def _run_job_thread(job_id: str, url: str, local_path: str, num_clips: int, subt
             min_seconds=min_seconds,
             max_seconds=max_seconds,
             extraction_strategy=extraction_strategy,
+            watermark=watermark,
+            hw_accel=hw_accel,
             progress_callback=callback
         )
         job["clips"] = result["clips"]
@@ -102,6 +105,8 @@ def api_process():
     min_seconds = int(data.get("min_seconds", CLIP_MIN_SECONDS))
     max_seconds = int(data.get("max_seconds", CLIP_MAX_SECONDS))
     extraction_strategy = data.get("extraction_strategy", "ai_viral")
+    watermark = data.get("watermark", "").strip()
+    hw_accel = data.get("hw_accel", "cpu").strip()
 
     if not url and not local_path:
         return jsonify({"error": "La URL del video o un archivo local es obligatorio"}), 400
@@ -124,12 +129,14 @@ def api_process():
         "min_seconds": min_seconds,
         "max_seconds": max_seconds,
         "extraction_strategy": extraction_strategy,
+        "watermark": watermark,
+        "hw_accel": hw_accel,
         "created_at": time.time(),
     }
 
     thread = threading.Thread(
         target=_run_job_thread,
-        args=(job_id, url, local_path, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds, extraction_strategy),
+        args=(job_id, url, local_path, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds, extraction_strategy, watermark, hw_accel),
         daemon=True,
     )
     thread.start()

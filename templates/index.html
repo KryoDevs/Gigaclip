@@ -366,6 +366,14 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="form-label">Motor de Procesamiento</label>
+                        <select id="hwAccel" class="form-control">
+                            <option value="cpu" selected>CPU (Estándar / Máxima Compatibilidad)</option>
+                            <option value="nvenc">NVIDIA GPU (h264_nvenc - Ultra Rápido)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label class="form-label">Calidad de Salida</label>
                         <select id="videoQuality" class="form-control">
                             <option value="1080p" selected>1080p (Alta Calidad)</option>
@@ -619,6 +627,7 @@
             const num_clips = parseInt(document.getElementById('numClips').value);
             const extraction_strategy = document.getElementById('clipStrategy').value;
             const watermark = document.getElementById('watermarkText').value.trim();
+            const hw_accel = document.getElementById('hwAccel').value;
 
             if (currentInputMode === 'url' && !url) return;
             if (currentInputMode === 'file' && !local_path) { alert('Seleccione un archivo.'); return; }
@@ -638,7 +647,7 @@
                 body: JSON.stringify({
                     url, local_path, quality, subtitle_style, crop_mode: 'face_track',
                     num_clips, min_seconds: customMin, max_seconds: customMax, extraction_strategy,
-                    watermark
+                    watermark, hw_accel
                 })
             })
             .then(res => res.json())
