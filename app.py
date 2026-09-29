@@ -36,7 +36,7 @@ UPLOAD_DIR = TEMP_DIR / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 def _run_job_thread(job_id: str, url: str, local_path: str, num_clips: int, subtitle_style: str,
-                    crop_mode: str, quality: str, min_seconds: int, max_seconds: int):
+                    crop_mode: str, quality: str, min_seconds: int, max_seconds: int, extraction_strategy: str):
     job = jobs[job_id]
     
     def callback(msg, pct):
@@ -54,6 +54,7 @@ def _run_job_thread(job_id: str, url: str, local_path: str, num_clips: int, subt
             quality=quality,
             min_seconds=min_seconds,
             max_seconds=max_seconds,
+            extraction_strategy=extraction_strategy,
             progress_callback=callback
         )
         job["clips"] = result["clips"]
@@ -100,6 +101,7 @@ def api_process():
     quality = data.get("quality", DEFAULT_QUALITY)
     min_seconds = int(data.get("min_seconds", CLIP_MIN_SECONDS))
     max_seconds = int(data.get("max_seconds", CLIP_MAX_SECONDS))
+    extraction_strategy = data.get("extraction_strategy", "ai_viral")
 
     if not url and not local_path:
         return jsonify({"error": "La URL del video o un archivo local es obligatorio"}), 400
@@ -121,12 +123,13 @@ def api_process():
         "quality": quality,
         "min_seconds": min_seconds,
         "max_seconds": max_seconds,
+        "extraction_strategy": extraction_strategy,
         "created_at": time.time(),
     }
 
     thread = threading.Thread(
         target=_run_job_thread,
-        args=(job_id, url, local_path, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds),
+        args=(job_id, url, local_path, num_clips, subtitle_style, crop_mode, quality, min_seconds, max_seconds, extraction_strategy),
         daemon=True,
     )
     thread.start()
@@ -204,6 +207,12 @@ def api_generate_social():
     metadata = generate_social_metadata(title, snippet)
     return jsonify(metadata)
 
+
+@app.route("/api/social/test-llm", methods=["GET"])
+def api_test_llm():
+    from select_clips import test_llm_connection
+    res = test_llm_connection()
+    return jsonify(res)
 
 @app.route("/api/social/settings", methods=["GET", "POST"])
 def api_social_settings():

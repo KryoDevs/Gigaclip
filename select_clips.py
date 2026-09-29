@@ -61,6 +61,43 @@ def _get_llm_config() -> dict:
         "model": cfg.get("llm_model", "gpt-4o-mini"),
     }
 
+def test_llm_connection():
+    config = _get_llm_config()
+    provider = config.get("provider", "ollama")
+    api_key = config.get("api_key", "")
+    model = config.get("model", "gpt-4o-mini" if provider == "openai" else "deepseek-chat")
+    
+    try:
+        if provider == "openai":
+            import requests
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+            data = {"model": model, "messages": [{"role": "user", "content": "Say OK"}], "max_tokens": 5}
+            r = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data, timeout=10)
+            if r.status_code == 200:
+                return {"success": True, "provider": "OpenAI", "model": model, "message": "Conexión exitosa"}
+            else:
+                return {"success": False, "provider": "OpenAI", "error": r.text}
+                
+        elif provider == "deepseek":
+            import requests
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+            data = {"model": model, "messages": [{"role": "user", "content": "Say OK"}], "max_tokens": 5}
+            r = requests.post("https://api.deepseek.com/v1/chat/completions", headers=headers, json=data, timeout=10)
+            if r.status_code == 200:
+                return {"success": True, "provider": "DeepSeek", "model": model, "message": "Conexión exitosa"}
+            else:
+                return {"success": False, "provider": "DeepSeek", "error": r.text}
+                
+        elif provider == "ollama":
+            import requests
+            r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=5)
+            if r.status_code == 200:
+                return {"success": True, "provider": "Ollama", "model": OLLAMA_MODEL, "message": "Servidor activo"}
+            else:
+                return {"success": False, "provider": "Ollama", "error": "Servidor inactivo"}
+    except Exception as e:
+        return {"success": False, "provider": provider.capitalize(), "error": str(e)}
+
 
 def _call_cloud_llm(prompt: str, provider: str, api_key: str, model: str) -> str:
     """Llama a OpenAI o DeepSeek via la libreria oficial de OpenAI."""

@@ -84,15 +84,25 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
 
 
 def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel: str,
-                        mode: str = "face_track", quality: str = DEFAULT_QUALITY) -> str:
+                        mode: str = "face_track", quality: str = DEFAULT_QUALITY,
+                        watermark: str = "") -> str:
     """
     Genera el grafo de filtros FFmpeg con escalado Lanczos,
-    filtro de nitidez unsharp y subtitulos ASS.
+    filtro de nitidez unsharp, subtitulos ASS y marca de agua opcional.
     """
     preset_data = VIDEO_QUALITY_PRESETS.get(quality, VIDEO_QUALITY_PRESETS["1080p"])
     target_w = preset_data["width"]
     target_h = preset_data["height"]
     sharpen_filter = ",unsharp=5:5:0.6:5:5:0.0" if preset_data["sharpen"] else ""
+    
+    # Preparamos el filtro de marca de agua si existe
+    watermark_filter = ""
+    if watermark:
+        # Escape colons for drawtext filter
+        safe_watermark = watermark.replace(":", "\\:")
+        # Place it at the top right, or bottom. Let's do top right with some padding.
+        # Alternatively, bottom center for credits. Let's do bottom, below subtitles, but not too low.
+        watermark_filter = f",drawtext=text='{safe_watermark}':fontcolor=white@0.6:fontsize={int(target_h*0.025)}:x=(w-text_w)/2:y=h-{int(target_h*0.1)}:shadowcolor=black@0.8:shadowx=2:shadowy=2"
 
     if mode == "podcast_split":
         # Split vertical apilado con escalado Lanczos
@@ -101,7 +111,7 @@ def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel:
             f"[0:v]crop=iw/2:ih:0:0,scale={target_w}:{half_h}:flags=lanczos[top];"
             f"[0:v]crop=iw/2:ih:iw/2:0,scale={target_w}:{half_h}:flags=lanczos[bottom];"
             f"[top][bottom]vstack=inputs=2[v_split];"
-            f"[v_split]ass={ass_path_rel}{sharpen_filter}[outv]"
+            f"[v_split]ass={ass_path_rel}{sharpen_filter}{watermark_filter}[outv]"
         )
         return filter_str
     elif mode == "blur_background":
@@ -109,12 +119,12 @@ def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel:
             f"[0:v]scale={target_w}:{target_h}:flags=lanczos:force_original_aspect_ratio=increase,crop={target_w}:{target_h},boxblur=25:6[bg];"
             f"[0:v]scale={target_w}:{target_h}:flags=lanczos:force_original_aspect_ratio=decrease[fg];"
             f"[bg][fg]overlay=(W-w)/2:(H-h)/2[v_comp];"
-            f"[v_comp]ass={ass_path_rel}{sharpen_filter}[outv]"
+            f"[v_comp]ass={ass_path_rel}{sharpen_filter}{watermark_filter}[outv]"
         )
         return filter_str
     else:
         # Modo Face Track con escalado de alta precision
         w, h, x, y = get_crop_coordinates(video_path, start, end)
-        return f"crop={w}:{h}:{x}:{y},scale={target_w}:{target_h}:flags=lanczos{sharpen_filter},ass={ass_path_rel}"
+        return f"crop={w}:{h}:{x}:{y},scale={target_w}:{target_h}:flags=lanczos{sharpen_filter},ass={ass_path_rel}{watermark_filter}"
 
 

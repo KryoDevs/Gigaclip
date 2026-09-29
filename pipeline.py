@@ -32,7 +32,7 @@ def _words_between(words: list[dict], start: float, end: float) -> list[dict]:
 
 def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip: list[dict],
                       final_output: str, style: str = "hormozi", crop_mode: str = "face_track",
-                      quality: str = DEFAULT_QUALITY) -> None:
+                      quality: str = DEFAULT_QUALITY, watermark: str = "") -> None:
     """Renderiza el clip en alta calidad con parÃ¡metros optimizados."""
     preset_data = VIDEO_QUALITY_PRESETS.get(quality, VIDEO_QUALITY_PRESETS["1080p"])
     target_w = preset_data["width"]
@@ -96,46 +96,91 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         raise RuntimeError(f"FFmpeg falló (code {result.returncode}): {err_msg}")
 
 
+def _generate_sequential_clips(segments: list, min_s: int, max_s: int, max_clips: int) -> list:
+    """Divide el video en partes secuenciales consecutivas (Parte 1, Parte 2...)"""
+    clips = []
+    if not segments: return clips
+    
+    current_start = segments[0]["start"]
+    current_end = current_start
+    current_text = []
+    
+    for seg in segments:
+        if (seg["end"] - current_start) > max_s and (current_end - current_start) >= min_s:
+            clips.append({
+                "start": round(current_start, 2),
+                "end": round(current_end, 2),
+                "title": f"Parte {len(clips)+1}",
+                "hook": (" ".join(current_text[:8]) + "...").strip(),
+                "score": 99,
+                "duration": round(current_end - current_start, 1)
+            })
+            current_start = seg["start"]
+            current_text = []
+            if len(clips) >= max_clips:
+                break
+        
+        current_end = seg["end"]
+        current_text.append(seg["text"])
+        
+    if len(clips) < max_clips and (current_end - current_start) >= min_s:
+        clips.append({
+            "start": round(current_start, 2),
+            "end": round(current_end, 2),
+            "title": f"Parte {len(clips)+1}",
+            "hook": (" ".join(current_text[:8]) + "...").strip(),
+            "score": 99,
+            "duration": round(current_end - current_start, 1)
+        })
+    return clips
+
+
 def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
         crop_mode: str = "face_track", quality: str = DEFAULT_QUALITY,
-        min_seconds: int = None, max_seconds: int = None, progress_callback=None) -> dict:
+        min_seconds: int = None, max_seconds: int = None, extraction_strategy: str = "ai_viral",
+        watermark: str = "", progress_callback=None) -> dict:
     
     def log(msg, step_pct=None):
         if progress_callback:
-            progress_callback(msg, step_pct)
+             progress_callback(msg, step_pct)
         else:
-            print(msg)
+             print(msg)
 
     min_s = min_seconds or CLIP_MIN_SECONDS
     max_s = max_seconds or CLIP_MAX_SECONDS
 
     # 1. Descarga o Archivo Local
     if local_path and os.path.exists(local_path):
-        log(f"[1/5] ðŸ“ Procesando archivo local: {os.path.basename(local_path)}", 20)
+        log(f"[1/5] 📁 Procesando archivo local: {os.path.basename(local_path)}", 20)
         source_path = local_path
         # Extraemos algo de metadata basica
         video_title = os.path.basename(local_path).rsplit(".", 1)[0]
         video_duration = 0 # No es critico para el pipeline
         video = {"title": video_title, "duration": video_duration, "path": source_path}
     elif url:
-        log(f"[1/5] âš¡ Descargando video en HD: {url}", 15)
+        log(f"[1/5] ⚡ Descargando video en HD: {url}", 15)
         video = download_video(url)
         source_path = video["path"]
-        log(f"      â†’ {video['title']} ({video['duration']}s)", 20)
+        log(f"      → {video['title']} ({video['duration']}s)", 20)
     else:
         raise ValueError("Se debe proveer una 'url' o un 'local_path'")
 
     # 2. Analisis acustico y transcripcion Whisper
-    log("[2/5] ðŸŽ™ï¸ Analizando energia de audio y transcribiendo...", 30)
+    log("[2/5] 🎙️ Analizando energia de audio y transcribiendo...", 30)
     energy_data = analyze_audio_energy(source_path)
     transcript = transcribe(source_path)
     segments_with_energy = correlate_energy_with_segments(transcript["segments"], energy_data)
-    log(f"      â†’ {len(transcript['words'])} palabras analizadas", 55)
+    log(f"      → {len(transcript['words'])} palabras analizadas", 55)
 
-    # 3. Seleccion con LLM respetando rango de duracion
-    log(f"[3/5] ðŸ§  Seleccionando momentos virales ({min_s}s - {max_s}s)...", 65)
-    clips = select_clips(segments_with_energy, num_clips=num_clips, min_seconds=min_s, max_seconds=max_s)
-    log(f"      â†’ {len(clips)} clips seleccionados", 70)
+    # 3. Seleccion con LLM o Secuencial respetando rango de duracion
+    log(f"[3/5] 🧠 Seleccionando momentos ({extraction_strategy}) ({min_s}s - {max_s}s)...", 65)
+    
+    if extraction_strategy == "sequential":
+        clips = _generate_sequential_clips(segments_with_energy, min_s, max_s, num_clips)
+    else:
+        clips = select_clips(segments_with_energy, num_clips=num_clips, min_seconds=min_s, max_seconds=max_s)
+        
+    log(f"      → {len(clips)} clips seleccionados", 70)
 
     from social_publisher import extract_thumbnail
 
@@ -159,6 +204,7 @@ def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, sub
             style=subtitle_style,
             crop_mode=crop_mode,
             quality=quality,
+            watermark=watermark
         )
 
         snippet = " ".join(w["word"] for w in clip_words[:35])
