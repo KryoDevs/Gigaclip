@@ -5,3 +5,4 @@ mediapipe<1.0
 numpy
 requests
 flask
+openai
