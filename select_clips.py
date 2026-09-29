@@ -1,5 +1,6 @@
-﻿"""
-Selector inteligente de momentos virales con LLM local (Ollama).
+"""
+Selector inteligente de momentos virales con LLM multi-proveedor.
+Soporta OpenAI, DeepSeek y Ollama (local).
 Incorpora analisis de texto, transcripcion con timestamps y senales
 de energia acustica para priorizar momentos con ganchos solidos y alta retencion.
 """
@@ -45,9 +46,62 @@ def _format_transcript_with_energy(segments: list[dict]) -> str:
     lines = []
     for s in segments:
         energy = s.get("energy_score", 5.0)
-        peak_str = " ðŸ”¥" if s.get("has_energy_peak") else ""
+        peak_str = " 🔥" if s.get("has_energy_peak") else ""
         lines.append(f"[{s['start']:.1f}-{s['end']:.1f} | Energia: {energy:.1f}/10{peak_str}] {s['text']}")
     return "\n".join(lines)
+
+
+def _get_llm_config() -> dict:
+    """Lee la configuracion del proveedor de LLM desde social_config.json."""
+    from social_publisher import get_social_config
+    cfg = get_social_config()
+    return {
+        "provider": cfg.get("llm_provider", "ollama"),
+        "api_key": cfg.get("llm_api_key", ""),
+        "model": cfg.get("llm_model", "gpt-4o-mini"),
+    }
+
+
+def _call_cloud_llm(prompt: str, provider: str, api_key: str, model: str) -> str:
+    """Llama a OpenAI o DeepSeek via la libreria oficial de OpenAI."""
+    from openai import OpenAI
+
+    if provider == "deepseek":
+        base_url = "https://api.deepseek.com/v1"
+    else:
+        base_url = None
+
+    client = OpenAI(api_key=api_key, base_url=base_url)
+
+    kwargs = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.4,
+        "max_tokens": 4000,
+    }
+    # response_format solo para OpenAI (DeepSeek no siempre lo soporta)
+    if provider == "openai":
+        kwargs["response_format"] = {"type": "json_object"}
+
+    resp = client.chat.completions.create(**kwargs)
+    return resp.choices[0].message.content
+
+
+def _call_ollama(prompt: str) -> str:
+    """Llama al servidor Ollama local."""
+    response = requests.post(
+        OLLAMA_URL,
+        json={
+            "model": OLLAMA_MODEL,
+            "prompt": prompt,
+            "stream": False,
+            "format": "json",
+            "options": {"temperature": 0.4},
+        },
+        timeout=600,
+    )
+    response.raise_for_status()
+    return response.json()["response"]
 
 
 def select_clips(segments: list[dict], num_clips: int = NUM_CLIPS, min_seconds: int = None, max_seconds: int = None) -> list[dict]:
@@ -62,24 +116,22 @@ def select_clips(segments: list[dict], num_clips: int = NUM_CLIPS, min_seconds: 
         transcript=transcript_text,
     )
 
+    clips = []
+    llm_cfg = _get_llm_config()
+    provider = llm_cfg["provider"]
+
     try:
-        response = requests.post(
-            OLLAMA_URL,
-            json={
-                "model": OLLAMA_MODEL,
-                "prompt": prompt,
-                "stream": False,
-                "format": "json",
-                "options": {"temperature": 0.4},
-            },
-            timeout=600,
-        )
-        response.raise_for_status()
-        raw = response.json()["response"]
+        if provider in ("openai", "deepseek") and llm_cfg["api_key"]:
+            print(f"[LLM] Usando {provider.upper()} ({llm_cfg['model']})")
+            raw = _call_cloud_llm(prompt, provider, llm_cfg["api_key"], llm_cfg["model"])
+        else:
+            print(f"[LLM] Usando Ollama local ({OLLAMA_MODEL})")
+            raw = _call_ollama(prompt)
+
         data = _parse_llm_json(raw)
         clips = data.get("clips", [])
     except Exception as e:
-        # Fallback inteligente si el LLM falla: generar clips basados en duracion y picos de energia
+        print(f"[LLM] Error en {provider}: {e}")
         clips = _fallback_heuristic_clips(segments, num_clips, min_s, max_s)
 
     # Validacion y filtrado
@@ -105,7 +157,7 @@ def select_clips(segments: list[dict], num_clips: int = NUM_CLIPS, min_seconds: 
 
 
 def _fallback_heuristic_clips(segments: list[dict], num_clips: int, min_s: int, max_s: int) -> list[dict]:
-    """Genera clips por duracion si Ollama no estuviera disponible."""
+    """Genera clips por duracion si el LLM no estuviera disponible."""
     if not segments:
         return []
     
@@ -146,4 +198,3 @@ def _parse_llm_json(raw: str) -> dict:
         if match:
             return json.loads(match.group(0))
         raise ValueError("JSON no valido")
-

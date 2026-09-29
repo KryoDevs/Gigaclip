@@ -27,6 +27,7 @@ from pipeline import run as run_pipeline, _render_clip_fast
 from social_metadata import generate_social_metadata
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
+app.config['MAX_CONTENT_LENGTH'] = 2 * 1024 * 1024 * 1024  # 2 GB max upload
 
 jobs = {}  # job_id -> {status, progress, logs, clips, transcript, error, ...}
 

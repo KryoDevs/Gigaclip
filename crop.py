@@ -1,4 +1,4 @@
-﻿"""
+"""
 Motor de reencuadre vertical 9:16 de alta fidelidad para Gigaclip.
 Soporta escalado Lanczos de alta nitidez, resoluciones 1080p Full HD / 720p HD,
 y 3 modos de composicion: Face Track, Podcast Split y Blur Canvas.
@@ -26,6 +26,23 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
         crop_h = int(width / target_ratio)
 
     cascade_path = str(BASE_DIR / 'haarcascade_frontalface_default.xml')
+    if not Path(cascade_path).exists():
+        import urllib.request
+        haar_url = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml"
+        try:
+            urllib.request.urlretrieve(haar_url, cascade_path)
+        except Exception:
+            # Si no se puede descargar, retornar centro por defecto
+            cap_tmp = cv2.VideoCapture(video_path)
+            w_tmp = int(cap_tmp.get(cv2.CAP_PROP_FRAME_WIDTH))
+            h_tmp = int(cap_tmp.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            cap_tmp.release()
+            crop_h_d = h_tmp
+            crop_w_d = int(h_tmp * target_ratio)
+            if crop_w_d > w_tmp:
+                crop_w_d = w_tmp
+                crop_h_d = int(w_tmp / target_ratio)
+            return crop_w_d, crop_h_d, max(0, (w_tmp - crop_w_d) // 2), max(0, (h_tmp - crop_h_d) // 2)
     face_cascade = cv2.CascadeClassifier(cascade_path)
 
     detected_centers = []
@@ -98,6 +115,6 @@ def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel:
     else:
         # Modo Face Track con escalado de alta precision
         w, h, x, y = get_crop_coordinates(video_path, start, end)
-        return f"crop={w}:{h}:{x}:{y},scale={target_w}:{target_h}:flags=lanczos,zoompan=z='if(between(mod(in_time,6),3,6),1.15,1.0)':d=1:x='iw/2-(iw/zoom)/2':y='ih/2-(ih/zoom)/2':s={target_w}x{target_h}:fps=30{sharpen_filter},ass={ass_path_rel}"
+        return f"crop={w}:{h}:{x}:{y},scale={target_w}:{target_h}:flags=lanczos{sharpen_filter},ass={ass_path_rel}"
 
 

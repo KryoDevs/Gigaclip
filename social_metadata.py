@@ -1,6 +1,7 @@
 """
 Generador de metadatos virales para redes sociales (TikTok, YouTube Shorts, Instagram Reels).
 Crea titulos SEO, descripciones persuasivas con hashtags y primer comentario fijado.
+Soporta OpenAI, DeepSeek y Ollama (local).
 """
 import json
 import re
@@ -27,14 +28,43 @@ Responde UNICAMENTE con un objeto JSON valido con esta estructura exacta:
 """
 
 
-def generate_social_metadata(title: str, transcript_snippet: str) -> dict:
-    """Invoca a Ollama para generar copys y hashtags para redes sociales."""
-    prompt = METADATA_PROMPT_TEMPLATE.format(
-        title=title,
-        transcript_snippet=transcript_snippet[:600]
-    )
-
+def _get_llm_config() -> dict:
+    """Lee la configuracion del proveedor de LLM desde social_config.json."""
     try:
+        from social_publisher import get_social_config
+        cfg = get_social_config()
+        return {
+            "provider": cfg.get("llm_provider", "ollama"),
+            "api_key": cfg.get("llm_api_key", ""),
+            "model": cfg.get("llm_model", "gpt-4o-mini"),
+        }
+    except Exception:
+        return {"provider": "ollama", "api_key": "", "model": "gpt-4o-mini"}
+
+
+def _call_llm(prompt: str) -> str:
+    """Llama al LLM configurado (OpenAI/DeepSeek/Ollama)."""
+    cfg = _get_llm_config()
+    provider = cfg["provider"]
+
+    if provider in ("openai", "deepseek") and cfg["api_key"]:
+        from openai import OpenAI
+
+        base_url = "https://api.deepseek.com/v1" if provider == "deepseek" else None
+        client = OpenAI(api_key=cfg["api_key"], base_url=base_url)
+
+        kwargs = {
+            "model": cfg["model"],
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.5,
+            "max_tokens": 2000,
+        }
+        if provider == "openai":
+            kwargs["response_format"] = {"type": "json_object"}
+
+        resp = client.chat.completions.create(**kwargs)
+        return resp.choices[0].message.content
+    else:
         response = requests.post(
             OLLAMA_URL,
             json={
@@ -47,15 +77,25 @@ def generate_social_metadata(title: str, transcript_snippet: str) -> dict:
             timeout=60,
         )
         response.raise_for_status()
-        raw = response.json()["response"]
-        
+        return response.json()["response"]
+
+
+def generate_social_metadata(title: str, transcript_snippet: str) -> dict:
+    """Genera copys y hashtags virales usando el LLM configurado."""
+    prompt = METADATA_PROMPT_TEMPLATE.format(
+        title=title,
+        transcript_snippet=transcript_snippet[:600]
+    )
+
+    try:
+        raw = _call_llm(prompt)
         try:
             return json.loads(raw)
         except json.JSONDecodeError:
             match = re.search(r"\{.*\}", raw, re.DOTALL)
             if match:
                 return json.loads(match.group(0))
-    except Exception as e:
+    except Exception:
         pass
 
     # Fallback predeterminado si falla el LLM

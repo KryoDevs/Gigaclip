@@ -36,22 +36,27 @@ def _get_model():
 
 
 def _cache_key(path: str) -> Path:
-    h = hashlib.md5(Path(path).name.encode()).hexdigest()[:12]
+    p = Path(path)
+    try:
+        size = p.stat().st_size
+    except OSError:
+        size = 0
+    key_str = f"{p.name}_{size}"
+    h = hashlib.md5(key_str.encode()).hexdigest()[:12]
     return CACHE_DIR / f"{h}_{WHISPER_MODEL}.json"
 
 
 def _extract_fast_audio(video_path: str) -> str:
     """Extrae audio mono liviano para alimentar directamente a Whisper."""
     wav_path = str(TEMP_DIR / f"{Path(video_path).stem}_whisper.wav")
-    if not Path(wav_path).exists():
-        cmd = [
-            FFMPEG_BIN, "-y",
-            "-i", video_path,
-            "-vn", "-ac", "1", "-ar", "16000",
-            "-f", "wav",
-            wav_path
-        ]
-        subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    cmd = [
+        FFMPEG_BIN, "-y",
+        "-i", video_path,
+        "-vn", "-ac", "1", "-ar", "16000",
+        "-f", "wav",
+        wav_path
+    ]
+    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
     return wav_path
 
 

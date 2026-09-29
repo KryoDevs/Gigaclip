@@ -1,4 +1,4 @@
-﻿"""
+"""
 Pipeline Pro de Gigaclip.
 Soporta renderizado en 1080p Full HD (CRF 18, audio 192k),
 rangos de duracion ajustables por el usuario y metadatos virales.
@@ -9,6 +9,7 @@ from pathlib import Path
 
 from config import (
     OUTPUT_DIR,
+    BASE_DIR,
     NUM_CLIPS,
     CLIP_MIN_SECONDS,
     CLIP_MAX_SECONDS,
@@ -89,7 +90,10 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         final_output
     ]
 
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+    result = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, check=False)
+    if result.returncode != 0:
+        err_msg = result.stderr.decode("utf-8", errors="replace")[-500:] if result.stderr else "Unknown error"
+        raise RuntimeError(f"FFmpeg falló (code {result.returncode}): {err_msg}")
 
 
 def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, subtitle_style: str = "hormozi",
@@ -133,11 +137,13 @@ def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, sub
     clips = select_clips(segments_with_energy, num_clips=num_clips, min_seconds=min_s, max_seconds=max_s)
     log(f"      â†’ {len(clips)} clips seleccionados", 70)
 
+    from social_publisher import extract_thumbnail
+
     final_clips_info = []
     for i, clip in enumerate(clips, start=1):
         title = clip.get("title", f"Clip {i}")
         pct = 70 + int((i / len(clips)) * 25)
-        log(f"[4/5] ðŸŽ¬ Renderizando clip {i}/{len(clips)} en {quality} Full HD...", pct)
+        log(f"[4/5] 🎬 Renderizando clip {i}/{len(clips)} en {quality} Full HD...", pct)
 
         clip_words = _words_between(transcript["words"], clip["start"], clip["end"])
         safe_title = "".join(c for c in title if c.isalnum() or c in " _-")[:35].strip()
@@ -159,7 +165,6 @@ def run(url: str = None, local_path: str = None, num_clips: int = NUM_CLIPS, sub
         social_meta = generate_social_metadata(title, snippet)
 
         # Extraer miniatura automatica
-        from social_publisher import extract_thumbnail
         thumb_file = ""
         try:
             thumb_path = extract_thumbnail(final_path, timestamp_sec=1.0)
