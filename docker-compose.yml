@@ -8,7 +8,12 @@ services:
     volumes:
       - ./downloads:/app/downloads
       - ./output:/app/output
-      - ./social_config.json:/app/social_config.json
+      - ./data:/app/data
     restart: unless-stopped
     environment:
       - FLASK_ENV=production
+      - GIGACLIP_CONFIG_DIR=/app/data
+      - GIGACLIP_API_KEY=${GIGACLIP_API_KEY:-}
+      - GIGACLIP_SESSION_SECRET=${GIGACLIP_SESSION_SECRET:-}
+      - GIGACLIP_COOKIE_SECURE=${GIGACLIP_COOKIE_SECURE:-}
+      - GIGACLIP_PUBLIC_URL=${GIGACLIP_PUBLIC_URL:-}

@@ -43,6 +43,11 @@ def _inject_emojis(word: str) -> str:
     return word
 
 
+def _safe_ass_text(value: str) -> str:
+    """Escape subtitle content so recognized speech cannot inject ASS override tags."""
+    return str(value).replace("\\", "\\\\").replace("{", "\\{").replace("}", "\\}").replace("\r", " ").replace("\n", " ")
+
+
 def _format_ass_time(seconds: float) -> str:
     seconds = max(seconds, 0)
     h = int(seconds // 3600)
@@ -87,7 +92,7 @@ Format: Layer, Start, End, Style, Text
 
             parts = []
             for wj, w in enumerate(group):
-                word_text = _inject_emojis(w["word"].upper())
+                word_text = _safe_ass_text(_inject_emojis(w["word"].upper()))
                 if wj == wi:
                     parts.append(f"{{\\c{gold}\\fscx112\\fscy112\\bord5}}{word_text}{{\\c{white}\\fscx100\\fscy100\\bord4}}")
                 else:
@@ -134,7 +139,7 @@ Format: Layer, Start, End, Style, Text
 
             parts = []
             for wj, w in enumerate(group):
-                word_text = _inject_emojis(w["word"].upper())
+                word_text = _safe_ass_text(_inject_emojis(w["word"].upper()))
                 if wj == wi:
                     parts.append(f"{{\\c{cyan}\\fscx115\\fscy115}}{word_text}{{\\c{yellow}\\fscx100\\fscy100}}")
                 else:
@@ -181,7 +186,7 @@ Format: Layer, Start, End, Style, Text
 
             parts = []
             for wj, w in enumerate(group):
-                word_text = _inject_emojis(w["word"])
+                word_text = _safe_ass_text(_inject_emojis(w["word"]))
                 if wj == wi:
                     parts.append(f"{{\\c{accent_green}\\fscx108\\fscy108}}{word_text}{{\\c{white}\\fscx100\\fscy100}}")
                 else:
@@ -227,7 +232,7 @@ Format: Layer, Start, End, Style, Text
 
             parts = []
             for wj, w in enumerate(group):
-                word_text = _inject_emojis(w["word"].upper())
+                word_text = _safe_ass_text(_inject_emojis(w["word"].upper()))
                 if wj == wi:
                     parts.append(f"{{\\c{cyan}\\fscx112\\fscy112\\bord5}}{word_text}{{\\c{white}\\fscx100\\fscy100\\bord4}}")
                 elif wj < wi:
@@ -265,7 +270,7 @@ Format: Layer, Start, End, Style, Text
             continue
         start = group[0]["start"]
         end = group[-1]["end"]
-        text = " ".join(w["word"] for w in group)
+        text = " ".join(_safe_ass_text(w["word"]) for w in group)
         lines.append(f"Dialogue: 0,{_format_ass_time(start)},{_format_ass_time(end)},Default,{text}\n")
 
     Path(out_path).write_text("".join(lines), encoding="utf-8-sig")
@@ -295,7 +300,7 @@ Format: Layer, Start, End, Style, Text
             continue
         start = group[0]["start"]
         end = group[-1]["end"]
-        text = " ".join(w["word"] for w in group).upper()
+        text = " ".join(_safe_ass_text(w["word"]) for w in group).upper()
         lines.append(f"Dialogue: 0,{_format_ass_time(start)},{_format_ass_time(end)},Default,{text}\n")
 
     Path(out_path).write_text("".join(lines), encoding="utf-8-sig")

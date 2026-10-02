@@ -55,7 +55,7 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
     ass_path_rel = os.path.relpath(ass_path).replace("\\", "/")
 
     # 2. Construir filtro combinado (crop + scale + subtitle + sharpen)
-    filter_str = build_ffmpeg_filter(source_path, start, end, ass_path_rel, mode=crop_mode, quality=quality)
+    filter_str = build_ffmpeg_filter(source_path, start, end, ass_path_rel, mode=crop_mode, quality=quality, watermark=watermark)
 
     whoosh_path = str(BASE_DIR / 'assets' / 'sfx' / 'whoosh.wav')
     pop_path = str(BASE_DIR / 'assets' / 'sfx' / 'pop.wav')
@@ -84,7 +84,7 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
 
     cmd = [
         FFMPEG_BIN, '-y',
-        '-ss', str(start), '-to', str(end),
+        '-ss', str(start),
         '-i', source_path,
         '-i', whoosh_path,
         '-i', pop_path,
@@ -95,6 +95,7 @@ def _render_clip_fast(source_path: str, start: float, end: float, words_in_clip:
         '-b:v', v_bitrate, '-maxrate', '8000k', '-bufsize', '12000k',
         '-pix_fmt', 'yuv420p',
         '-c:a', 'aac', '-b:a', a_bitrate, '-ar', '48000',
+        '-t', str(end - start),
         '-shortest',
         final_output
     ]

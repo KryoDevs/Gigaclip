@@ -36,3 +36,8 @@ cache/
 uploads/
 
 social_config.json
+publish_queue.json
+data/
+youtube_token.json
+youtube_client_secrets.json
+.env

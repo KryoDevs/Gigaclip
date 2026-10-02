@@ -3,11 +3,10 @@ Motor de reencuadre vertical 9:16 de alta fidelidad para Gigaclip.
 Soporta escalado Lanczos de alta nitidez, resoluciones 1080p Full HD / 720p HD,
 y 3 modos de composicion: Face Track, Podcast Split y Blur Canvas.
 """
-import subprocess
 import cv2
 from pathlib import Path
 
-from config import BASE_DIR, FFMPEG_BIN, FACE_SAMPLE_FPS, VIDEO_QUALITY_PRESETS, DEFAULT_QUALITY
+from config import FACE_SAMPLE_FPS, VIDEO_QUALITY_PRESETS, DEFAULT_QUALITY
 
 
 def get_crop_coordinates(video_path: str, start_time: float, end_time: float, target_ratio: float = 9 / 16) -> tuple:
@@ -18,6 +17,9 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
     cap = cv2.VideoCapture(video_path)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    if not cap.isOpened() or width <= 0 or height <= 0:
+        cap.release()
+        raise ValueError(f"No se pudo abrir el video para detectar rostros: {video_path}")
 
     crop_h = height
     crop_w = int(height * target_ratio)
@@ -25,25 +27,13 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
         crop_w = width
         crop_h = int(width / target_ratio)
 
-    cascade_path = str(BASE_DIR / 'haarcascade_frontalface_default.xml')
-    if not Path(cascade_path).exists():
-        import urllib.request
-        haar_url = "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml"
-        try:
-            urllib.request.urlretrieve(haar_url, cascade_path)
-        except Exception:
-            # Si no se puede descargar, retornar centro por defecto
-            cap_tmp = cv2.VideoCapture(video_path)
-            w_tmp = int(cap_tmp.get(cv2.CAP_PROP_FRAME_WIDTH))
-            h_tmp = int(cap_tmp.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            cap_tmp.release()
-            crop_h_d = h_tmp
-            crop_w_d = int(h_tmp * target_ratio)
-            if crop_w_d > w_tmp:
-                crop_w_d = w_tmp
-                crop_h_d = int(w_tmp / target_ratio)
-            return crop_w_d, crop_h_d, max(0, (w_tmp - crop_w_d) // 2), max(0, (h_tmp - crop_h_d) // 2)
-    face_cascade = cv2.CascadeClassifier(cascade_path)
+    # OpenCV distribuye el clasificador con el paquete; no dependemos de una
+    # descarga de red en el primer render.
+    cascade_path = Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml"
+    face_cascade = cv2.CascadeClassifier(str(cascade_path))
+    if face_cascade.empty():
+        cap.release()
+        return crop_w, crop_h, max(0, (width - crop_w) // 2), max(0, (height - crop_h) // 2)
 
     detected_centers = []
     duration = max(1.0, end_time - start_time)
@@ -57,7 +47,7 @@ def get_crop_coordinates(video_path: str, start_time: float, end_time: float, ta
             break
         # Deteccion sobre miniatura para maxima velocidad
         small_w = 480
-        small_h = int(small_w * height / width)
+        small_h = max(1, int(small_w * height / width))
         small = cv2.resize(frame, (small_w, small_h))
         gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.15, 4)
@@ -98,8 +88,11 @@ def build_ffmpeg_filter(video_path: str, start: float, end: float, ass_path_rel:
     # Preparamos el filtro de marca de agua si existe
     watermark_filter = ""
     if watermark:
-        # Escape colons for drawtext filter
-        safe_watermark = watermark.replace(":", "\\:")
+        # Escape FFmpeg filter-graph delimiters; the argument is not shell-escaped.
+        safe_watermark = watermark.replace("\\", "\\\\")
+        for char in ("'", ":", ",", "[", "]", ";", "%"):
+            safe_watermark = safe_watermark.replace(char, "\\" + char)
+        safe_watermark = safe_watermark.replace("\n", " ").replace("\r", " ")
         # Place it at the top right, or bottom. Let's do top right with some padding.
         # Alternatively, bottom center for credits. Let's do bottom, below subtitles, but not too low.
         watermark_filter = f",drawtext=text='{safe_watermark}':fontcolor=white@0.6:fontsize={int(target_h*0.025)}:x=(w-text_w)/2:y=h-{int(target_h*0.1)}:shadowcolor=black@0.8:shadowx=2:shadowy=2"

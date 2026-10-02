@@ -560,6 +560,21 @@
     <!-- Javascript Logic -->
     <script>
         let currentInputMode = 'url';
+
+        async function apiFetch(url, options = {}) {
+            let response = await fetch(url, options);
+            if (response.status !== 401) return response;
+            const key = prompt('Este servidor requiere GIGACLIP_API_KEY. Introduce la clave configurada en el servidor:');
+            if (!key) throw new Error('Autenticación cancelada');
+            const auth = await fetch('/api/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ key })
+            });
+            if (!auth.ok) throw new Error('Clave de acceso incorrecta');
+            response = await fetch(url, options);
+            return response;
+        }
         
         function switchTab(mode) {
             currentInputMode = mode;
@@ -601,7 +616,14 @@
                     }
                 }
             };
-            xhr.send(formData);
+            apiFetch('/api/auth', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({})
+            }).then(() => xhr.send(formData)).catch(err => {
+                progDiv.textContent = err.message;
+                progDiv.style.color = 'var(--danger)';
+            });
         }
 
         let customMin = 20, customMax = 60;
@@ -639,9 +661,9 @@
             document.getElementById('resultsSection').style.display = 'none';
             document.getElementById('progressPanel').style.display = 'block';
             document.getElementById('progressBar').style.width = '0%';
-            document.getElementById('logConsole').innerHTML = '';
+            document.getElementById('logConsole').textContent = '';
 
-            fetch('/api/process', {
+            apiFetch('/api/process', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -662,7 +684,7 @@
         }
 
         function checkJobStatus(jobId) {
-            fetch(`/api/status/${jobId}`)
+            apiFetch(`/api/status/${jobId}`)
             .then(r => r.json())
             .then(job => {
                 const pct = job.progress || 0;
@@ -670,7 +692,7 @@
                 document.getElementById('progressPct').textContent = pct + '%';
 
                 if (job.logs && job.logs.length) {
-                    document.getElementById('logConsole').innerHTML = job.logs.map(l => `[LOG] ${l}`).join('<br>');
+                    document.getElementById('logConsole').textContent = job.logs.map(l => `[LOG] ${l}`).join('\n');
                     const consoleEl = document.getElementById('logConsole');
                     consoleEl.scrollTop = consoleEl.scrollHeight;
                 }
@@ -692,28 +714,55 @@
             const section = document.getElementById('resultsSection');
             const grid = document.getElementById('clipsGrid');
             section.style.display = 'block';
-            grid.innerHTML = '';
+            grid.replaceChildren();
 
-            clips.forEach((c) => {
+            (clips || []).forEach((c) => {
                 const soc = c.social || {};
                 const div = document.createElement('div');
                 div.className = 'clip-card';
-                div.innerHTML = `
-                    <div class="clip-player">
-                        <video controls src="/output/${encodeURIComponent(c.filename)}"></video>
-                    </div>
-                    <div class="clip-info">
-                        <div class="clip-title">${c.title || 'Clip Extraído'}</div>
-                        <div class="clip-meta">Duración: ${c.duration}s | Relevancia: ${c.score || 'N/A'}</div>
-                        <div class="clip-caption">${soc.tiktok_caption || c.hook || 'Sin leyenda generada.'}</div>
-                        
-                        <div class="clip-actions">
-                            <a href="/output/${encodeURIComponent(c.filename)}" download class="btn btn-secondary">Exportar</a>
-                            <button class="btn btn-secondary" onclick='openEditModal(${JSON.stringify(c)})'>Ajustar</button>
-                            <button class="btn btn-primary" onclick='openPublishModal(${JSON.stringify(c)})' style="width:auto; padding:8px 16px;">Distribuir</button>
-                        </div>
-                    </div>
-                `;
+
+                const player = document.createElement('div');
+                player.className = 'clip-player';
+                const video = document.createElement('video');
+                video.controls = true;
+                video.src = `/output/${encodeURIComponent(c.filename || '')}`;
+                player.appendChild(video);
+
+                const info = document.createElement('div');
+                info.className = 'clip-info';
+                const title = document.createElement('div');
+                title.className = 'clip-title';
+                title.textContent = c.title || 'Clip Extraído';
+                const meta = document.createElement('div');
+                meta.className = 'clip-meta';
+                meta.textContent = `Duración: ${c.duration ?? '—'}s | Relevancia: ${c.score ?? 'N/A'}`;
+                const caption = document.createElement('div');
+                caption.className = 'clip-caption';
+                caption.textContent = soc.tiktok_caption || c.hook || 'Sin leyenda generada.';
+
+                const actions = document.createElement('div');
+                actions.className = 'clip-actions';
+                const download = document.createElement('a');
+                download.href = `/output/${encodeURIComponent(c.filename || '')}`;
+                download.download = c.filename || '';
+                download.className = 'btn btn-secondary';
+                download.textContent = 'Exportar';
+                const edit = document.createElement('button');
+                edit.type = 'button';
+                edit.className = 'btn btn-secondary';
+                edit.textContent = 'Ajustar';
+                edit.addEventListener('click', () => openEditModal(c));
+                const publish = document.createElement('button');
+                publish.type = 'button';
+                publish.className = 'btn btn-primary';
+                publish.style.width = 'auto';
+                publish.style.padding = '8px 16px';
+                publish.textContent = 'Distribuir';
+                publish.addEventListener('click', () => openPublishModal(c));
+
+                actions.append(download, edit, publish);
+                info.append(title, meta, caption, actions);
+                div.append(player, info);
                 grid.appendChild(div);
             });
         }
@@ -748,7 +797,7 @@
             btn.disabled = true;
             btn.textContent = 'Procesando...';
             
-            fetch('/api/clip/re-render', {
+            apiFetch('/api/clip/re-render', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -779,7 +828,7 @@
             const btn = document.getElementById('btnSubmitPublish');
             btn.disabled = true;
             
-            fetch('/api/publish/direct', {
+            apiFetch('/api/publish/direct', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -791,19 +840,23 @@
         }
 
         function openSettingsModal() {
-            fetch('/api/social/settings').then(r => r.json()).then(cfg => {
-                document.getElementById('settingWebhook').value = cfg.webhook_url || '';
-                document.getElementById('settingLlmProvider').value = cfg.llm_provider || 'openai';
-                document.getElementById('settingLlmApiKey').value = cfg.llm_api_key || '';
+            apiFetch('/api/social/settings').then(r => r.json()).then(cfg => {
+                document.getElementById('settingWebhook').value = '';
+                document.getElementById('settingWebhook').placeholder = cfg.webhook_url_configured ? 'Configurado (vacío = conservar)' : 'https://...';
+                document.getElementById('settingLlmProvider').value = cfg.llm_provider || 'ollama';
+                document.getElementById('settingLlmApiKey').value = '';
+                document.getElementById('settingLlmApiKey').placeholder = cfg.llm_api_key_configured ? 'Configurada (vacío = conservar)' : 'API key';
                 document.getElementById('settingLlmModel').value = cfg.llm_model || 'gpt-4o-mini';
-                document.getElementById('settingTgToken').value = cfg.telegram_bot_token || '';
-                document.getElementById('settingTgChatId').value = cfg.telegram_chat_id || '';
+                document.getElementById('settingTgToken').value = '';
+                document.getElementById('settingTgToken').placeholder = cfg.telegram_bot_token_configured ? 'Configurado (vacío = conservar)' : 'Token del bot';
+                document.getElementById('settingTgChatId').value = '';
+                document.getElementById('settingTgChatId').placeholder = cfg.telegram_chat_id_configured ? 'Configurado (vacío = conservar)' : 'ID del canal';
                 openModal('settingsModal');
             });
         }
 
         function saveSettings() {
-            fetch('/api/social/settings', {
+            apiFetch('/api/social/settings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -826,7 +879,7 @@
             dot.style.background = '#444';
             txt.textContent = 'Verificando...';
             
-            fetch('/api/social/test-llm')
+            apiFetch('/api/social/test-llm')
             .then(r => r.json())
             .then(res => {
                 if(res.success) {

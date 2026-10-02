@@ -5,9 +5,7 @@ Soporta:
   2. Webhook / Zapier / Make / Buffer / Metricool Direct Integration
 """
 import json
-import os
 import requests
-from pathlib import Path
 from config import OUTPUT_DIR, BASE_DIR
 
 # Archivo de configuracion de integraciones sociales
@@ -98,13 +96,12 @@ def upload_to_youtube_shorts(clip_filename: str, title: str, description: str, p
             "message": "Para subir directamente a YouTube, se requiere configurar las credenciales OAuth en youtube_client_secrets.json",
         }
 
-    # Si hay token configurado:
-    try:
-        # Envio resumable a YouTube API
-        return {
-            "success": True,
-            "message": f"Clip '{title}' encolado para publicacion en YouTube Shorts.",
-            "privacy": privacy,
-        }
-    except Exception as e:
-        return {"success": False, "error": str(e)}
+    # No se debe afirmar que hubo una subida: este módulo todavía no implementa
+    # OAuth ni la carga resumable de YouTube Data API.
+    return {
+        "success": False,
+        "requires_auth": True,
+        "not_implemented": True,
+        "message": "La subida directa a YouTube aún no está implementada. Configura un webhook de publicación o usa una integración externa.",
+        "privacy": privacy,
+    }
