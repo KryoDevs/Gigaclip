@@ -51,6 +51,19 @@ python main.py "https://www.youtube.com/watch?v=XXXXXXXX" --clips 5
 
 Los clips finales se guardan en la carpeta `output/`.
 
+### Seguridad y publicación por webhook
+
+- El servidor escucha en `0.0.0.0:5000` para admitir Docker y acceso desde la red. Puedes proteger la API definiendo `GIGACLIP_API_KEY` (la interfaz solicitará la clave al usar la API); en Docker, colócalas en un `.env` local (ignorado por Git). Configura además un `GIGACLIP_SESSION_SECRET` estable si ejecutas varios workers y `GIGACLIP_COOKIE_SECURE=true` detrás de HTTPS. Sin `GIGACLIP_API_KEY`, **no publiques el servidor en Internet**: úsalo sólo en un equipo/red de confianza o detrás de un proxy con autenticación y TLS. Usa siempre HTTPS cuando la clave viaje por una red no confiable.
+- Los videos de la interfaz sólo se pueden elegir desde las carpetas administradas de cargas/descargas; el servidor valida opciones, rutas y nombres de salida.
+- Los secretos de LLM/Telegram/webhook no se devuelven a la interfaz una vez guardados. Para cambiarlos, introduce un valor nuevo; vacío conserva el actual.
+- Los webhooks reciben metadatos y una URL, no el archivo binario. Si el automatizador necesita descargar el video, configura `GIGACLIP_PUBLIC_URL` con una URL HTTPS públicamente accesible que apunte a esta instancia. No uses una URL localhost.
+- En Docker, los ajustes y la cola se conservan en `./data/`.
+
+Pruebas de validación sin modelos ni FFmpeg:
+```bash
+python -m unittest discover -s tests -v
+```
+
 ---
 
 ## ⚙️ Configuración (`config.py`)

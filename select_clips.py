@@ -5,6 +5,7 @@ Incorpora analisis de texto, transcripcion con timestamps y senales
 de energia acustica para priorizar momentos con ganchos solidos y alta retencion.
 """
 import json
+import math
 import re
 import requests
 
@@ -171,26 +172,45 @@ def select_clips(segments: list[dict], num_clips: int = NUM_CLIPS, min_seconds: 
         print(f"[LLM] Error en {provider}: {e}")
         clips = _fallback_heuristic_clips(segments, num_clips, min_s, max_s)
 
-    # Validacion y filtrado
+    # Validación estricta: el modelo no debe pedir segmentos fuera del video
+    # ni ignorar el rango de duración elegido por el usuario.
     valid_clips = []
-    for c in clips:
-        if isinstance(c.get("start"), (int, float)) and isinstance(c.get("end"), (int, float)):
-            start = float(c["start"])
-            end = float(c["end"])
-            if end > start:
-                valid_clips.append({
-                    "start": round(start, 2),
-                    "end": round(end, 2),
-                    "title": str(c.get("title", f"Clip {len(valid_clips)+1}")),
-                    "hook": str(c.get("hook", "")),
-                    "score": int(c.get("score", 85)),
-                    "hook_strength": int(c.get("hook_strength", 88)),
-                    "retention_score": int(c.get("retention_score", 85)),
-                    "reason": str(c.get("reason", "Momento con alto valor.")),
-                })
+    if not isinstance(clips, list):
+        clips = []
+    lower_bound = float(segments[0]["start"]) if segments else 0.0
+    upper_bound = float(segments[-1]["end"]) if segments else 0.0
+    for clip in clips:
+        if not isinstance(clip, dict):
+            continue
+        try:
+            start = float(clip["start"])
+            end = float(clip["end"])
+        except (KeyError, TypeError, ValueError, OverflowError):
+            continue
+        if (not math.isfinite(start) or not math.isfinite(end) or
+                start < lower_bound or end > upper_bound or
+                end <= start or end - start < min_s or end - start > max_s):
+            continue
+        try:
+            score = max(0, min(100, int(clip.get("score", 85))))
+            hook_strength = max(0, min(100, int(clip.get("hook_strength", 88))))
+            retention_score = max(0, min(100, int(clip.get("retention_score", 85))))
+        except (TypeError, ValueError, OverflowError):
+            continue
+        valid_clips.append({
+            "start": round(start, 2),
+            "end": round(end, 2),
+            "title": str(clip.get("title", f"Clip {len(valid_clips) + 1}"))[:120],
+            "hook": str(clip.get("hook", ""))[:500],
+            "score": score,
+            "hook_strength": hook_strength,
+            "retention_score": retention_score,
+            "reason": str(clip.get("reason", "Momento con alto valor."))[:500],
+        })
 
-    valid_clips.sort(key=lambda x: x.get("score", 0), reverse=True)
+    valid_clips.sort(key=lambda item: item["score"], reverse=True)
     return valid_clips[:num_clips]
+
 
 
 def _fallback_heuristic_clips(segments: list[dict], num_clips: int, min_s: int, max_s: int) -> list[dict]:
